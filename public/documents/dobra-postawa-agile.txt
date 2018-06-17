@@ -1,0 +1,110 @@
+<hr />
+<br>
+<h3>Zwinna postawa</h3>
+<br />
+
+
+<p align="justify"><i>Zwinna postawa została przygotowana, żeby ułatwić życie tym, którzy wspólnie pracują nad ważnymi projektami. Po 15 latach doświadczeń i eksperymentów wydaje mi się, że wraz z różnymi zespołami popełniliśmy większość znanych błędów i wiele zupełnie innowacyjnych. Na tych błędach wyrosło moje przekonanie, że najważniejsza dla projektu jest postawa zespołu skupiona wokół poznania i działania. Cała reszta ułoży się z czasem sama.
+<br />
+<br />Opisując dobrą postawę posłużyłem się językiem pojęć Scrum i manifestu Agile, ponieważ ten język dobrze oddaje sedno dobrej postawy.
+</i></p>
+<br />
+
+
+<h4>Idziemy po spirali</h4>
+<p align="justify">Cała nasza praca zamyka się w cyklach. Zadania się zmieniają. Wymagania się zmieniają. Ograniczenia się zmieniają. My się zmieniamy. Dostrzegamy w tej zmienności piękno i głęboki porządek. Z każdym cyklem lepiej widzimy, gdzie leży nasz cel.
+<br><i>Scrum: Loop, Iteration, Scrum, Daily scrum, Sprint backlog
+</i>
+<br><i>Raven13: Spróbujcie zauważyć zadania, które trzeba powtarzać co jakiś czas: zwiad, rozprowadzenie robotów, sprawdzenie deadlinów.
+</i>
+</p>
+
+<h4>Znamy i rozumiemy cel</h4>
+<p align="justify">Znamy cel. Widzimy "big picture". Planujemy. Pamiętamy, że każdy krok powinien nas przybliżać do celu. Planujemy tak, żeby błędy nie bolały. Rozumiemy czego chce użytkownik. Rozumiemy, że rozumiemy to, czego chce użytkownik inaczej niż on.
+<br><i>Scrum: Planning, Slack time, Stories, Features, Product owner role, Backlog
+</i>
+<br><i>Raven13: Przyjrzyjcie się mapie przed rozpoczęciem gry. Zastanówcie się krótko, co generalnie chcecie osiągnąć.
+</i>
+</p>
+
+<h4>Mamy wspólny język</h4>
+<p align="justify">Potrafimy się komunikować, uznajemy nawzajem swoje punkty widzenia, mamy wspólną definicję tego, kiedy uznajemy coś za "zrobione".
+<br><i>Scrum: Transparency, Definition of Done
+</i>
+<br><i>Raven13: Ustalcie, co, jak i po co zaznaczacie na mapie.
+</i>
+</p>
+
+<h4>Rozglądamy się</h4>
+<p align="justify">Regularnie sprawdzamy, czy jesteśmy na dobrej drodze. Wprowadzamy poprawki, żeby na niej pozostać. Ciągle się doskonalimy w cyklu plan-praca-retrospekcja.
+<br><i>Scrum:  Inspection-Adaptation loop, retrospection
+</i>
+<br><i>Raven13: Regularnie co kilka minut sprawdzajcie, czy nie pojawiły się nowe zagrożenia.
+</i>
+</p>
+
+<h4>Jesteśmy skupieni</h4>
+<p align="justify">Pracujemy nad niewieloma rzeczami naraz. Nie rozpraszamy naszej uwagi. Nie rozpraszamy naszej energii. Szybko kończymy, to co zaczęliśmy. Nie marnujemy czasu.
+<br><i>Scrum: Focus, Time boxes
+</i>
+<br><i>Raven13: Flagujcie zagrożenia. Skupcie się na niewielu ważnych zadaniach. Nie rozpraszajcie zanadto robotów.
+</i>
+</p>
+
+<h4>Jesteśmy odważni</h4>
+<p align="justify">Jeśli w czasie wyścigu masz wszystko pod kontrolą, to pewnie jedziesz za wolno. Dbamy, żeby błędy były tanie i eksperymentujemy. Akceptujemy ryzyko. Planujemy odważnie.
+<br><i>Scrum: Courage, Risk management, Stretch goals, Flow
+</i>
+<br><i>Raven13: Spróbujcie zastosować pomysł, który dopiero co się pojawił.
+</i>
+</p>
+
+<h4>Jesteśmy zaangażowani</h4>
+<p align="justify">Każdy z nas czuje się odpowiedzialny za cały projekt. To, czy projekt się uda, ma dla każdego z nas znaczenie. Nie przesadzamy z nadgodzinami.
+<br><i>Scrum: Commitment
+</i>
+<br><i>Raven13: Dbajcie, żeby każdy był ważny. Sprawcie, żeby każdy człowiek robił różnicę.
+</i>
+</p>
+
+<h4>Szanujemy siebie i innych</h4>
+<p align="justify">Szanujemy swoje błędy i słabości. Szanujemy przekonania innych ludzi i różnice zdań. Nie atakujemy ludzi, tylko problemy. Stosujemy informację zwrotną. Unikamy osądzania. Szanujemy zasady i wartości, które nas otaczają.
+<br><i>Scrum: Respect, Feedback
+</i>
+<br><i>Raven13: Mówcie uważnie i słuchajcie uważnie. Jest mnóstwo czasu na rozmowy.
+</i>
+</p>
+
+<h4>Jesteśmy otwarci</h4>
+<p align="justify">Potrafimy określić, jaki jest nasz największy problem. Nie ukrywamy błędów i pomyłek. Dzielimy się wiedzą i doświadczeniem. Kiedy łamiemy zasady i kwestionujemy wartości, robimy to otwarcie.
+<br><i>Scrum: Openness, Daily stand-up
+</i>
+<br><i>Raven13: O błędach mówcie wcześnie i otwarcie. Jeśli to możliwe, naprawcie je wraz z innymi. Jeśli naprawa jest niemożliwa, porozmawiajcie później, jak ich uniknąć w następnej grze.
+</i>
+</p>
+
+<h4>Wszyscy jesteśmy ochotnikami</h4>
+<p align="justify">Wspólnie ustalamy podział zadań. Nie unikamy roboty. Bierzemy zadania zamiast przydzielać zadania. Jest nam razem dobrze.
+<br><i>Scrum: Self-organizing team, Scrum master role
+</i>
+<br><i>Raven13: Starajcie się brać zadania zamiast je przydzielać.
+</i>
+</p>
+
+<h4>Jesteśmy samowystarczalni</h4>
+<p align="justify">Mamy wszystkie niezbędne kwalifikacje, żeby pracować. Nasze siły są rozłożone odpowiednio do zadań, które stoją przed nami. To nie znaczy, że każdy ma robić wszystko. Staramy się wykorzystać wszystkie umiejętności zespołu. Planujemy ścieżki rozwoju.
+<br><i>Scrum: Cross-functional team, multi-functional team
+</i>
+<br><i>Raven13: Sprawdźcie, czy macie graczy (i roboty) rozłożone na całej planszy. Dbajcie o to, żeby każdy robił to, co potrafi (wysoka ilość łopat na minutę). Pamiętajcie, że umiejętności rosną też w sąsiednich pokojach.
+</i>
+</p>
+
+
+
+
+
+<br /><br />
+
+<p align="justify"><small>Autor: Grzegorz Nawara, Abcportal Games 2016<br />
+Ten dokument jest dostępny na licencji Creative Commons Uznanie autorstwa-Na tych samych warunkach 4.0 Międzynarodowe.
+<small></p>

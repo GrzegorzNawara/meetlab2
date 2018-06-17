@@ -1,0 +1,210 @@
+<hr />
+<br>
+<h3>Raven 13</h3>
+
+<p align="justify">You are on the underwater mining station "Raven 13".
+<br>A catastrophe has just happened. As a result of the underwater earthquake, the foundations of the entire station were violated. All rooms are at risk of destruction.
+<br>The goal of the game is to save as many people as possible. You work together.
+
+<h4>Table setup</h4>
+<p align="justify">
+<div>Set on each table:</div>
+<ul>
+    <li>1 Raven 13 map;</li>
+    <li>some yellow sticky notes, colored paper, markers;</li>
+    <li>run simulations for the table on growbook.pl.</li>
+</ul>
+
+
+
+
+<h4>Rules - short version</h4>
+<ul>
+<li>All rooms are at risk - they need to be protected before they are destroyed.
+</li>
+<li>In each team there are 9 rescuers, numbered 1-9.
+</li>
+<li>Rescuers led by players start in random rooms and the rest in room No. 13.
+</li>
+<li>Each room needs work to be saved.
+</li>
+<li>If the work is not done on time - the room will be destroyed
+</li>
+<li>Each rescuer automatically works and secures the room.
+</li>
+<li>The rescuer is getting better and better in the rooms where he works.
+</li>
+<li>Only empty rooms are destroyed.
+</li>
+<li>Stars mean people to save.
+</li>
+<li>Saving the zone doubles the result.
+</li>
+<li>To move, you have to move.
+</li>
+<li>You can call the rescuers by phone.
+</li>
+</ul>
+
+
+<h4>The goal</h4>
+<p align="justify">You are a member of the 9-person rescue team. Your task is to save as many people as possible from the station's crew.
+</p>
+<p align="justify">All participants perform their actions via the on-line application (usually via smartphones).
+</p>
+<p align="justify">Each table also has a paper map to write down necessary information. The paper map is identical to the on-line map and is used to coordinate tasks and communication.
+</p>
+<p align="justify">In the physical space there are tabs that allow you to navigate in the virtual world. Tabs can not be moved or copied - this is an important element of simulation.
+</p>
+
+
+<h4>Joining the game</h4>
+<p align="justify">Each simulation begins when it is created by the facilitator. To join the game you need to:
+<ul>
+<li>Enter growbook.pl
+</li><li>Enter the workshop
+</li><li>Join the simulation started for your table
+</li>
+</ul>
+</p>
+
+
+
+
+<h4>Game end</h4>
+<p align="justify">The game ends after 60 minutes or when all rooms are lost/rescued.
+</p>
+<p align="justify">After the end of the game, simulation results are available in the section "Results"
+</p>
+
+
+
+
+
+<h4>The map</h4>
+<p align="justify">The map consists of connected rooms. The shape of the rooms does not matter. Each room has its own number and name. 
+The room can be endangered, saved or destroyed.
+</p>
+
+
+
+
+
+<h4>Endangered rooms</h4>
+<p align="justify">At the beginning of the game, all rooms are endangered. Endangered room has the following info:
+<ol>
+<li>The number of people who can be saved.
+</li><li>The amount of work you need to put in to save this room.
+</li><li>Deadline - a minute at which the room will be destroyed.
+</li>
+</ol>
+</p>
+<div class="text-center">
+<img alt="Endangered room" width="250px" src="https://www.abcportal.eu/growbook/images/raven-rules-zagroz.png">
+</div>
+
+
+
+<h4>Saved rooms</h4>
+<p align="justify">The room once saved can never be destroyed again. People in this room are saved. The number of people saved is shown at the top of the screen.
+</p>
+<div class="text-center">
+<img alt="Saved room" width="250px" src="https://www.abcportal.eu/growbook/images/raven-rules-urat.png">
+</div>
+
+
+
+<h4>Saving the zone</h4>
+<p align="justify">Not all the people are just waiting for help. Half of them are running all around the zone. If all rooms in the zone are saved, the number of people saved is doubled. The map is divided by dotted lines into 9 zoes marked with world directions.
+</p>
+
+
+<h4>Deadline</h4>
+<p align="justify">The clock at the top of the screen shows the current minute of the game. The clock in the room shows the minute in which the room will be destroyed.
+</p>
+<div class="text-center">
+<img alt="Clock" width="250px" src="https://www.abcportal.eu/growbook/images/raven-rules-clock.png">
+</div>
+<p align="justify">If the clock shows "?" - we do not know the time yet.
+</p>
+<p align="justify">If the clock shows "!" - we know that this time is coming.
+</p><p align="justify">If the clock shows a number - we know the exact deadline.
+</p><p align="justify">When the game clock at the top of the screen shows the same minute as the clock in the room - the room is destroyed, unless there is at least one rescuer there. In this case, thanks to the efforts of the rescuers, the room is not destroyed but only seriously damaged - the amount of work to be done in this room increases and the deadline increases by another minute.
+</p>
+
+
+
+<h4>Destroyed rooms</h4>
+<p align="justify">A room once destroyed can never be saved anymore. People from this room are lost irretrievably. Destroyed rooms do not hinder the movement of rescuers.
+</p>
+<div class="text-center">
+<img alt="Destroyed room" width="250px" src="https://www.abcportal.eu/growbook/images/raven-rules-zniszcz.png">
+</div>
+
+
+
+<h4>Rescuers</h4>
+<p align="justify">In each team there are a minimum of 9 rescuers numbered from 1 to 9. Other rescuers are visible on the screen as gray circles with a star. Even if there are less than 9 human players in the team, the remaining rescuers are present and can be used. All rescuers who are not directly directed by players, start the game in room no. 13. Rescuers guided by players start the game in a random room.
+</p>
+
+
+<h4>Working</h4>
+<p align="justify">Each rescuer automatically works on securing the room in which he/she is located.
+</p>
+<div class="text-center">
+<img alt="Skills" width="250px" src="https://www.abcportal.eu/growbook/images/raven-rules-topbar1.png">
+</div>
+<p align="justify">The amount of work done by you in the room is shown in the bar at the top of the screen in the form of "my work per minute" + "work done by others per minute".
+</p>
+<p align="justify">If the room is destroyed or saved - no work is possible.
+</p>
+
+
+
+<h4>Skills</h4>
+<p align="justify">Rescuing every room requires unique skills from the rescuers. The skill is the amount of work done per minute by a rescuer in a given room.
+</p>
+<p align="justify">The rescuer can work great in some rooms and very poorly in others.
+</p>
+<p align="justify">Every rescuer works well in the room where he starts the game.
+</p>
+
+
+
+<h4>Skills development</h4>
+<p align="justify">Each rescuer develops his skills when he works in a room. Skills are developed in this room and in all rooms directly connected to it. Once acquired skills stay forever. The rescuer develops his skills faster if he works with a high-skill rescuer - he learns from him.
+</p>
+
+
+
+
+<h4>Moving</h4>
+<p align="justify">The golden rule of this game - "to move, you have to move". In order for the rescuer to move to another room, one must approach (physically) the tab with the number of the room, press the "Go" button and select the correct code on the tab. The letter "A" indicates the first code on the plate, "B" - the second, etc.
+</p>
+<p align="justify">If you choose the wrong code - your rescuer will go to room no. 13.
+</p>
+<p align="justify">You can choose any room number - the rescuer will go there the shortest way. All rescuers move at the same speed. They have difficult terrain to overcome, so they move relatively slowly.
+</p>
+<div class="text-center">
+<img alt="Moving" width="250px" src="https://www.abcportal.eu/growbook/images/raven-rules-move.png">
+</div>
+
+
+<h4>Calling</h4>
+<p align="justify">The second way to move the rescuer is to dial his/her number on the "Phone" button.
+</p>
+<p align="justify">The call causes the chosen rescuer to immediately start moving to the place he/she was called from.
+</p>
+<p align="justify">Calling does not require the choosen rescuer consent.
+</p>
+<div class="text-center">
+<img alt="Calling" width="250px" src="https://www.abcportal.eu/growbook/images/raven-rules-call.png">
+</div>
+
+
+<h4>The domino effect</h4>
+<p align="justify">When a room is destroyed, all directly connected rooms become directly at risk of a very close deadline.
+</p>
+
+<p><small>Autor: Grzegorz Nawara<br>
+ABCPORTAL 2017-2018 All rights reserved</small></p>

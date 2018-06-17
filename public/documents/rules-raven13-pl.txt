@@ -1,0 +1,209 @@
+<h3>Raven 13</h3>
+
+<p align="justify">Znajdujecie się na podwodnej stacji wydobywczej "Raven 13".
+<br>Przed chwilą doszło do katastrofy. W wyniku podwodnego trzęsienia ziemi zostały naruszone fundamenty całej stacji. Wszystkie pomieszczenia są zagrożone zniszczeniem.
+<br>Celem gry jest uratowanie jak największej liczby ludzi. Działacie wspólnie. </p><br>
+
+<h4>Przygotowanie stołu</h4>
+<p align="justify">
+<div>Połóż na stole:</div>
+<ul>
+    <li>1 mapę stacji Raven 13;</li>
+    <li>żółte karteczki, kolorowy papier, pisaki;</li>
+    <li>uruchom dla stołu symulacje przez growbook.pl;</li>
+</ul>
+
+
+
+
+<h4>Skrót zasad</h4>
+<ul>
+<li>Wszystkie pokoje są zagrożone - trzeba je zabezpieczyć, zanim zostaną zniszczone.
+</li>
+<li>W każdej drużynie jest 9 ratowników, numerowanych 1-9.
+</li>
+<li>Ratownicy kierowani przez graczy zaczynają w losowych pomieszczeniach a pozostali w 13.
+</li>
+<li>Każde pomieszczenie wymaga pracy, żeby zostać uratowane.
+</li>
+<li>Jeśli praca nie zostanie wykonana na czas - pomieszczenie zostanie zniszczone.
+</li>
+<li>Każdy ratownik automatycznie pracuje i zabezpiecza pomieszczenie.
+</li>
+<li>Ratownik staje się coraz lepszy tam, gdzie pracuje.
+</li>
+<li>Tylko puste pomieszczenia zostają zniszczone.
+</li>
+<li>Gwiazdki oznaczają ludzi do uratowania.
+</li>
+<li>Uratowanie strefy podwaja wynik.
+</li>
+<li>Żeby się poruszyć, trzeba się poruszyć.
+</li>
+<li>Telefonem można przywołać ratowników do siebie.
+</li>
+</ul>
+
+
+<h4>Cel gry</h4>
+<p align="justify">Jesteście członkami 9-osobowego zespołu ratunkowego. Waszym zadaniem jest uratowanie jak największej liczby ludzi z załogi stacji.
+</p>
+<p align="justify">Uczestnicy wykonują swoje akcje przez aplikację on-line (zwykle przez smartfony).
+</p>
+<p align="justify">Każdy stół ma do dyspozycji również papierową mapę, na której gracze mogą dowolnie zaznaczać potrzebne informacje. Papierowa mapa jest identyczna jak mapa dostępna on-line i służy do koordynacji zadań i komunikacji.
+</p>
+<p align="justify">W przestrzeni fizycznej są rozmieszczone tabliczki, które umożliwiają poruszanie się w świecie wirtualnym. Tabliczek nie wolno przenosić ani kopiować - to istotny element symulacji.
+</p>
+
+
+<h4>Rozpoczęcie gry</h4>
+<p align="justify">Każda symulacja rozpoczyna się w chwili jej utworzenia przez prowadzącego. Aby wejść do gry, należy:
+<ul>
+<li>Wejść na stroną growbook.pl
+</li><li>Wejść do warsztatu utworzonego przez prowadzącego
+</li><li>Wejść do symulacji uruchomionej przez prowadzącego dla Twojego stołu
+</li>
+</ul>
+</p>
+
+
+
+
+<h4>Zakończenie gry</h4>
+<p align="justify">Gra kończy się po 60 minutach lub gdy wszystkie pomieszczenia zostaną stracone/uratowane.
+</p>
+<p align="justify">Po zakończeniu gry, wyniki symulacji są dostępne w bloku "Wyniki"
+</p>
+
+
+
+
+
+<h4>Mapa</h4>
+<p align="justify">Mapa składa się z połączonych pomieszczeń. Kształt pomieszczeń nie ma znaczenia.
+Każde pomieszczenie ma swój numer i nazwę.
+Pomieszczenie może być zagrożone, uratowane lub zniszczone.
+</p>
+
+
+
+
+
+<h4>Zagrożone pomieszczenie</h4>
+<p align="justify">Na początku gry wszystkie pomieszczenia są zagrożone. Zagrożone pomieszczenie ma oznaczenie:
+<ol>
+<li>Liczby ludzi, jaka może zostać uratowana.
+</li><li>Ilości pracy, jaką trzeba włożyć, żeby uratować to pomieszczenie.
+</li><li>Deadline - minutę, w której to pomieszczenie zostanie zniszczone, jeśli temu nie zapobiegniecie.
+</li>
+</ol>
+</p>
+<div class="text-center">
+<img alt="Zagrożone" width="250px" src="https://www.abcportal.eu/growbook/images/raven-rules-zagroz.png">
+</div>
+
+
+
+<h4>Uratowane pomieszczenie</h4>
+<p align="justify">Pomieszczenie raz uratowane nie może już nigdy zostać zniszczone. Ludzie z tego pomieszczenia zostają uratowani. Liczba uratowanych ludzi jest pokazywana u góry ekranu.
+</p>
+<div class="text-center">
+<img alt="Uratowane" width="250px" src="https://www.abcportal.eu/growbook/images/raven-rules-urat.png">
+</div>
+
+
+
+<h4>Uratowanie sektora</h4>
+<p align="justify">Nie wszyscy ludzie siedzą w pomieszczeniach, czekając na ratunek. Połowa z nich spanikowana biega po całym sektorze. Jeśli wszystkie pomieszczenia sektora zostaną uratowane, to liczba uratowanych ludzi w tych pomieszczeniach ulega podwojeniu. Mapa jest podzielona liniami przerywanymi na 9 nierównych sektorów oznaczonych kierunkami świata.
+</p>
+
+
+<h4>Deadline</h4>
+<p align="justify">Zegar u góry ekranu pokazuje aktualną minutę gry. Zegar w pomieszczeniu pokazuje minutę, w której pomieszczenie ulegnie zniszczeniu.
+</p>
+<div class="text-center">
+<img alt="Zegar" width="250px" src="https://www.abcportal.eu/growbook/images/raven-rules-clock.png">
+</div>
+<p align="justify">Jeśli zegar pokazuje "?" - nie znamy jeszcze czasu.
+</p>
+<p align="justify">Jeśli zegar pokazuje "!" - wiemy, że ten czas się zbliża.
+</p><p align="justify">Jeśli zegar pokazuje liczbę - znamy czas dokładnie.
+</p><p align="justify">Kiedy zegar gry u góry ekranu pokazuje tą samą minutę co zegar w pomieszczeniu - pomieszczenie ulega zniszczeniu, chyba, że jest tam przynajmniej jeden ratownik. W takim przypadku, dzięki jego wysiłkom pomieszczenie nie zostaje zniszczone a tylko poważnie uszkodzone - ilość pracy do wykonania w tym pomieszczeniu zwiększa się a deadline przesuwa na kolejną minutę.
+</p>
+
+
+
+<h4>Zniszczone pomieszczenie</h4>
+<p align="justify">Pomieszczenie raz zniszczone nie może zostać już nigdy uratowane. Ludzie z tego pomieszczenia zostają nieodwracalnie straceni. Zniszczone pomieszczenia nie utrudniają ruchu ratowników.
+</p>
+<div class="text-center">
+<img alt="Zniszczone" width="250px" src="https://www.abcportal.eu/growbook/images/raven-rules-zniszcz.png">
+</div>
+
+
+
+<h4>Ratownicy</h4>
+<p align="justify">W każdym zespole jest minimum 9 ratowników o numerach od 1 do 9. Na mapie inni ratownicy są widoczni jako szare krążki z gwiazdą. Nawet jeśli w drużynie jest mniej niż 9 graczy, pozostali ratownicy są obecni i mogą być wykorzystywani. Wszyscy ratownicy, którzy nie są kierowani bezpośrednio przez graczy, rozpoczynają grę w pomieszczeniu nr. 13. Ratownicy kierowani przez graczy rozpoczynają grę w przypadkowym pomieszczeniu.
+</p>
+
+
+<h4>Automatyczne zabezpieczanie</h4>
+<p align="justify">Każdy ratownik automatycznie pracuje nad zabezpieczeniem pomieszczenia, w którym się znajduje.
+</p>
+<div class="text-center">
+<img alt="Umiejętności" width="250px" src="https://www.abcportal.eu/growbook/images/raven-rules-topbar1.png">
+</div>
+<p align="justify">Ilość pracy wykonywanej przez Ciebie w pomieszczeniu jest pokazywana na pasku u góry ekranu w formie "moja praca na minutę" + "praca wykonywana przez innych na minutę".
+</p>
+<p align="justify">Jeśli w pomieszczenie jest zniszczone lub uratowane - żadna praca nie jest potrzebna.
+</p>
+
+
+
+<h4>Umiejętności</h4>
+<p align="justify">Uratowanie każdego pomieszczenia wymaga od ratowników unikalnych umiejętności. Aktualne umiejętności, to po prostu ilość pracy wykonywana na minutę przez ratownika w danym pomieszczeniu.
+</p>
+<p align="justify">Ratownik może świetnie pracować w jednych pomieszczeniach i bardzo słabo w innych.
+</p>
+<p align="justify">Każdy ratownik pracuje dobrze w pomieszczeniu, w którym rozpoczyna grę.
+</p>
+
+
+
+<h4>Rozwijanie umiejętności</h4>
+<p align="justify">Każdy ratownik pracując nad zabezpieczaniem pomieszczenia jednocześnie rozwija swoje umiejętności w tym pomieszczeniu i we wszystkich pomieszczeniach bezpośrednio z nim połączonych. Raz nabyte umiejętności nigdy nie znikają. Ratownik szybciej rozwija swoje umiejętności jeśli pracuje z ratownikiem o wysokich umiejętnościach - uczy się od niego.
+</p>
+
+
+
+
+<h4>Poruszanie się</h4>
+<p align="justify">Złota zasada tej gry - "żeby się poruszyć, trzeba się poruszyć". Żeby ratownik poruszył się do innego pomieszczenia trzeba podejść (fizycznie) do tabliczki z numerem tego pomieszczenia, nacisnąć przycisk "Idź" i wybrać właściwy kod zapisany na tabliczce. Litera "A" oznacza pierwszy kod na tabliczce, "B" - drugi, itd.
+</p>
+<p align="justify">Jeśli wybierzesz błędny kod - Twój ratownik pójdzie do pomieszczenia nr. 13.
+</p>
+<p align="justify">Możesz wybrać dowolny numer pomieszczenia - ratownik pójdzie tam najkrótszą drogą. Wszyscy ratownicy poruszają się z tą samą szybkością. Mają do pokonania trudny teren, więc poruszają się stosunkowo wolno.
+</p>
+<div class="text-center">
+<img alt="Poruszanie" width="250px" src="https://www.abcportal.eu/growbook/images/raven-rules-move.png">
+</div>
+
+
+<h4>Przywołanie</h4>
+<p align="justify">Drugim sposobem na poruszenie ratownika jest wybranie jego numeru na przycisku "Telefon".
+</p>
+<p align="justify">Przywołanie powoduje, że wybrany ratownik natychmiast rusza do miejsce, z którego go przywołano.
+</p>
+<p align="justify">Przywołanie nie wymaga zgody przywoływanego.
+</p>
+<div class="text-center">
+<img alt="Przywołanie" width="250px" src="https://www.abcportal.eu/growbook/images/raven-rules-call.png">
+</div>
+
+<h4>Efekt domina</h4>
+<p align="justify">Kiedy pomieszczenie zostaje zniszczone, wszystkie połączone bezpośrednio pomieszczenia stają się  bezpośrednio zagrożone bardzo bliskim deadlin-em.
+</p>
+
+
+<p><small>Autor: Grzegorz Nawara<br>
+ABCPORTAL 2017-2018 Wszystkie prawa zastrzeżone</small></p>

@@ -1,0 +1,85 @@
+<hr />
+<br>
+<h3>Huragan Katrina</h3>
+
+<p align="justify">Jesteście szefami zespołów ratunkowych w czasie huraganu. Żetony to ratownicy. Małe karty to zagrożenia i jednocześnie ludzie do uratowania. Kratki na mapie, to miejsca, które może zniszczyć huragan.
+<br>Nazwy miejsc, kolory pól i zagrożeń mają sens fabularny. Żółte pola to niepokoje w mieście, czerwone to pożary a niebieskie - powódź. Zielone pola są wyjątkowe - oznaczają organizowanie pomocy dla już uratowanych ofiar huraganu. W talii zagrożeń nie ma zielonych kart.
+<br>Celem gry jest uratowanie jak największej ilości ludzi. Działacie wspólnie - waszym wynikiem jest najniższy wynik gracza przy stole. </p><br>
+
+<h4>Przygotowanie stołu</h4>
+<p align="justify">
+<div>Połóż na stole:</div>
+<ul>
+    <li>1 długopis;</li>
+    <li>stos kart zagrożeń;</li>
+    <li>zestaw dużych kart bonusów;</li>
+    <li>1 fioletową kartę zmęczenia.</li>
+</ul>
+
+
+<div class="text-center">
+<img alt="Huragan Katrina" width="100%" src="https://www.abcportal.eu/growbook-test/images/rules_huragankatrina.jpg">
+</div>
+<br>
+
+
+Potasuj karty zagrożeń i odkryj 5 z nich. Rozdaj każdemu graczowi:
+<ul>
+    <li>1 mapę;</li>
+    <li>4 żetony ratowników;</li>
+    <li>1 pierścień GPS.</li>
+</ul>
+
+Każdy gracz wybiera swoją pozycję startową.
+Wybierzcie pierwszego gracza. Jesteście gotowi do gry!</p><br>
+
+<h4>Tura gracza</h4>
+<p align="justify">W czasie gry kolejno każdy gracz bierze długopis, zaznacza zniszczenia i wybiera jedno z poniższych:
+	<ul>
+		<li>Zebranie ratowników</li>
+		<li>Ruch i uratowanie karty</li>
+		<li>Uruchomienie bonusu</li>
+	</ul>
+</p><br>
+
+<h4>Zaznaczenie zniszczeń</h4>
+<p align="justify">Skreśl jedną kratkę z najwyższej karty. Przed każdą swoją turą musisz skreślić jedną kratkę na mapie. Numer pola to numer najwyższej odkrytej karty zagrożeń. Jeśli skreśliłeś ostatnią kratkę w tym polu - gra natychmiast się kończy na twoim stole. Nie wykonujesz już nawet swojej tury.</p><br>
+
+<h4>Ruch i uratowanie karty</h4>
+<p align="justify">Miejsce gdzie jesteś oznacza pierścień GPS. Możesz poruszać się pomiędzy polami tylko wzdłuż linii. W czasie ruchu nie możesz przechodzić przez blokady. Możesz poruszyć się o 0 (zero), 1 lub 2 pola. 
+Po zakończeniu ruchu możesz uratować kartę.
+<br>Żeby uratować kartę, musisz być na polu o tym samym numerze i położyć po 1 żetonie na każdej karcie po prawej stronie zdobywanej karty. Pierwszy żeton zawsze trafia na kartę zmęczenia. 
+Jeśli uratowałeś kartę, zabierasz wszystkie żetony, które leżą na uratowanej karcie.</p><br>
+
+<h4>Zebranie ratowników</h4>
+<p align="justify">Ratownicy potrzebni są do ratowania kart. Ratownicy na twojej mapie są zawsze z tobą. Żeby zebrać dodatkowych ratowników musisz poświęcić całą turę. Możesz zabrać <b>dowolną liczbę żetonów (nawet wszystkie) z karty zmęczenia lub 1 żeton z dowolnego innego miejsca</b> (z innej karty albo od innego gracza przy tym samym stole). </p><br>
+
+<h4>Wymiana kart i ratowników</h4>
+<p align="justify">Można wymieniać się uratowanymi kartami, ale tylko 1 za 1.
+Nie można wymieniać się ratownikami.</p><br>
+
+<h4>Zwycięstwo</h4>
+<p align="justify">Każda uratowana karta daje punkt zwycięstwa graczowi, który ją uratował. Zakupione karty bonusowe są warte tyle punktów, za ile kart zostały kupione. Bonus "Obozy FEMA" daje dodatkowe punkty za zielone pola. Wynikiem stołu jest najniższy wynik gracza.</p><br>
+
+<h4>Uzupełnianie kart</h4>
+<p align="justify">Za każdym razem, kiedy karta zostaje uratowana, przesuń pozostałe karty do prawej i uzupełnij od lewej nową kartą ze stosu. Karta zmęczenia nigdy nie jest poruszana. 
+<br>Kiedy skończy się talia zagrożeń - kolejne karty nie są dokładane.</p><br>
+
+<h4>Uruchomienie bonusu</h4>
+<p align="justify">W każdym scenariuszu można kupić kartę bonusu za uratowane karty. W swojej turze możesz wymienić zestaw kart na bonus. Zestaw to karty w tym samym kolorze albo o kolejnych numerach. Dostępne bonusy zależą od scenariusza. Każdy bonus ma koszt wyrażony w kartach i efekt opisany na karcie. Kupując bonus musisz odrzucić z gry karty użyte do jego kupienia. Kupując bonus musisz natychmiast zastosować jego efekt.
+<br>Niektóre bonusy działają na wybranego gracza - wybrany gracz nie musi być tym samym, który kupił bonus. 
+<br>Niektóre bonusy wprowadzają trwałe zmiany w zasadach gry.
+<br>Efekty z kart bonusów mają pierwszeństwo przed zasadami gry.</p><br>
+
+<h4>Bonusy w grze z regionem i krajem</h4>
+<p align="justify">W niektórych scenariuszach bonusami dysponuje jedynie kraj. Region musi otrzymać zdobyte karty od miast i pójść z nimi do kraju, żeby uzyskać bonus. Przyniesione przez region bonusy zostały kupione. Region decyduje, komu przekaże kartę bonusu, ale samo uruchomienie dalej wymaga poświęcenia tury miasta.
+Miasta mogą wspólnie kupić bonus, ale karta bonusu zawsze trafia do jednego (wybranego przez Region) miasta.</p><br>
+
+<h4>Scenariusz</h4>
+<p align="justify">Każda gra może zostać wzbogacona przez jeden ze scenariuszy. Scenariusz decyduje o tym jakie bonusy będą dostępne w grze. Zasady scenariusza mają pierwszeństwo przed zasadami gry i efektami z kart bonusów.</p><br>
+
+<h4>Koniec gry</h4>
+<p align="justify">Gra kończy się natychmiast, gdy na dowolnej mapie w dowolnym polu zostaje skreślona ostatnia kratka. Gra kończy się również, gdy zostaną uratowany wszystkie karty zagrożeń.</p><br>
+
+<p><small>Autor: Grzegorz Nawara<br>
+ABCPORTAL 2016 Wszystkie prawa zastrzeżone</small></p>
