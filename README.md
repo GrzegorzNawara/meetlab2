@@ -2,7 +2,7 @@
 
 Under development
 
-MeetLab is a platform for integrated learning
+MeetLab is a platform for e-learning
 Special thing about it is integrated simulations used for Agile team training
 
 ## Available Scripts
