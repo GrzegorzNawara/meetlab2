@@ -8,5 +8,6 @@ subscription WorkshopUpdateSubscription {
 		subtitle
 		owner
 		PIN
+    date
 	}
 }`;

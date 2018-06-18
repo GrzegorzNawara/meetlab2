@@ -36,7 +36,9 @@ export default compose(
       fetchPolicy: 'cache-and-network'
     },
     props: (props) => ({
-      workshops: props.data.listWorkshops ? props.data.listWorkshops.items : [],
+      workshops: props.data.listWorkshops ? props.data.listWorkshops.items
+        .slice().sort((a,b)=>(-a.date.localeCompare(b.date))):[],
+
       subscribeToDelete: (params) => {
         props.data.subscribeToMore({
           document: WorkshopDeleteSubscription,
