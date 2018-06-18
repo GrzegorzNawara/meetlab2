@@ -1,26 +1,20 @@
-import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+import React from 'react';
+import { HashRouter, Route, Switch } from 'react-router-dom'
 
-import Recipes from './Recipes'
-import AddRecipe from './AddRecipe'
-import Nav from './Nav'
+import Workshops from './Workshops'
+import NavBar from './NavBar'
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <Router>
-          <div>
-            <Nav />
-            <Switch>
-              <Route exact path="/" component={Recipes} />
-              <Route path="/addrecipe" component={AddRecipe} />
-            </Switch>
-          </div>
-        </Router>
+const App = () => (
+  <div className="App">
+    <HashRouter>
+      <div>
+        <NavBar />
+        <Switch>
+          <Route exact path="/" component={Workshops} />
+        </Switch>
       </div>
-    );
-  }
-}
+    </HashRouter>
+  </div>
+)
 
 export default App;

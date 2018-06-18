@@ -1,5 +1,4 @@
 import React from 'react'
-import { css } from 'glamor'
 import { graphql } from 'react-apollo'
 import uuidV4 from 'uuid/v4'
 
@@ -53,14 +52,12 @@ class AddRecipe extends React.Component {
   }
   render() {
     return (
-      <div {...css(styles.container)}>
+      <div>
         <h2>Create Recipe</h2>
         <input
           value={this.state.name}
           onChange={evt => this.onChange('name', evt.target.value)}
-          placeholder='Recipe name'
-          {...css(styles.input)}
-        />
+          placeholder='Recipe name' />
         <div>
           <p>Recipe Ingredients:</p>
           {
@@ -70,10 +67,8 @@ class AddRecipe extends React.Component {
         <input
           value={this.state.ingredient}
           onChange={evt => this.onChange('ingredient', evt.target.value)}
-          placeholder='Ingredient'
-          {...css(styles.input)}
-        />
-        <button onClick={this.addIngredient} {...css(styles.button)}>Add Ingredient</button>
+          placeholder='Ingredient' />
+        <button onClick={this.addIngredient}>Add Ingredient</button>
 
         <div>
           <p>Recipe Instructions:</p>
@@ -84,12 +79,10 @@ class AddRecipe extends React.Component {
         <input
           value={this.state.instruction}
           onChange={evt => this.onChange('instruction', evt.target.value)}
-          placeholder='Instruction'
-          {...css(styles.input)}
-        />
-        <button onClick={this.addInstruction} {...css(styles.button)}>Add Instruction</button>
+          placeholder='Instruction' />
+        <button onClick={this.addInstruction}>Add Instruction</button>
 
-        <div {...css(styles.submitButton)} onClick={this.addRecipe}>
+        <div onClick={this.addRecipe}>
           <p>Add Recipe</p>
         </div>
       </div>
@@ -113,45 +106,3 @@ export default graphql(CreateRecipe, {
     })
   })
 })(AddRecipe)
-
-const styles = {
-  button: {
-    border: 'none',
-    background: 'rgba(0, 0, 0, .1)',
-    width: 250,
-    height: 50,
-    cursor: 'pointer',
-    margin: '15px 0px'
-  },
-  container: {
-    display: 'flex',
-    flexDirection: 'column',
-    paddingLeft: 100,
-    paddingRight: 100,
-    textAlign: 'left'
-  },
-  input: {
-    outline: 'none',
-    border: 'none',
-    borderBottom: '2px solid #00dd3b',
-    height: '44px',
-    fontSize: '18px',
-  },
-  textarea: {
-    border: '1px solid #ddd',
-    outline: 'none',
-    fontSize: '18px'
-  },
-  submitButton: {
-    backgroundColor: '#00dd3b',
-    padding: '8px 30px',
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-    opacity: .85,
-    cursor: 'pointer',
-    ':hover': {
-      opacity: 1
-    }
-  }
-}

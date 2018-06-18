@@ -1,6 +1,6 @@
 {
   "name": "meetlab",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "Integrated learning platform",
   "main": "index.js",
   "scripts": {
@@ -13,7 +13,7 @@
   "homepage": "http://meetlab.pl",
   "repository": {
     "type": "git",
-    "url": "git://github.com/GrzegorzNawara/MeetLab.git"
+    "url": "git://github.com/GrzegorzNawara/meetlab2.git"
   },
   "devDependencies": {
     "enzyme": "^2.8.2",
@@ -22,18 +22,18 @@
   },
   "dependencies": {
     "ajv": "^6.2.0",
+    "aws-appsync": "^1.0.14",
+    "aws-appsync-react": "^1.0.6",
     "cross-fetch": "^2.1.0",
     "express": "^4.16.3",
+    "graphql-tag": "^2.8.0",
     "marked": "^0.4.0",
     "nodemon": "^1.17.5",
     "prop-types": "^15.6.1",
-    "react": "^15.6.2",
-    "react-dom": "^15.5.0",
-    "react-redux": "^5.0.5",
-    "react-router-dom": "^4.2.2",
-    "redux": "^3.7.2",
-    "redux-form": "^7.3.0",
-    "redux-saga": "^0.16.0",
+    "react": "^16.4.1",
+    "react-apollo": "^2.1.5",
+    "react-dom": "^16.4.1",
+    "react-router-dom": "^4.3.1",
     "uuid": "^3.2.1"
   }
 }
