@@ -1,16 +1,20 @@
 import gql from 'graphql-tag'
 
 export default gql`
-  mutation createWorkshop(
+  mutation createBrick(
       $id: ID!,
+      $super: String!,
+      $sort: String!,
       $title: String!,
       $subtitle: String!,
       $owner: String!,
-      $PIN: String!,
-      $date: String!
+      $PIN: String,
+      $date: String
     ) {
-    createWorkshop(input: {
+    createBrick(input: {
       id: $id,
+      super: $super,
+      sort: $sort,
       title: $title,
       subtitle: $subtitle,
       owner: $owner,
@@ -18,6 +22,8 @@ export default gql`
       date: $date
     }) {
       id
+      super
+      sort
   		title
   		subtitle
   		owner

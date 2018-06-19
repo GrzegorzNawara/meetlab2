@@ -1,9 +1,11 @@
 import gql from 'graphql-tag'
 
 export default gql`
-subscription WorkshopCreateSubscription {
-  onCreateWorkshop {
+subscription BrickCreateSubscription {
+  onCreateBrick {
     id
+    super
+    sort
     title
     subtitle
     owner

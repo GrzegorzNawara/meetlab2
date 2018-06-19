@@ -1,8 +1,8 @@
 import gql from 'graphql-tag'
 
 export default gql`
-subscription WorkshopDeleteSubscription {
-  onDeleteWorkshop {
+subscription BrickDeleteSubscription {
+  onDeleteBrick {
     id
   }
 }`;
