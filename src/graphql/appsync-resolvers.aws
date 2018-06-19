@@ -1,0 +1,17 @@
+#listBricks(super:String) resolver
+{
+  "version": "2017-02-28",
+  "operation" : "Query",
+  "index" : "super-index",
+  "query" : {
+    "expression": "#super = :super",
+    "expressionValues" : {
+      ":super" : { "S" : "${context.arguments.super}" }
+    },
+    "expressionNames" : {
+      "#super": "super"
+    }
+  },
+  "limit": $util.defaultIfNull($ctx.args.first, 20),
+  "nextToken": $util.toJson($util.defaultIfNullOrEmpty($ctx.args.after, null)),
+}

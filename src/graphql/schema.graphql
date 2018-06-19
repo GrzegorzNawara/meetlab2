@@ -1,0 +1,68 @@
+type Brick {
+  PIN: String
+  date: String
+  id: ID!
+  owner: String!
+  params: String
+  sort: String!
+  subtitle: String!
+  super: String!
+  title: String!
+  type: String
+}
+
+type BrickConnection {
+  items: [Brick]
+  nextToken: String
+}
+
+type Mutation {
+  createBrick(input: CreateBrickInput!): Brick
+  deleteBrick(input: DeleteBrickInput!): Brick
+  updateBrick(input: UpdateBrickInput!): Brick
+}
+
+type Query {
+  fetchBrick(id: ID!): Brick
+  getBrick(id: ID!): Brick
+  listBricks(after: String, first: Int, super: String): BrickConnection
+}
+
+type Subscription {
+  onCreateBrick(id: ID, sort: String, subtitle: String, super: String, title: String): Brick
+    @aws_subscribe(mutations:["createBrick"])
+  onDeleteBrick(id: ID, sort: String, subtitle: String, super: String, title: String): Brick
+    @aws_subscribe(mutations:["deleteBrick"])
+  onUpdateBrick(id: ID, sort: String, subtitle: String, super: String, title: String): Brick
+    @aws_subscribe(mutations:["updateBrick"])
+}
+
+input CreateBrickInput {
+  PIN: String
+  date: String
+  id: ID!
+  owner: String!
+  params: String
+  sort: String!
+  subtitle: String!
+  super: String!
+  title: String!
+  type: String
+}
+
+input DeleteBrickInput {
+  id: ID!
+}
+
+input UpdateBrickInput {
+  PIN: String
+  date: String
+  id: ID!
+  owner: String
+  params: String
+  sort: String
+  subtitle: String
+  super: String
+  title: String
+  type: String
+}
