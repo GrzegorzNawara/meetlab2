@@ -7,7 +7,7 @@ import BrickCreateSubscription from './subscriptions/BrickCreateSubscription'
 import BrickUpdateSubscription from './subscriptions/BrickUpdateSubscription'
 import debug from './include/debug'
 
-class Bricks extends React.Component {
+class Bricks2 extends React.Component {
 
   componentWillMount(){
     this.props.subscribeToDelete();
@@ -81,4 +81,4 @@ export default compose(
       })}
     })
   })
-)(Bricks)
+)(Bricks2)

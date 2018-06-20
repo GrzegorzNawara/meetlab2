@@ -48,7 +48,7 @@ class MenuModal extends React.Component {
                 <MenuItem
                   title='Add new brick'
                   subtitle='It will stay hidden'
-                  onClick={() => {this.addBrick({mysuper:this.props.match.params.workshop_id}); close()}} />
+                  onClick={() => {this.addBrick({mysuper:this.props.match.params.super}); close()}} />
                </div>
              </div>
            </div>
