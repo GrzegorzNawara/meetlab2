@@ -27,7 +27,7 @@ class MenuModal extends React.Component {
         title: 'Brick',
         subtitle: 'Brickeee 1',
         date: new Date().toISOString().split("T")[0],
-        owner: 'Grzegorz Nawara',
+        owner: this.props.me.owner,
         PIN: '1111'
       }):
       this.props.onAdd({
@@ -37,12 +37,14 @@ class MenuModal extends React.Component {
         title: 'New Workshop',
         subtitle: 'Subtitle',
         date: new Date().toISOString().split("T")[0],
-        owner: 'Grzegorz Nawara',
+        owner: this.props.me.owner,
         PIN: '1234'
       })
   }
 
-  render() { return (
+  render() {
+    if(debug(this.props.me,'ME')===undefined) return null;
+    return (
       <Popup trigger={<div className="admin-button"><img src='./images/admin-button.png' alt=''/></div>}
          modal lockScroll closeOnEscape closeOnDocumentClick position="right center">
          {close => {
@@ -59,6 +61,11 @@ class MenuModal extends React.Component {
              </div>
              <div className="modal-body">
                <div className="">
+                 <MenuItem
+                   title='Add new brick'
+                   subtitle='It will stay hidden'
+                   look='look-menu'
+                   onClick={() => {this.addBrick({mysuper:this.props.match.params.super}); close()}} />
                 {debug(this.props.menu,'MENUSHOW').map((item,index)=>{return(
                   <MenuItem
                     key={index}
