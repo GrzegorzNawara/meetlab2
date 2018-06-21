@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
+import LoadingScreen from './LoadingScreen';
 
 import AWSAppSyncClient from "aws-appsync";
 import { Rehydrated } from 'aws-appsync-react';
@@ -20,7 +21,7 @@ const client = new AWSAppSyncClient({
 const WithProvider = () => (
   <ApolloProvider client={client}>
     <Rehydrated render={({ rehydrated }) => (
-      rehydrated ? <App /> : <strong>Your custom UI componen here...</strong>
+      rehydrated ? <App /> : <LoadingScreen />
     )} />
   </ApolloProvider>
 );

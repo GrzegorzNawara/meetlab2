@@ -2,9 +2,8 @@ import React from 'react'
 import { graphql, compose } from 'react-apollo'
 import { Link } from 'react-router-dom';
 import listBricks from './queries/ListBricks'
-import BrickDeleteSubscription from './subscriptions/BrickDeleteSubscription'
-import BrickCreateSubscription from './subscriptions/BrickCreateSubscription'
-import BrickUpdateSubscription from './subscriptions/BrickUpdateSubscription'
+import { onCreateBrick, onUpdateBrick, onDeleteBrick } from './graphql/Subscriptions'
+import Brick from './Brick'
 import debug from './include/debug'
 
 class Bricks extends React.Component {
@@ -27,9 +26,7 @@ class Bricks extends React.Component {
         {
           this.props.bricks.map((r, i) => (
             <Link to={r.id} key={r.id}>
-              <div className="w-100 rounded bg-warning px-3 py-3 my-2 align-items-center" key={i}>
-                <h3>{r.title}<br /><div className='h5 text-dark'>{r.subtitle}</div></h3>
-              </div>
+              <Brick title={r.title} subtitle={r.subtitle} onClick={()=>{}} look='look-brick'/>
             </Link>
           ))
         }
@@ -50,7 +47,7 @@ export default compose(
         .slice().sort((a,b)=>(-a.sort.localeCompare(b.sort))):[],
       subscribeToDelete: (params) => {
         props.data.subscribeToMore({
-          document: BrickDeleteSubscription,
+          document: onDeleteBrick,
           updateQuery: (prev, { subscriptionData: { data } }) => ({
             ...prev,
             listBricks: {
@@ -60,7 +57,7 @@ export default compose(
       })},
       subscribeToUpdate: (params) => {
         props.data.subscribeToMore({
-          document: BrickUpdateSubscription,
+          document: onUpdateBrick,
           updateQuery: (prev, { subscriptionData: { data } }) => ({
               ...prev,
               listBricks: {
@@ -71,7 +68,7 @@ export default compose(
       subscribeToCreate: (params) => {
 
           props.data.subscribeToMore({
-          document: BrickCreateSubscription,
+          document: onCreateBrick,
           updateQuery: (prev, { subscriptionData: { data } }) => ({
               ...prev,
               listBricks: {
