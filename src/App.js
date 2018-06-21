@@ -4,6 +4,7 @@ import Bricks from './Bricks'
 import Workshops from './Workshops'
 import NavBar from './NavBar'
 import MenuModal from './MenuModal'
+import Document from './Document'
 import debug from './include/debug'
 
 const App = () => (
@@ -23,6 +24,7 @@ const App = () => (
             <Workshops routerProps={routerProps} super={'top'} />} />
           <Route exact path="/:super" render={({match})=>
             <Bricks super={match.params.super} />} />
+          <Route exact path='/:super/doc/:document_id' component={Document} />
         </Switch>
       </div>
     </HashRouter>
