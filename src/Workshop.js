@@ -8,7 +8,7 @@ const Workshop = ({ title, subtitle, date, owner, pin, look}) => (
         <div className='col-12 text-left'>
           <span className="">
             <span className='h2'>{title}</span>
-            <br /><span className='h5 color-white80'>{subtitle}</span>
+            <br /><span className='h4 color-white80'>{subtitle}</span>
           </span>
         </div>
       </div>

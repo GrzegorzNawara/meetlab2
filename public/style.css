@@ -23,6 +23,11 @@ body {
   max-height: 100vh;
   overflow-y: auto;
 }
+.form-control:focus {
+  border-color: #ff0000 !important;
+  box-shadow: 0 0 5px rgba(255, 255, 255, 0.8) !important;
+}
+
 .color-white80 { color: rgb(255,255,255,0.7) }
 .color-black80 { color: rgb(0,0,0,0.5) }
 .look-default { background-color: #0000ff; color: #555555; }
@@ -55,6 +60,7 @@ a { color: #333333; }
 .micro-logo-image { height: 24px; width: auto; }
 .workshop-navbar { position: relative;}
 .edit-image { height: 36px; width: auto; position: absolute; top: 10px; right:16px}
+.save-image { height: 72px; width: auto; position: absolute; top: 10px; right:16px}
 .back-image { height: 16px; width: auto; }
 .user-image { height: 18px; width: auto; margin-right: 8px; margin-bottom:-2px; padding: 0; vertical-align: baseline;}
 .user-image-small { height: 16px; width: auto; margin-right: 8px; margin-bottom:-2px; padding: 0; vertical-align: baseline;}

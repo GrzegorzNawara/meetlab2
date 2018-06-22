@@ -3,7 +3,7 @@ import Popup from 'reactjs-popup'
 import { graphql, compose } from 'react-apollo'
 import uuidV4 from 'uuid/v4'
 import MenuItem from './MenuItem'
-import createBrick from './graphql/Mutations'
+import { createBrick } from './graphql/Mutations'
 import { listBricks, getKey } from './graphql/Queries'
 import debug from './include/debug'
 

@@ -9,16 +9,16 @@ class WorkshopNavBar extends React.Component {
 render () {
   return (
   <div>
-    <MiniNavBar />
+    <MiniNavBar link='/' />
     <div className="navbar look-workshop border-bottom box-shadow">
       <div className="workshop-navbar container">
         <div className='text-left'>
-          <span className='h3'>{this.props.workshop.title}<br />
-          <span className='h3 color-white80'>{this.props.workshop.subtitle}</span></span>
+          <span className='h2'>{this.props.workshop.title}<br />
+          <span className='h4 color-white80'>{this.props.workshop.subtitle}</span></span>
         </div>
         <div>
           {(this.props.me && this.props.workshop && this.props.me.owner===this.props.workshop.owner)?
-           <img  className="edit-image" alt="edit" src="images/edit-button.png"></img>:null}
+           <Link to={'/'+this.props.match.params.super+'/edit'} title="edit"><img  className="edit-image" alt="edit" src="images/edit-button.png"></img></Link>:null}
         </div>
       </div>
       <div className="workshop-navbar mt-1 container">

@@ -8,7 +8,7 @@ render () {
   return (
     <div className="navbar m-auto bg-white">
       <div className="col-xs-2">
-        <Link to='/' title="logo"><img className="back-image" alt="back" src="images/back-button-dark.png"></img></Link>
+        <Link to={this.props.link} title="logo"><img className="back-image" alt="back" src="images/back-button-dark.png"></img></Link>
       </div>
       <div className="col-xs-8 text-center">
         <Link to='/' title="logo"><img className="micro-logo-image" alt="logo" src="images/logo.png"></img></Link>

@@ -4,6 +4,7 @@ import Bricks from './Bricks'
 import Workshops from './Workshops'
 import NavBar from './NavBar'
 import WorkshopNavBar from './WorkshopNavBar'
+import WorkshopEditNavBar from './WorkshopEditNavBar'
 import MenuModal from './MenuModal'
 import Document from './Document'
 import debug from './include/debug'
@@ -15,6 +16,7 @@ const App = () => (
         <Switch>
           <Route exact path="/" component={NavBar} />
           <Route exact path="/:super" component={WorkshopNavBar} />
+          <Route exact path="/:super/edit" component={WorkshopEditNavBar} />
         </Switch>
 
         <Switch>
