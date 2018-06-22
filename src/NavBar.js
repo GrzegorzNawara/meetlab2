@@ -2,11 +2,8 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { graphql, compose } from 'react-apollo'
 import { getKey } from './graphql/Queries'
-import NameTag from './NameTag'
 
 class NavBar extends React.Component {
-componentWillMount(){
-}
 render () {
   return (
   <div className='navbar align-items-center p-3 mb-2 bg-white border-bottom box-shadow'>
