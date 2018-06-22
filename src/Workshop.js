@@ -12,6 +12,7 @@ const Workshop = ({ title, subtitle, date, owner, pin, look}) => (
           </span>
         </div>
       </div>
+      <hr />
       <div className='row m-0 p-0'>
         <div className='col-6 p-0'>
           <span className='h5 color-white80'>{owner}</span>

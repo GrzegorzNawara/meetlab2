@@ -1,7 +1,7 @@
 import React from 'react'
 import { graphql, compose } from 'react-apollo'
 import { Link } from 'react-router-dom';
-import listBricks from './queries/ListBricks'
+import { listBricks } from './graphql/Queries'
 import { onCreateBrick, onUpdateBrick, onDeleteBrick } from './graphql/Subscriptions'
 import Workshop from './Workshop'
 import debug from './include/debug'

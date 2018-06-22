@@ -1,7 +1,7 @@
 import React from 'react'
 import { graphql, compose } from 'react-apollo'
 import { Link } from 'react-router-dom';
-import listBricks from './queries/ListBricks'
+import { listBricks } from './graphql/Queries'
 import { onCreateBrick, onUpdateBrick, onDeleteBrick } from './graphql/Subscriptions'
 import Brick from './Brick'
 import debug from './include/debug'
@@ -22,7 +22,6 @@ class Bricks extends React.Component {
   render() {
     return (
       <div className="container">
-        {this.props.super}
         {
           this.props.bricks.map((r, i) => (
             <Link to={r.id} key={r.id}>

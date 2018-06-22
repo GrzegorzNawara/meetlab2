@@ -13,6 +13,21 @@ query getKey ($id: ID!){
   }
 }`;
 
+export const getBrick = gql`
+query getBrick ($id: ID!){
+  getBrick(id:$id)
+  {
+    id
+    super
+    sort
+    title
+    subtitle
+    owner
+    PIN
+    date
+  }
+}`;
+
 export const listBricks = gql`
 query listBricks ($super: String){
   listBricks (super: $super){
