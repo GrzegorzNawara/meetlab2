@@ -43,15 +43,12 @@ class MenuModal extends React.Component {
   }
 
   render() {
-    if(debug(this.props.me,'ME')===undefined) return null;
+    if(this.props.me===undefined) return null;
     return (
       <Popup trigger={<div className="admin-button"><img src='./images/admin-button.png' alt=''/></div>}
          modal lockScroll closeOnEscape closeOnDocumentClick position="right center">
          {close => {
-           if(debug(this.state.super,'STATE')!==debug(this.props.match.params.super,'MATCH'))
-            return null;
-
-           return (
+          return (
            <div className="modal-off">
            <div className="modal-dialog">
              <div className="modal-content">
@@ -61,18 +58,13 @@ class MenuModal extends React.Component {
              </div>
              <div className="modal-body">
                <div className="">
-                 <MenuItem
-                   title='Add new brick'
-                   subtitle='It will stay hidden'
-                   look='look-menu'
-                   onClick={() => {this.addBrick({mysuper:this.props.match.params.super}); close()}} />
-                {debug(this.props.menu,'MENUSHOW').map((item,index)=>{return(
+                {this.props.menu.map((item,index)=>{return(
                   <MenuItem
                     key={index}
-                    title='Add new brick'
-                    subtitle='It will stay hidden'
+                    title={item.title}
+                    subtitle={item.subtitle}
                     look='look-menu'
-                    onClick={() => {this.addBrick({mysuper:this.props.match.params.super}); close()}} />
+                    onClick={() => {this.addBrick({mysuper:item.super}); close()}} />
                 )})}
                </div>
              </div>
@@ -92,11 +84,6 @@ export default compose(
         optimisticResponse: {
           __typename: 'Mutation',
           createBrick: { ...brick,  __typename: 'Brick' }
-        },
-        update: (proxy, { data: { createBrick } }) => {
-          //const data = proxy.readQuery({ query: listBricks });
-          //data.listBricks.items.push(createBrick);
-          //proxy.writeQuery({ query: listBricks, data });
         }
       })
   })}),
@@ -111,11 +98,11 @@ export default compose(
   }),
   graphql(listBricks, {
     options: props => ({
-      variables: { super: 'top' },
+      variables: { super: props.match.params.super },
       fetchPolicy: 'cache-and-network'
     }),
     props: props => ({
-      menu: debug(props.data.listBricks,'MENULIST')?props.data.listBricks.items:[]
+      menu: [{super:props.ownProps.match.params.super, title:'Add brick', subtitle:'Menu '+props.ownProps.match.params.super}]
     })
   })
 )(MenuModal)

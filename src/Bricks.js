@@ -61,18 +61,17 @@ export default compose(
               ...prev,
               listBricks: {
                 __typename: 'BrickConnection',
-                items: [data.onUpdateBrick, ...prev.listBricks.items.filter(brick => brick.id !== data.onUpdateBrick.id)]
+                items: (data.onCreateBrick.super===props.ownProps.super)?[data.onUpdateBrick, ...prev.listBricks.items.filter(brick => brick.id !== data.onUpdateBrick.id)]:[...prev.listBricks.items]
           }})
       })},
       subscribeToCreate: (params) => {
-
           props.data.subscribeToMore({
           document: onCreateBrick,
           updateQuery: (prev, { subscriptionData: { data } }) => ({
               ...prev,
               listBricks: {
                 __typename: 'BrickConnection',
-                items: (debug(data.onCreateBrick.super,'CREATE')===debug(props.ownProps.super,'OWN'))?[data.onCreateBrick, ...prev.listBricks.items.filter(brick => brick.id !== data.onCreateBrick.id)]:[...prev.listBricks.items]
+                items: (data.onCreateBrick.super===props.ownProps.super)?[data.onCreateBrick, ...prev.listBricks.items.filter(brick => brick.id !== data.onCreateBrick.id)]:[...prev.listBricks.items]
           }})
       })}
     })

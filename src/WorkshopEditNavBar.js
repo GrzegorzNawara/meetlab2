@@ -4,7 +4,7 @@ import { compose, graphql } from 'react-apollo'
 import { getBrick, getKey } from './graphql/Queries'
 import { updateBrick } from './graphql/Mutations'
 import MiniNavBar from './MiniNavBar'
-import debug from './include/debug'
+//import debug from './include/debug'
 
 class WorkshopNavBar extends React.Component {
   state = {
@@ -16,7 +16,7 @@ onChange = (key, value) => {
 }
 updateWorkshop = () => {
   //const { title, subtitle } = this.state.workshop
-  debug(this.props,'UPDATE').onUpdate({
+  this.props.onUpdate({
     ...this.props.workshop,
     title: (this.state.title)?this.state.title:this.props.workshop.title,
     subtitle: (this.state.subtitle)?this.state.subtitle:this.props.workshop.subtitle
