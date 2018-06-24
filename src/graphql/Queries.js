@@ -25,6 +25,8 @@ query getBrick ($id: ID!){
     owner
     PIN
     date
+    params
+    type
   }
 }`;
 
@@ -40,6 +42,8 @@ query listBricks ($super: String){
   		owner
   		PIN
       date
+      params
+      type
     }
   }
 }`;

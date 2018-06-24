@@ -11,6 +11,8 @@ subscription onCreateBrick {
     owner
     PIN
     date
+    params
+    type
   }
 }`;
 
@@ -26,6 +28,8 @@ subscription onUpdateBrick {
     owner
     PIN
     date
+    params
+    type
 	}
 }`;
 

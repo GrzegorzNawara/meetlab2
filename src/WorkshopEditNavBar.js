@@ -36,8 +36,8 @@ render () {
         //onSubmit({workshop_id:workshop_id, title:form.elements['title'].value, subtitle:form.elements['subtitle'].value});
       }}>
       <div className="navbar look-workshop border-bottom box-shadow">
-        <div className="workshop-navbar container">
-          <div className='text-left'>
+        <div className="workshop-navbar container text-center">
+          <div className=''>
             <span className='h3'>
               <input className='form-control form-control-lg my-1'
                 name='title'
@@ -52,9 +52,9 @@ render () {
               </span>
             </span>
           </div>
-          <div>
+          <div className="">
             {(this.props.me && this.props.workshop && this.props.me.owner===this.props.workshop.owner)?
-              <img onClick={this.updateWorkshop} className="save-image" alt="save" src="images/save-button.png"></img>:null}
+              <img onClick={this.updateWorkshop} className="save-image m-2" alt="save" src="images/save-button.png"></img>:null}
           </div>
         </div>
         <div className="workshop-navbar mt-1 container">

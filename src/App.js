@@ -17,6 +17,7 @@ const App = () => (
           <Route exact path="/" component={NavBar} />
           <Route exact path="/:super" component={WorkshopNavBar} />
           <Route exact path="/:super/edit" component={WorkshopEditNavBar} />
+          <Route path="/:super/:more" component={WorkshopNavBar} />
         </Switch>
 
         <Switch>

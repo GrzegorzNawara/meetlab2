@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import marked from 'marked';
 import NavBar from './NavBar'
 import debug from './include/debug'
@@ -35,7 +36,10 @@ class Document extends React.Component {
 
   render = () => (
     <div>
-      <div className='container'>
+      <div className='container border-right border-left box-shadow'>
+        <Link to={'/'+this.props.match.params.super}>
+          <button type="button" className="color-gray close document-close-btn">&times;</button>
+        </Link>
         <div dangerouslySetInnerHTML={{__html: this.state.content}} />
       </div>
     </div> )

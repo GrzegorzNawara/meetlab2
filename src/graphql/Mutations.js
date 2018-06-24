@@ -9,7 +9,9 @@ export const updateBrick = gql`
       $subtitle: String!,
       $owner: String!,
       $PIN: String,
-      $date: String
+      $date: String,
+      $params: String,
+      $type: String
     ) {
     updateBrick(input: {
       id: $id,
@@ -19,7 +21,9 @@ export const updateBrick = gql`
       subtitle: $subtitle,
       owner: $owner,
       PIN: $PIN,
-      date: $date
+      date: $date,
+      params: $params,
+      type: $type
     }) {
       id
       super
@@ -29,6 +33,8 @@ export const updateBrick = gql`
   		owner
   		PIN
       date
+      params
+      type
     }
   }
 `
@@ -43,7 +49,9 @@ export const createBrick = gql`
       $subtitle: String!,
       $owner: String!,
       $PIN: String,
-      $date: String
+      $date: String,
+      $params: String,
+      $type: String
     ) {
     createBrick(input: {
       id: $id,
@@ -53,7 +61,9 @@ export const createBrick = gql`
       subtitle: $subtitle,
       owner: $owner,
       PIN: $PIN,
-      date: $date
+      date: $date,
+      params: $params,
+      type: $type
     }) {
       id
       super
@@ -63,6 +73,8 @@ export const createBrick = gql`
   		owner
   		PIN
       date
+      params
+      type
     }
   }
 `

@@ -5,41 +5,46 @@ import uuidV4 from 'uuid/v4'
 import MenuItem from './MenuItem'
 import { createBrick } from './graphql/Mutations'
 import { listBricks, getKey } from './graphql/Queries'
+import { MenuConfig } from './include/menuConfig'
 import debug from './include/debug'
 
 class MenuModal extends React.Component {
+  menuAction = ({type, menu, mysuper }) => {
+    const newBrick = {
+      id: uuidV4(),
+      super: (mysuper)?mysuper:'top',
+      sort: Date.now().toString(),
+      title: menu.params.title,
+      subtitle: menu.params.subtitle,
+      date: new Date().toISOString().split("T")[0],
+      owner: this.props.me.owner,
+      params: JSON.stringify(menu.params),
+      PIN: Math.floor(8999*Math.random()+1000),
+      type: 'UNKNOWN'
+    }
 
-  constructor(props) {
-    super(props);
-    this.state = { super: this.props.match.params.super };
-  }
-
-  componentDidUpdate () {
-  }
-
-  addBrick = ({mysuper}) => {
-
-    (mysuper)?
-      this.props.onAdd({
-        id: uuidV4(),
-        super: mysuper,
-        sort: Date.now().toString(),
-        title: 'Brick',
-        subtitle: 'Brickeee 1',
-        date: new Date().toISOString().split("T")[0],
-        owner: this.props.me.owner,
-        PIN: '1111'
-      }):
-      this.props.onAdd({
-        id: uuidV4(),
-        super: 'top',
-        sort: Date.now().toString(),
-        title: 'New Workshop',
-        subtitle: 'Subtitle',
-        date: new Date().toISOString().split("T")[0],
-        owner: this.props.me.owner,
-        PIN: '1234'
-      })
+    switch (type) {
+      case 'ADD_WORKSHOP':
+        this.props.onAdd({
+          ...newBrick,
+          type: 'WORKSHOP'
+        });
+        break;
+      case 'ADD_DOCUMENT':
+        this.props.onAdd({
+          ...newBrick,
+          type: 'DOCUMENT'
+        });
+        break;
+      case 'ADD_BRICK':
+        this.props.onAdd({
+          ...newBrick,
+          type: 'BRICK'
+        });
+        break;
+      default:
+        return (null);
+    }
   }
 
   render() {
@@ -58,13 +63,14 @@ class MenuModal extends React.Component {
              </div>
              <div className="modal-body">
                <div className="">
-                {this.props.menu.map((item,index)=>{return(
+                {((this.props.match.params.super)?MenuConfig.workshopMenu:MenuConfig.topMenu)
+                  .map((item,index)=>{return(
                   <MenuItem
                     key={index}
                     title={item.title}
                     subtitle={item.subtitle}
-                    look='look-menu'
-                    onClick={() => {this.addBrick({mysuper:item.super}); close()}} />
+                    look={item.params.look}
+                    onClick={() => {this.menuAction({type:item.action, menu:item, mysuper:this.props.match.params.super }); close()}} />
                 )})}
                </div>
              </div>
@@ -94,15 +100,6 @@ export default compose(
     }),
     props: props => ({
       me: props.data.getKey
-    })
-  }),
-  graphql(listBricks, {
-    options: props => ({
-      variables: { super: props.match.params.super },
-      fetchPolicy: 'cache-and-network'
-    }),
-    props: props => ({
-      menu: [{super:props.ownProps.match.params.super, title:'Add brick', subtitle:'Menu '+props.ownProps.match.params.super}]
     })
   })
 )(MenuModal)

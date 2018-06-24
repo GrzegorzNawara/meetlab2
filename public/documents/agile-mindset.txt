@@ -1,6 +1,5 @@
-<hr />
 <br>
-<h3>Zwinna postawa</h3>
+<h3>Agile Mindset</h3>
 <br />
 
 

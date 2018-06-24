@@ -9,7 +9,7 @@ class WorkshopNavBar extends React.Component {
 render () {
   return (
   <div>
-    <MiniNavBar link='/' />
+    <MiniNavBar link={(this.props.match.params.more)?'/'+this.props.match.params.super:'/'} />
     <div className="navbar look-workshop border-bottom box-shadow">
       <div className="workshop-navbar container">
         <div className='text-left'>

@@ -16,18 +16,25 @@ class Bricks extends React.Component {
 
   componentDidUpdate(prevProps) {
     if (this.props.super!==prevProps.super) {
-      debug(this.props.subscribeToCreate(this.props.super),'UPDATE');
+      this.props.subscribeToCreate(this.props.super);
     }
   }
   render() {
     return (
       <div className="container">
         {
-          this.props.bricks.map((r, i) => (
-            <Link to={r.id} key={r.id}>
-              <Brick title={r.title} subtitle={r.subtitle} onClick={()=>{}} look='look-brick'/>
-            </Link>
-          ))
+          this.props.bricks.map((r, i) => {
+            switch (debug(r,'R').type) {
+              case 'DOCUMENT': return (
+                  <Link to={r.super+'/doc/'+JSON.parse(r.params).doc} key={r.id}>
+                    <Brick title={r.title} subtitle={r.subtitle} onClick={()=>{}} look={JSON.parse(r.params).look} />
+                  </Link>
+                )
+              default:return (
+                <Brick title={r.title} subtitle={r.subtitle} onClick={()=>{}} look='look-brick' />
+              )
+            }
+          })
         }
       </div>
     )
