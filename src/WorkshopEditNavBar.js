@@ -59,7 +59,7 @@ render () {
         </div>
         <div className="workshop-navbar mt-1 container">
           <h5 className='col-xs-6 color-white80'>{this.props.workshop.owner}</h5>
-          <h5 className='col-xs-6 color-white80 text-right'>{'PIN: '+this.props.workshop.PIN}</h5>
+          <h5 className='col-xs-6 color-white80 text-right'></h5>
         </div>
       </div>
     </form>

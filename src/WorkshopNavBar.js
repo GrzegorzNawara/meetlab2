@@ -23,7 +23,9 @@ render () {
       </div>
       <div className="workshop-navbar mt-1 container">
         <h5 className='col-xs-6 color-white80'>{this.props.workshop.owner}</h5>
-        <h5 className='col-xs-6 color-white80 text-right'>{'PIN: '+this.props.workshop.PIN}</h5>
+        <h5 className='col-xs-6 color-white80 text-right'>{
+          (this.props.me && this.props.workshop && this.props.workshop.owner===this.props.me.owner)?
+          'PIN: '+this.props.workshop.PIN:''}</h5>
       </div>
     </div>
   </div>

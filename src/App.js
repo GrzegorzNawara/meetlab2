@@ -7,7 +7,7 @@ import WorkshopNavBar from './WorkshopNavBar'
 import WorkshopEditNavBar from './WorkshopEditNavBar'
 import MenuModal from './MenuModal'
 import Document from './Document'
-import debug from './include/debug'
+//import debug from './include/debug'
 
 const App = () => (
   <div className="App">
