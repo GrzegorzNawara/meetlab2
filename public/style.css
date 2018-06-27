@@ -74,10 +74,10 @@ a, a:hover { text-decoration: none; }
 .user-image { height: 18px; width: auto; margin-right: 8px; margin-bottom:-2px; padding: 0; vertical-align: baseline;}
 .user-image-small { height: 16px; width: auto; margin-right: 8px; margin-bottom:-2px; padding: 0; vertical-align: baseline;}
 .admin-button img {
-  height: 60px;
+  height: 70px;
   width: auto;
   position: fixed;
-  bottom: 20px;
-  right: 20px;
+  bottom: 24px;
+  right: 24px;
 }
 .document-close-btn { position: relative; right:8px; top: 10px;}

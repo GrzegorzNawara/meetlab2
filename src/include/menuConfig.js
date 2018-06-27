@@ -7,6 +7,14 @@ export const MenuConfig = {
   }],
 
   workshopMenu:[
+    { title: 'Video Test',
+      subtitle: 'Dokument PL',
+      action: 'ADD_DOCUMENT',
+      look: 'look-document',
+      params: {
+        title: 'Video test', subtitle:'Dokument PL',
+        doc:'video-test', look: 'look-document' }
+    },
     { title: 'Dobra Postawa',
       subtitle: 'Dokument PL',
       action: 'ADD_DOCUMENT',

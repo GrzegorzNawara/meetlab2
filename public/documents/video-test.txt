@@ -1,0 +1,40 @@
+<br />
+<h3>Video Test</h3>
+
+<p align="justify">Znajdujecie się na podwodnej stacji wydobywczej "Raven 13".
+<br>Przed chwilą doszło do katastrofy. W wyniku podwodnego trzęsienia ziemi zostały naruszone fundamenty całej stacji. Wszystkie pomieszczenia są zagrożone zniszczeniem.
+<br>Celem gry jest uratowanie jak największej liczby ludzi. Działacie wspólnie. </p><br>
+
+
+<div style="position:relative;padding-bottom:56.221%;">
+<iframe width="651" height="366" style="backface-visibility: hidden; transform: scale(1); position: absolute; height: 100%; width: 100%;"
+  src="https://www.youtube.com/embed/4QhYUqvuhqo" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+</div>
+
+<div style="position:relative;padding-bottom:56.221%;">
+<iframe width="651" height="366" style="backface-visibility: hidden; transform: scale(1); position: absolute; height: 100%; width: 100%;" src="https://www.youtube.com/embed/sir53cRkFHw" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+</div>
+
+
+<div style="position:relative;padding-bottom:56.250%;">
+<iframe src="//gifs.com/embed/test-VPqy1M?muted=false" frameborder="0" scrolling="no" width="640" height="360" style="backface-visibility: hidden; transform: scale(1); position: absolute; height: 100%; width: 100%;"></iframe></div>
+
+
+
+<p align="justify">
+<div>Połóż na stole:</div>
+<ul>
+    <li>1 mapę stacji Raven 13;</li>
+    <li>żółte karteczki, kolorowy papier, pisaki;</li>
+    <li>uruchom dla stołu symulacje przez growbook.pl;</li>
+</ul>
+
+
+
+
+<h4>Skrót zasad</h4>
+<div style="position:relative;padding-bottom:56.221%;"><iframe src="//gifs.com/embed/Romr9E?muted=false" frameborder="0" scrolling="yes" width="651" height="366" style="backface-visibility: hidden; transform: scale(1); position: absolute; height: 100%; width: 100%;"></iframe></div>
+
+
+<p><small>Autor: Grzegorz Nawara<br>
+ABCPORTAL 2017-2018 Wszystkie prawa zastrzeżone</small></p>
