@@ -79,8 +79,9 @@ export default compose(
     }),
     props: props => ({
       getProps: () => {( props )},
-      bricks: props.data.listBricks?props.data.listBricks.items
+      bricks: debug(props.data.listBricks,'ListBricks')?props.data.listBricks.items
         .slice().sort((a,b)=>(-a.sort.localeCompare(b.sort))):[],
+
       subscribeToDelete: (params) => {
         props.data.subscribeToMore({
           document: onDeleteBrick,

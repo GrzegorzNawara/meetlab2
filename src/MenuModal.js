@@ -4,7 +4,7 @@ import { graphql, compose } from 'react-apollo'
 import uuidV4 from 'uuid/v4'
 import MenuItem from './MenuItem'
 import { createBrick } from './graphql/Mutations'
-import { listBricks, getKey } from './graphql/Queries'
+import { listBricks, getBrick, getKey } from './graphql/Queries'
 import { MenuConfig } from './include/menuConfig'
 import debug from './include/debug'
 
@@ -90,6 +90,11 @@ export default compose(
         optimisticResponse: {
           __typename: 'Mutation',
           createBrick: { ...brick,  __typename: 'Brick' }
+        },
+        update: (proxy, { data: { createBrick } }) => {
+          const data = proxy.readQuery({ query: listBricks, variables: { super: createBrick.super } });
+          data.listBricks.items.push(createBrick);
+          proxy.writeQuery({ query: listBricks, variables: { super: createBrick.super }, data });
         }
       })
   })}),
