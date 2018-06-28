@@ -5,7 +5,7 @@ import { getKey, getBrick, listBricks } from './graphql/Queries'
 import { onCreateBrick, onUpdateBrick, onDeleteBrick } from './graphql/Subscriptions'
 import Brick from './Brick'
 import PINLock from './PINLock'
-import debug from './include/debug'
+//import debug from './include/debug'
 
 class Bricks extends React.Component {
   state = {
@@ -78,8 +78,8 @@ export default compose(
       fetchPolicy: 'cache-and-network'
     }),
     props: props => ({
-      getProps: () => {( props )},
-      bricks: debug(props.data.listBricks,'ListBricks')?props.data.listBricks.items
+      getProps: { ...props },
+      bricks: props.data.listBricks?props.data.listBricks.items
         .slice().sort((a,b)=>(-a.sort.localeCompare(b.sort))):[],
 
       subscribeToDelete: (params) => {

@@ -3,8 +3,8 @@ import Popup from 'reactjs-popup'
 import { graphql, compose } from 'react-apollo'
 import uuidV4 from 'uuid/v4'
 import MenuItem from './MenuItem'
-import { createBrick } from './graphql/Mutations'
-import { listBricks, getBrick, getKey } from './graphql/Queries'
+import { createBrick, deleteBrick } from './graphql/Mutations'
+import { listBricks, getKey } from './graphql/Queries'
 import { MenuConfig } from './include/menuConfig'
 import debug from './include/debug'
 
@@ -40,6 +40,11 @@ class MenuModal extends React.Component {
         this.props.onAdd({
           ...newBrick,
           type: 'BRICK'
+        });
+        break;
+      case 'CLEAR_WORKSHOP':
+        this.props.bricks.forEach((r,i) => {
+          this.props.onDelete({...this.props.bricks[i]});
         });
         break;
       default:
@@ -98,6 +103,21 @@ export default compose(
         }
       })
   })}),
+  graphql(deleteBrick, {
+    props: props => ({
+      onDelete: (brick) => props.mutate({
+        variables: { id: brick.id },
+        optimisticResponse: {
+          __typename: 'Mutation',
+          deleteBrick: { ...brick,  __typename: 'Brick' }
+        },
+        update: (proxy, { data: { deleteBrick } }) => {
+          const data = proxy.readQuery({ query: listBricks, variables: { super: deleteBrick.super } });
+          data.listBricks.items=[]; //.filter((r)=>(r.id!==deleteBrick.id));
+          proxy.writeQuery({ query: listBricks, variables: { super: deleteBrick.super }, data });
+        }
+      })
+  })}),
   graphql(getKey, {
     options: props => ({
       variables: { id: localStorage.getItem('key') },
@@ -105,6 +125,17 @@ export default compose(
     }),
     props: props => ({
       me: props.data.getKey
+    })
+  }),
+  graphql(listBricks, {
+    options: props => ({
+      variables: { super: props.match.params.super },
+      fetchPolicy: 'cache-and-network'
+    }),
+    props: props => ({
+      getProps: () => {( props )},
+      bricks: props.data.listBricks?props.data.listBricks.items
+        .slice().sort((a,b)=>(-a.sort.localeCompare(b.sort))):[]
     })
   })
 )(MenuModal)

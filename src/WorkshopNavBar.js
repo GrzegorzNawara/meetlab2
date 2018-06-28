@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import { compose, graphql } from 'react-apollo'
 import { getBrick, getKey } from './graphql/Queries'
 import MiniNavBar from './MiniNavBar'
-import debug from './include/debug'
+//import debug from './include/debug'
 
 class WorkshopNavBar extends React.Component {
 render () {

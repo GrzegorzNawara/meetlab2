@@ -1,5 +1,4 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 import { compose, graphql } from 'react-apollo'
 import { getBrick, getKey } from './graphql/Queries'
 import { updateBrick } from './graphql/Mutations'
@@ -31,8 +30,8 @@ render () {
         e.preventDefault();
         e.stopPropagation(); // preserve click outside for modal
 
-        const form = e.target;
-        const data = new FormData(form);
+        //const form = e.target;
+        //const data = new FormData(form);
         //onSubmit({workshop_id:workshop_id, title:form.elements['title'].value, subtitle:form.elements['subtitle'].value});
       }}>
       <div className="navbar look-workshop border-bottom box-shadow">

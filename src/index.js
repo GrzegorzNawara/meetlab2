@@ -15,7 +15,9 @@ const client = new AWSAppSyncClient({
   auth: {
     type: appSyncConfig.authenticationType,
     apiKey: appSyncConfig.apiKey,
-  },
+  }
+},
+{
   shouldBatch: true
 });
 

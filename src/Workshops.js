@@ -42,7 +42,7 @@ export default compose(
       fetchPolicy: 'cache-and-network'
     }),
     props: props => ({
-      getProps: () => {( props )},
+      getProps: { ...props },
       bricks: props.data.listBricks?props.data.listBricks.items
         .slice().sort((a,b)=>(-a.sort.localeCompare(b.sort))):[],
       subscribeToDelete: (params) => {

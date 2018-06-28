@@ -1,8 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import marked from 'marked';
-import NavBar from './NavBar'
-import debug from './include/debug'
+//import debug from './include/debug'
 
 class Document extends React.Component {
   constructor({match}) {
@@ -28,7 +27,7 @@ class Document extends React.Component {
   }
 
   loadDocument = (document) => {
-      return fetch(debug('./documents/'+document+'.txt','FETCH'))
+      return fetch('./documents/'+document+'.txt')
         .then(response => Promise.resolve(response))
         .then(response => response.text());
   }

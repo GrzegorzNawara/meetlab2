@@ -1,5 +1,26 @@
 import gql from 'graphql-tag'
 
+export const deleteBrick = gql`
+  mutation deleteBrick(
+      $id: ID!
+    ) {
+    deleteBrick(input: {
+      id: $id
+    }) {
+      id
+      super
+      sort
+  		title
+  		subtitle
+  		owner
+  		PIN
+      date
+      params
+      type
+    }
+  }
+`
+
 export const updateBrick = gql`
   mutation updateBrick(
       $id: ID!,
