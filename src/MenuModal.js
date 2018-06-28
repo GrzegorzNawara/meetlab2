@@ -6,7 +6,7 @@ import MenuItem from './MenuItem'
 import { createBrick, deleteBrick } from './graphql/Mutations'
 import { listBricks, getKey } from './graphql/Queries'
 import { MenuConfig } from './include/menuConfig'
-import debug from './include/debug'
+//import debug from './include/debug'
 
 class MenuModal extends React.Component {
   menuAction = ({type, menu, mysuper }) => {
@@ -133,7 +133,7 @@ export default compose(
       fetchPolicy: 'cache-and-network'
     }),
     props: props => ({
-      getProps: () => {( props )},
+      getProps: { ...props },
       bricks: props.data.listBricks?props.data.listBricks.items
         .slice().sort((a,b)=>(-a.sort.localeCompare(b.sort))):[]
     })
