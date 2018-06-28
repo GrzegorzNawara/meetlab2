@@ -9,6 +9,8 @@ import { ApolloProvider } from 'react-apollo';
 
 import appSyncConfig from './appsync';
 
+import registerServiceWorker from './registerServiceWorker';
+
 const client = new AWSAppSyncClient({
   url: appSyncConfig.graphqlEndpoint,
   region: appSyncConfig.region,
@@ -30,3 +32,4 @@ const WithProvider = () => (
 );
 
 ReactDOM.render(<WithProvider />, document.getElementById('root'));
+registerServiceWorker();
