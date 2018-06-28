@@ -1,10 +1,10 @@
 import React from 'react'
 import { graphql, compose } from 'react-apollo'
 import { Link } from 'react-router-dom';
-import { listBricks } from './graphql/Queries'
+import { listBricks, getKey } from './graphql/Queries'
 import { onCreateBrick, onUpdateBrick, onDeleteBrick } from './graphql/Subscriptions'
 import Workshop from './Workshop'
-import debug from './include/debug'
+//import debug from './include/debug'
 
 class Workshops extends React.Component {
 
@@ -16,7 +16,7 @@ class Workshops extends React.Component {
 
   componentDidUpdate(prevProps) {
     if (this.props.super!==prevProps.super) {
-      debug(this.props.subscribeToCreate(this.props.super),'UPDATE');
+      this.props.subscribeToCreate(this.props.super);
     }
   }
   render() {
@@ -36,6 +36,15 @@ class Workshops extends React.Component {
 }
 
 export default compose(
+  graphql(getKey, {
+    options: props => ({
+      variables: { id: localStorage.getItem('key') },
+      fetchPolicy: 'cache-and-network'
+    }),
+    props: props => ({
+      me: props.data.getKey
+    })
+  }),
   graphql(listBricks, {
     options: props => ({
       variables: { super: props.super },
@@ -44,6 +53,7 @@ export default compose(
     props: props => ({
       getProps: { ...props },
       bricks: props.data.listBricks?props.data.listBricks.items
+        .filter((r) => (r.title!=='Invisible Workshop' || (props.ownProps.me && r.owner===props.ownProps.me.owner)))
         .slice().sort((a,b)=>(-a.sort.localeCompare(b.sort))):[],
       subscribeToDelete: (params) => {
         props.data.subscribeToMore({
@@ -73,7 +83,7 @@ export default compose(
               ...prev,
               listBricks: {
                 __typename: 'BrickConnection',
-                items: (debug(data.onCreateBrick.super,'CREATE')===debug(props.ownProps.super,'OWN'))?[data.onCreateBrick, ...prev.listBricks.items.filter(brick => brick.id !== data.onCreateBrick.id)]:[...prev.listBricks.items]
+                items: (data.onCreateBrick.super===props.ownProps.super)?[data.onCreateBrick, ...prev.listBricks.items.filter(brick => brick.id !== data.onCreateBrick.id)]:[...prev.listBricks.items]
           }})
       })}
     })
