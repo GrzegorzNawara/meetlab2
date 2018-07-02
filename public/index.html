@@ -13,6 +13,24 @@
   <link rel="stylesheet" href="bootstrap.min.css">
   <link rel="stylesheet" href="style.css">
 
+  <script type="text/javascript" src="//cloudfront.loggly.com/js/loggly.tracker-latest.min.js" async></script>
+  <script>
+    var _LTracker = _LTracker || [];
+    _LTracker.push({
+        'logglyKey': 'e3c8f105-ccb0-46bb-94ec-3f76ec8f4259',
+        'sendConsoleErrors' : true,
+        'tag' : 'meetlab-javascript-logs'
+      });
+    window.onerror = function(message, file, line) {
+      _LTracker.push({
+        context: navigator.userAgent,
+        error: message,
+        file: file,
+        line: line
+      });
+    };
+  </script>
+
   <title>MeetLab</title>
 </head>
 <body>
