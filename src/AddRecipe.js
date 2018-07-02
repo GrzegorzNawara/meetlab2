@@ -1,7 +1,6 @@
 import React from 'react'
 import { graphql } from 'react-apollo'
 import uuidV4 from 'uuid/v4'
-
 import CreateRecipe from './mutations/CreateRecipe'
 import ListRecipes from './queries/ListRecipes'
 

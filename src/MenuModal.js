@@ -2,10 +2,10 @@ import React from 'react'
 import Popup from 'reactjs-popup'
 import { graphql, compose } from 'react-apollo'
 import uuidV4 from 'uuid/v4'
-import MenuItem from './MenuItem'
+import MenuItem from './components/MenuItem'
 import { createBrick, deleteBrick } from './graphql/Mutations'
 import { listBricks, getKey } from './graphql/Queries'
-import { MenuConfig } from './include/menuConfig'
+import { MenuConfig } from './config/MenuConfig'
 //import debug from './include/debug'
 
 class MenuModal extends React.Component {

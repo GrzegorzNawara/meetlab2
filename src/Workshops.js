@@ -3,7 +3,7 @@ import { graphql, compose } from 'react-apollo'
 import { Link } from 'react-router-dom';
 import { listBricks, getKey } from './graphql/Queries'
 import { onCreateBrick, onUpdateBrick, onDeleteBrick } from './graphql/Subscriptions'
-import Workshop from './Workshop'
+import Workshop from './components/Workshop'
 //import debug from './include/debug'
 
 class Workshops extends React.Component {

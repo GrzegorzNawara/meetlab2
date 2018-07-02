@@ -3,8 +3,8 @@ import { graphql, compose } from 'react-apollo'
 import { Link } from 'react-router-dom';
 import { getKey, getBrick, listBricks } from './graphql/Queries'
 import { onCreateBrick, onUpdateBrick, onDeleteBrick } from './graphql/Subscriptions'
-import Brick from './Brick'
-import PINLock from './PINLock'
+import Brick from './components/Brick'
+import PINLock from './components/PINLock'
 //import debug from './include/debug'
 
 class Bricks extends React.Component {
