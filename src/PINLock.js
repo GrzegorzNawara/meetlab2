@@ -14,13 +14,13 @@ class PINLock extends React.Component {
                PIN</h3>
            </div>
            <div className="card-body look-PIN-body text-right">
-             <form ref="form" className="form-inline" onSubmit={e => {
+             <form ref="form" onSubmit={e => {
                  e.preventDefault();
                  this.setState({ PIN: localStorage.getItem('PIN'+this.props.workshop.id)});
                  this.props.onPINSubmit(localStorage.getItem('PIN'+this.props.workshop.id));
                  this.refs.form.reset();
                }}>
-             <input className='form-control form-control my-1'
+             <input className='form-control my-1'
                name='PIN'
                autoFocus
                onChange={evt => {localStorage.setItem('PIN'+this.props.workshop.id, evt.target.value)}}
