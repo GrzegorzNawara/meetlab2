@@ -35,7 +35,7 @@ class Document extends React.Component {
 
   render = () => (
     <div>
-      <div className='container border-right border-left box-shadow'>
+      <div className={'container border-right border-left box-shadow mt-4'}>
         <Link to={'/'+this.props.match.params.super}>
           <button type="button" className="color-gray close document-close-btn">&times;</button>
         </Link>
