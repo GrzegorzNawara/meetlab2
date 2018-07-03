@@ -7,6 +7,14 @@ export const MenuConfig = {
   }],
 
   workshopMenu:[
+    { title: 'MC Test',
+      subtitle: 'Test wyboru PL',
+      action: 'ADD_MCTEST',
+      look: 'look-mc',
+      params: {
+        title: 'MC test', subtitle:'Test wyboru PL',
+        test_id:0, look: 'look-mc' }
+    },
     { title: 'Video Test',
       subtitle: 'Dokument PL',
       action: 'ADD_DOCUMENT',

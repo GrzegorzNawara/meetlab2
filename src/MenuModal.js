@@ -36,6 +36,12 @@ class MenuModal extends React.Component {
           type: 'DOCUMENT'
         });
         break;
+      case 'ADD_MCTEST':
+        this.props.onAdd({
+          ...newBrick,
+          type: 'MC_TEST'
+        });
+        break;
       case 'ADD_BRICK':
         this.props.onAdd({
           ...newBrick,

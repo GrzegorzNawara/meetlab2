@@ -38,11 +38,19 @@ class Bricks extends React.Component {
             switch (r.type) {
               case 'DOCUMENT': return (
                   <Link to={r.super+'/doc/'+JSON.parse(r.params).doc} key={r.id}>
-                    <Brick key={'brick'+i} title={r.title} subtitle={r.subtitle} onClick={()=>{}} look={JSON.parse(r.params).look} />
+                    <Brick key={'brick'+i} title={r.title} subtitle={r.subtitle}
+                      onClick={()=>{}} look={JSON.parse(r.params).look} />
+                  </Link>
+                )
+              case 'MC_TEST': return (
+                  <Link to={r.super+'/test/'+JSON.parse(r.params).test_id} key={r.id}>
+                    <Brick key={'brick'+i} title={r.title} subtitle={r.subtitle}
+                      onClick={()=>{}} look={JSON.parse(r.params).look} />
                   </Link>
                 )
               default:return (
-                <Brick key={'brick'+i} title={r.title} subtitle={r.subtitle} onClick={()=>{}} look='look-brick' />
+                <Brick key={'brick'+i} title={r.title} subtitle={r.subtitle}
+                  onClick={()=>{}} look='look-brick' />
               )
             }
           })

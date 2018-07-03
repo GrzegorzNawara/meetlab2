@@ -7,7 +7,9 @@ import WorkshopNavBar from './WorkshopNavBar'
 import WorkshopEditNavBar from './WorkshopEditNavBar'
 import MenuModal from './MenuModal'
 import Document from './components/Document'
-//import debug from './debug'
+import { MCConfig } from './config/MCConfig'
+import MCTest from './components/MCTest'
+import debug from './debug'
 
 const App = () => (
   <div className="App">
@@ -29,6 +31,8 @@ const App = () => (
           <Route exact path="/:super" render={({match})=>
             <Bricks super={match.params.super} />} />
           <Route exact path='/:super/doc/:document_id' component={Document} />
+          <Route exact path="/:super/test/:test_id" render={({match})=>
+            <MCTest match={match} test={MCConfig.tests[match.params.test_id]} />} />
         </Switch>
 
         <Switch>
