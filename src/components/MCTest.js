@@ -1,11 +1,11 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import MCItem from './MCItem'
-//import debug from '../debug'
+import debug from '../debug'
 
-const MCTest = ({match, test: { id, title, subtitle, look, questions }}) => (
+const MCTest = ({routerProps, test: { id, title, subtitle, look, questions }}) => (
   <div className={look+' container border-right border-left box-shadow mt-4'}>
-    <Link to={'/'+match.params.super}>
+    <Link to={'/'+routerProps.match.params.super}>
       <button type="button" className="color-gray close document-close-btn">&times;</button>
     </Link>
     <div className='w-100 rounded px-3 py-3 my-2 align-items-center'>
@@ -17,6 +17,7 @@ const MCTest = ({match, test: { id, title, subtitle, look, questions }}) => (
             sessionStorage.setItem(id+'-'+qi,
             q.answers.reduce((ret,s,si) => {
                 ret[si]=sessionStorage.getItem(id+'-'+qi+'-'+si)==='1'?1:0;
+                sessionStorage.setItem(id+'-'+qi+'-'+si,'0');
                 return ret;
               },[]).toString());
             return null;
@@ -28,7 +29,8 @@ const MCTest = ({match, test: { id, title, subtitle, look, questions }}) => (
                 //ret[s.shows]+((sessionStorage.getItem(id+'-'+qi)===s.choosen.toString())?s.points:0);
                 return ret;
             },0)
-          ),0))
+          ),0));
+          routerProps.history.replace('/'+routerProps.match.params.super);
         }}>
         {questions.map((r,i) => (
           <MCItem key={i} choice_id={id+'-'+i} question={r} />

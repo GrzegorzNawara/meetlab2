@@ -5,7 +5,7 @@ import { getKey, getBrick, listBricks } from './graphql/Queries'
 import { onCreateBrick, onUpdateBrick, onDeleteBrick } from './graphql/Subscriptions'
 import Brick from './components/Brick'
 import PINLock from './components/PINLock'
-//import debug from './include/debug'
+import debug from './debug'
 
 class Bricks extends React.Component {
   state = {
@@ -39,18 +39,19 @@ class Bricks extends React.Component {
               case 'DOCUMENT': return (
                   <Link to={r.super+'/doc/'+JSON.parse(r.params).doc} key={r.id}>
                     <Brick key={'brick'+i} title={r.title} subtitle={r.subtitle}
-                      onClick={()=>{}} look={JSON.parse(r.params).look} />
+                      look={JSON.parse(r.params).look} />
                   </Link>
                 )
               case 'MC_TEST': return (
                   <Link to={r.super+'/test/'+JSON.parse(r.params).test_id} key={r.id}>
                     <Brick key={'brick'+i} title={r.title} subtitle={r.subtitle}
-                      onClick={()=>{}} look={JSON.parse(r.params).look} />
+                      score={localStorage.getItem('mc-score-'+JSON.parse(r.params).test_id)+'%'}
+                      look={JSON.parse(r.params).look} />
                   </Link>
                 )
               default:return (
                 <Brick key={'brick'+i} title={r.title} subtitle={r.subtitle}
-                  onClick={()=>{}} look='look-brick' />
+                  look='look-brick' />
               )
             }
           })

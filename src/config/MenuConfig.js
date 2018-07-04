@@ -13,7 +13,9 @@ export const MenuConfig = {
       look: 'look-mc',
       params: {
         title: 'MC test', subtitle:'Test wyboru PL',
-        test_id:0, look: 'look-mc' }
+        test_id:'test0',
+        shows: [{id:'KNOWLEDGE', max_points:4, description:'Wiedza'}],
+        look: 'look-mc' }
     },
     { title: 'Video Test',
       subtitle: 'Dokument PL',

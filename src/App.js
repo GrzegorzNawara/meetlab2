@@ -31,8 +31,8 @@ const App = () => (
           <Route exact path="/:super" render={({match})=>
             <Bricks super={match.params.super} />} />
           <Route exact path='/:super/doc/:document_id' component={Document} />
-          <Route exact path="/:super/test/:test_id" render={({match})=>
-            <MCTest match={match} test={MCConfig.tests[match.params.test_id]} />} />
+          <Route exact path="/:super/test/:test_id" render={(routerProps)=>
+            <MCTest routerProps={routerProps} test={MCConfig.tests.filter((t) => (t.id===routerProps.match.params.test_id))[0]} />} />
         </Switch>
 
         <Switch>
