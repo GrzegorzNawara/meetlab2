@@ -13,9 +13,10 @@ export const MCConfig = {
           'Probably no' // answer c
         ],
         score: [
-          {choosen:'a', shows:'KNOWLEDGE', points:+3},
-          {choosen:'b', shows:'KNOWLEDGE', points:+1},
-          {choosen:'c', shows:'KNOWLEDGE', points:0}
+          {choosen:[1,1,1], shows:'KNOWLEDGE', points:1},
+          {choosen:[0,1,0], shows:'KNOWLEDGE', points:0},
+          {choosen:[0,0,1], shows:'KNOWLEDGE', points:0},
+          {choosen:[0,0,1], shows:'KNOWLEDGE', points:0}
       ]},
       {
         stem: 'Is my dog a mammal?',
@@ -25,9 +26,9 @@ export const MCConfig = {
           'Probably no' // answer c
         ],
         score: [
-          {choosen:'a', shows:'KNOWLEDGE', points:+3},
-          {choosen:'b', shows:'KNOWLEDGE', points:+1},
-          {choosen:'c', shows:'KNOWLEDGE', points:0}
+          {choosen:[1,0,0], shows:'KNOWLEDGE', points:3},
+          {choosen:[0,1,0], shows:'KNOWLEDGE', points:0},
+          {choosen:[0,0,1], shows:'KNOWLEDGE', points:0}
       ]},
   ]},
   {
@@ -44,9 +45,10 @@ export const MCConfig = {
           'Probably no' // answer c
         ],
         score: [
-          {choosen:'a', shows:'KNOWLEDGE', points:+3},
-          {choosen:'b', shows:'KNOWLEDGE', points:+1},
-          {choosen:'c', shows:'KNOWLEDGE', points:0}
+          {choosen:[1,0,0], shows:'KNOWLEDGE', points:1},
+          {choosen:[0,1,0], shows:'KNOWLEDGE', points:0},
+          {choosen:[0,0,1], shows:'KNOWLEDGE', points:0},
+          {choosen:[1,1,1], shows:'KNOWLEDGE', points:0}
       ]},
       {
         stem: 'Is my fish a mammal?',
@@ -56,9 +58,9 @@ export const MCConfig = {
           'Probably no' // answer c
         ],
         score: [
-          {choosen:'a', shows:'KNOWLEDGE', points:0},
-          {choosen:'b', shows:'KNOWLEDGE', points:0},
-          {choosen:'c', shows:'KNOWLEDGE', points:5}
+          {choosen:[1,0,0], shows:'KNOWLEDGE', points:1},
+          {choosen:[0,1,0], shows:'KNOWLEDGE', points:0},
+          {choosen:[0,0,1], shows:'KNOWLEDGE', points:0}
       ]},
   ]}
 ]}
