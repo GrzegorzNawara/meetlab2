@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import MCItem from './MCItem'
 import debug from '../debug'
 
-const MCTest = ({routerProps, test: { id, title, subtitle, look, questions }}) => (
+const MCTest = ({routerProps, test: { id, title, subtitle, look, shows, questions }}) => (
   <div className={look+' container border-right border-left box-shadow mt-4'}>
     <Link to={'/'+routerProps.match.params.super}>
       <button type="button" className="color-gray close document-close-btn">&times;</button>
@@ -23,13 +23,17 @@ const MCTest = ({routerProps, test: { id, title, subtitle, look, questions }}) =
             return null;
           });
           localStorage.setItem('mc-score-'+id,
-            questions.reduce((qret,q,qi) => (
-              qret+q.score.reduce((ret,s,si) => {
-                ret=ret+((sessionStorage.getItem(id+'-'+qi)===s.choosen.toString())?s.points:0);
-                //ret[s.shows]+((sessionStorage.getItem(id+'-'+qi)===s.choosen.toString())?s.points:0);
-                return ret;
-            },0)
-          ),0));
+            JSON.stringify(shows.map((shows)=>{
+              return {
+                ...shows,
+                points: questions.reduce((qret,q,qi) => (
+                  qret+q.score.filter((s)=>(s.shows_id===shows.id)).reduce((ret,s,si) => {
+                    ret=ret+((sessionStorage.getItem(id+'-'+qi)===s.choosen.toString())?s.points:0);
+                    //ret[s.shows]+((sessionStorage.getItem(id+'-'+qi)===s.choosen.toString())?s.points:0);
+                    return ret;
+                },0)
+              ),0)}
+          })));
           routerProps.history.replace('/'+routerProps.match.params.super);
         }}>
         {questions.map((r,i) => (

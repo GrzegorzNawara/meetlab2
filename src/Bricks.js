@@ -45,7 +45,10 @@ class Bricks extends React.Component {
               case 'MC_TEST': return (
                   <Link to={r.super+'/test/'+JSON.parse(r.params).test_id} key={r.id}>
                     <Brick key={'brick'+i} title={r.title} subtitle={r.subtitle}
-                      score={localStorage.getItem('mc-score-'+JSON.parse(r.params).test_id)+'%'}
+                      score={
+                        (localStorage.getItem('mc-score-'+JSON.parse(r.params).test_id))?
+                        JSON.parse(localStorage.getItem('mc-score-'+JSON.parse(r.params).test_id)):[]
+                      }
                       look={JSON.parse(r.params).look} />
                   </Link>
                 )

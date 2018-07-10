@@ -45,7 +45,8 @@ body {
 .look-PIN-btn { background-color: #ff0000; color: #ffffff; width: 50px!important;}
 .look-mc { background-color: #ffd65c; color: #000000;}
 .look-mc-default { background-color: #ffd65c; color: #000000;}
-.look-score { font-size: 2em;}
+.look-score { font-size: 1.5em;}
+.look-score-label { font-size: 0.7em;}
 
 .loading-screen {
   width: 100vw;

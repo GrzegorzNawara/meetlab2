@@ -9,7 +9,11 @@ const Brick = ({ title, subtitle, score, look}) => (
         <div>{subtitle}</div>
       </div>
       <div className='col text-right'>
-        <div className='look-score'>{score}</div>
+        <div className='look-score'>{
+          (score)?score.map((s,i) => (
+            <div key={i}><div className='look-score-label mb-0 pb-0'>{s.title}</div>{s.points+'%'}</div>
+          )):''
+        }</div>
       </div>
     </div>
   </div>
