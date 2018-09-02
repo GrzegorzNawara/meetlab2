@@ -30,6 +30,12 @@ class MenuModal extends React.Component {
           type: 'WORKSHOP'
         });
         break;
+      case 'ADD_SIMULATION':
+        this.props.onAdd({
+          ...newBrick,
+          type: 'SIMULATION'
+        });
+        break;
       case 'ADD_DOCUMENT':
         this.props.onAdd({
           ...newBrick,

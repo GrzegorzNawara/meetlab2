@@ -42,6 +42,12 @@ class Bricks extends React.Component {
                       look={JSON.parse(r.params).look} />
                   </Link>
                 )
+              case 'SIMULATION': return (
+                  <a key={'link'+i} href={'http://mir.ignifer-labs.com/#/'+r.id+'/'+localStorage.getItem('me')}>
+                    <Brick key={'brick'+i} title={r.title} subtitle={r.subtitle}
+                      look={JSON.parse(r.params).look} />
+                  </a>
+                )
               case 'MC_TEST': return (
                   <Link to={r.super+'/test/'+JSON.parse(r.params).test_id} key={r.id}>
                     <Brick key={'brick'+i} title={r.title} subtitle={r.subtitle}
