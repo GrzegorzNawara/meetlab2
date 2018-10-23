@@ -17,11 +17,14 @@ const client = new AWSAppSyncClient({
   auth: {
     type: appSyncConfig.authenticationType,
     apiKey: appSyncConfig.apiKey,
-  }
+  },
+  disableOffline: true
 },
 {
   shouldBatch: true
 });
+
+console.log('BUM');
 
 if(localStorage.getItem('me')===null)
   localStorage.setItem('me',uuidV4())
