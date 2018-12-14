@@ -59,8 +59,7 @@
 <h4>Rozpoczęcie gry</h4>
 <p align="justify">Każda symulacja rozpoczyna się w chwili jej utworzenia przez prowadzącego. Aby wejść do gry, należy:
 <ul>
-<li>Wejść na stroną growbook.pl
-</li><li>Wejść do warsztatu utworzonego przez prowadzącego
+<li>Wejść do warsztatu utworzonego przez prowadzącego
 </li><li>Wejść do symulacji uruchomionej przez prowadzącego dla Twojego stołu
 </li>
 </ul>

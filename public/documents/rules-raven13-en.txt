@@ -61,8 +61,7 @@
 <h4>Joining the game</h4>
 <p align="justify">Each simulation begins when it is created by the facilitator. To join the game you need to:
 <ul>
-<li>Enter growbook.pl
-</li><li>Enter the workshop
+<li>Enter the workshop
 </li><li>Join the simulation started for your table
 </li>
 </ul>
@@ -82,7 +81,7 @@
 
 
 <h4>The map</h4>
-<p align="justify">The map consists of connected rooms. The shape of the rooms does not matter. Each room has its own number and name. 
+<p align="justify">The map consists of connected rooms. The shape of the rooms does not matter. Each room has its own number and name.
 The room can be endangered, saved or destroyed.
 </p>
 
