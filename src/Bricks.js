@@ -1,16 +1,14 @@
 import React from 'react'
 import { graphql, compose } from 'react-apollo'
-import { Link } from 'react-router-dom';
-import { getKey, getBrick, listBricks } from './graphql/Queries'
+import { getBrick, listBricks } from './graphql/Queries'
 import { onCreateBrick, onUpdateBrick, onDeleteBrick } from './graphql/Subscriptions'
+import { cssStyles } from './config/AppConfig'
 import Brick from './components/Brick'
-import PINLock from './components/PINLock'
+import RavenBrick from './components/RavenBrick'
 import debug from './debug'
 
 class Bricks extends React.Component {
-  state = {
-    PIN: '0000'
-  }
+
   componentWillMount(){
     this.props.subscribeToDelete();
     this.props.subscribeToUpdate();
@@ -23,40 +21,36 @@ class Bricks extends React.Component {
     }
   }
 
-  onPINSubmit = (PIN) => {
-    this.setState({ ...this.state, PIN:PIN});
-  }
-
   render() {
-    if(!((this.props.me && this.props.me.owner===this.props.workshop.owner)
-      || (this.props.workshop && localStorage.getItem('PIN'+this.props.workshop.id)===this.props.workshop.PIN)
-    )) return (<PINLock workshop={this.props.workshop} onPINSubmit={this.onPINSubmit} />);
     return (
-      <div className="container">
+      <div className="container"><div className="row py-3 justify-content-center">
         {
           this.props.bricks.map((r, i) => {
             switch (r.type) {
               case 'DOCUMENT': return (
-                  <Link to={r.super+'/doc/'+JSON.parse(r.params).doc} key={r.id}>
-                    <Brick key={'brick'+i} title={r.title} subtitle={r.subtitle}
-                      look={JSON.parse(r.params).look} />
-                  </Link>
+                  <Brick key={'brick'+i} title={r.title} subtitle={r.subtitle}
+                    look={JSON.parse(r.params).look}
+                    linkTo={r.super+'/doc/'+JSON.parse(r.params).doc} />
                 )
-              case 'SIMULATION': return (
+              case 'RAVEN':
+                return (
+                    <RavenBrick key={'brick'+i} title={r.title}
+                      id={r.id} look={JSON.parse(r.params).look} />
+                )
+              case 'MIR': return (
                   <a key={'link'+i} href={'http://mir.ignifer-labs.com/#/'+r.id+'/'+localStorage.getItem('me')}>
                     <Brick key={'brick'+i} title={r.title} subtitle={r.subtitle}
                       look={JSON.parse(r.params).look} />
                   </a>
                 )
               case 'MC_TEST': return (
-                  <Link to={r.super+'/test/'+JSON.parse(r.params).test_id} key={r.id}>
                     <Brick key={'brick'+i} title={r.title} subtitle={r.subtitle}
                       score={
                         (localStorage.getItem('mc-score-'+JSON.parse(r.params).test_id))?
                         JSON.parse(localStorage.getItem('mc-score-'+JSON.parse(r.params).test_id)):[]
                       }
-                      look={JSON.parse(r.params).look} />
-                  </Link>
+                      look={JSON.parse(r.params).look}
+                      linkTo={r.super+'/test/'+JSON.parse(r.params).doc} />
                 )
               default:return (
                 <Brick key={'brick'+i} title={r.title} subtitle={r.subtitle}
@@ -65,21 +59,12 @@ class Bricks extends React.Component {
             }
           })
         }
-      </div>
+      </div></div>
     )
   }
 }
 
 export default compose(
-  graphql(getKey, {
-    options: props => ({
-      variables: { id: localStorage.getItem('key') },
-      fetchPolicy: 'cache-and-network'
-    }),
-    props: props => ({
-      me: props.data.getKey
-    })
-  }),
   graphql(getBrick, {
     options: props => ({
       variables: { id: props.super },
@@ -98,7 +83,7 @@ export default compose(
     props: props => ({
       getProps: { ...props },
       bricks: props.data.listBricks?props.data.listBricks.items
-        .slice().sort((a,b)=>(-a.sort.localeCompare(b.sort))):[],
+        .slice().sort((a,b)=>(a.sort.localeCompare(b.sort))):[],
 
       subscribeToDelete: (params) => {
         props.data.subscribeToMore({

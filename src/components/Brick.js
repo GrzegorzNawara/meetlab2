@@ -1,20 +1,22 @@
 import React from 'react'
-//import debug from '../include/debug'
+import { Link } from 'react-router-dom';
+import { cssStyles } from '../config/AppConfig'
+import debug from '../debug'
 
-const Brick = ({ title, subtitle, score, look}) => (
-  <div className={look+" w-100 rounded px-3 py-3 my-2 align-items-center"}>
-    <div className='row'>
-      <div className='col'>
+const Brick = ({ title, subtitle, score, look, linkTo }) => (
+  <div className="col-12 px-1">
+    <Link to={linkTo}>
+      <div className="rounded p-3 m-1 align-items-center" style={cssStyles[look]} >
         <h4>{title}</h4>
         <div>{subtitle}</div>
       </div>
-      <div className='col text-right'>
-        <div className='look-score'>{
-          (score)?score.map((s,i) => (
-            <div key={i}><div className='look-score-label mb-0 pb-0'>{s.title}</div>{s.points+'%'}</div>
-          )):''
-        }</div>
-      </div>
+    </Link>
+    <div className='text-right'>
+      <div style={cssStyles.lookMCScore}>{
+        (score)?score.map((s,i) => (
+          <div key={i}><div style={cssStyles.lookMCScoreLabel} className='mb-0 pb-0'>{s.title}</div>{s.points+'%'}</div>
+        )):''
+      }</div>
     </div>
   </div>
 )

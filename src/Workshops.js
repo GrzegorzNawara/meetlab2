@@ -1,12 +1,14 @@
 import React from 'react'
 import { graphql, compose } from 'react-apollo'
 import { Link } from 'react-router-dom';
-import { listBricks, getKey } from './graphql/Queries'
+import { listBricks } from './graphql/Queries'
 import { onCreateBrick, onUpdateBrick, onDeleteBrick } from './graphql/Subscriptions'
 import Workshop from './components/Workshop'
-//import debug from './include/debug'
+import WorkshopGate from './components/WorkshopGate'
+//import debug from './debug'
 
 class Workshops extends React.Component {
+  state = { gateCode: '' }
 
   componentWillMount(){
     if (this.props.routerProps.location.hash) this.props.routerProps.history.push('./');
@@ -23,10 +25,11 @@ class Workshops extends React.Component {
     //{this.props.super}
     return (
       <div className="container">
-        {this.props.bricks.map((r, i) => (
+        <WorkshopGate look='lookGate' workshopList={this} />
+        {this.props.bricks.filter((b) => b.PIN===localStorage.getItem('gateCode') || b.owner===localStorage.getItem('mg')).map((r, i) => (
             <Link to={r.id} key={r.id}>
               {(i%3===0)?<div style= {{height:'10px'}} />:null}
-              <Workshop title={r.title} subtitle={r.subtitle} date={r.date} owner={r.owner} PIN={r.pin} look='look-workshop'/>
+              <Workshop title={r.title} subtitle={r.subtitle} date={r.date} owner={r.owner} PIN={r.pin} look='lookWorkshop'/>
             </Link>
           ))
         }
@@ -36,15 +39,6 @@ class Workshops extends React.Component {
 }
 
 export default compose(
-  graphql(getKey, {
-    options: props => ({
-      variables: { id: localStorage.getItem('key') },
-      fetchPolicy: 'cache-and-network'
-    }),
-    props: props => ({
-      me: props.data.getKey
-    })
-  }),
   graphql(listBricks, {
     options: props => ({
       variables: { super: props.super },
@@ -53,7 +47,7 @@ export default compose(
     props: props => ({
       getProps: { ...props },
       bricks: props.data.listBricks?props.data.listBricks.items
-        .filter((r) => (r.title!=='Invisible Workshop' || (props.ownProps.me && r.owner===props.ownProps.me.owner)))
+        .filter((r) => (r.title!=='Invisible Workshop' || (r.owner===localStorage.getItem('mg'))))
         .slice().sort((a,b)=>(-a.sort.localeCompare(b.sort))):[],
       subscribeToDelete: (params) => {
         props.data.subscribeToMore({

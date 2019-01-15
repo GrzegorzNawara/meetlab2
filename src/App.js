@@ -1,5 +1,5 @@
 import React from 'react';
-import { HashRouter, Route, Switch, Redirect } from 'react-router-dom'
+import { HashRouter, Route, Switch } from 'react-router-dom'
 import Bricks from './Bricks'
 import Workshops from './Workshops'
 import NavBar from './NavBar'
@@ -9,7 +9,8 @@ import MenuModal from './MenuModal'
 import Document from './components/Document'
 import { MCConfig } from './config/MCConfig'
 import MCTest from './components/MCTest'
-//import debug from './debug'
+import AccessCheck from './AccessCheck'
+import debug from './debug'
 
 const App = () => (
   <div className="App">
@@ -24,8 +25,7 @@ const App = () => (
 
         <Switch>
           <Route exact path="/key/:key" render={({match}) => {
-            localStorage.setItem("key", match.params.key);
-            return (<Redirect to="/"/>); }} />
+            return (<AccessCheck myKey={match.params.key} />) }} />
           <Route exact path="/" render={(routerProps)=>
             <Workshops routerProps={routerProps} super={'top'} />} />
           <Route exact path="/:super" render={({match})=>
@@ -44,4 +44,4 @@ const App = () => (
   </div>
 )
 
-export default App;
+export default App

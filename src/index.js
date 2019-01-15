@@ -24,8 +24,6 @@ const client = new AWSAppSyncClient({
   shouldBatch: true
 });
 
-console.log('BUM');
-
 if(localStorage.getItem('me')===null)
   localStorage.setItem('me',uuidV4())
 

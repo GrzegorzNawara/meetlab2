@@ -2,6 +2,7 @@ import React from 'react'
 import { compose, graphql } from 'react-apollo'
 import { getBrick, getKey } from './graphql/Queries'
 import { updateBrick } from './graphql/Mutations'
+import { cssStyles } from './config/AppConfig'
 import MiniNavBar from './MiniNavBar'
 //import debug from './include/debug'
 
@@ -34,7 +35,7 @@ render () {
         //const data = new FormData(form);
         //onSubmit({workshop_id:workshop_id, title:form.elements['title'].value, subtitle:form.elements['subtitle'].value});
       }}>
-      <div className="navbar look-workshop border-bottom box-shadow">
+      <div className="navbar border-bottom box-shadow" style={cssStyles.lookWorkshop}>
         <div className="workshop-navbar container text-center">
           <div className=''>
             <span className='h3'>
@@ -52,7 +53,7 @@ render () {
             </span>
           </div>
           <div className="">
-            {(this.props.me && this.props.workshop && this.props.me.owner===this.props.workshop.owner)?
+            {(this.props.workshop && localStorage.getItem('mg')===this.props.workshop.owner)?
               <img onClick={this.updateWorkshop} className="save-image m-2" alt="save" src="images/save-button.png"></img>:null}
           </div>
         </div>

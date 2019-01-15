@@ -4,9 +4,9 @@ import { graphql, compose } from 'react-apollo'
 import uuidV4 from 'uuid/v4'
 import MenuItem from './components/MenuItem'
 import { createBrick, deleteBrick } from './graphql/Mutations'
-import { listBricks, getKey } from './graphql/Queries'
-import { MenuConfig } from './config/MenuConfig'
-//import debug from './include/debug'
+import { listBricks } from './graphql/Queries'
+import { MenuConfig } from './config/AppConfig'
+import debug from './debug'
 
 class MenuModal extends React.Component {
   menuAction = ({type, menu, mysuper }) => {
@@ -17,9 +17,9 @@ class MenuModal extends React.Component {
       title: menu.params.title,
       subtitle: menu.params.subtitle,
       date: new Date().toISOString().split("T")[0],
-      owner: this.props.me.owner,
+      owner: localStorage.getItem('mg'),
       params: JSON.stringify(menu.params),
-      PIN: Math.floor(8999*Math.random()+1000),
+      PIN: Math.floor(899999*Math.random()+100000),
       type: 'UNKNOWN'
     }
 
@@ -30,10 +30,24 @@ class MenuModal extends React.Component {
           type: 'WORKSHOP'
         });
         break;
-      case 'ADD_SIMULATION':
+      case 'ADD_RAVEN':
+        fetch('http://api.ignifer-labs.com/raven/api_init_game.php?game_id='+newBrick.id+'&billing_user_id='+newBrick.owner+'&game_title='+newBrick.title, {
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+          }
+        }).then((response) => response.json());
         this.props.onAdd({
           ...newBrick,
-          type: 'SIMULATION'
+          title:(!this.props.bricks)?0:
+            this.props.bricks.filter((b)=>b.type==='RAVEN').length+1,
+          type: 'RAVEN'
+        });
+        break;
+      case 'ADD_MIR':
+        this.props.onAdd({
+          ...newBrick,
+          type: 'MIR'
         });
         break;
       case 'ADD_DOCUMENT':
@@ -65,7 +79,7 @@ class MenuModal extends React.Component {
   }
 
   render() {
-    if(this.props.me===undefined) return null;
+    if(!localStorage.getItem('mg')) return null;
     return (
       <Popup trigger={<div className="admin-button"><img src='./images/admin-button.png' alt=''/></div>}
          modal lockScroll closeOnEscape closeOnDocumentClick position="right center">
@@ -103,7 +117,7 @@ export default compose(
   graphql(createBrick, {
     props: props => ({
       onAdd: (brick) => props.mutate({
-        variables: brick,
+        variables: debug(brick,'NEW BRICK'),
         optimisticResponse: {
           __typename: 'Mutation',
           createBrick: { ...brick,  __typename: 'Brick' }
@@ -130,15 +144,6 @@ export default compose(
         }
       })
   })}),
-  graphql(getKey, {
-    options: props => ({
-      variables: { id: localStorage.getItem('key') },
-      fetchPolicy: 'cache-and-network'
-    }),
-    props: props => ({
-      me: props.data.getKey
-    })
-  }),
   graphql(listBricks, {
     options: props => ({
       variables: { super: props.match.params.super },
