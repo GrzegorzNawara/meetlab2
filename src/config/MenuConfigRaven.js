@@ -6,19 +6,25 @@ export const MenuConfigRaven = {
     params: { title: 'Invisible Workshop', subtitle:'Workshop', look: 'lookWorkshop' }
   }],
   workshopMenu:[
-    { title: 'Dobra Postawa',
-      subtitle: 'Dokument PL',
+    { title: 'Dobra Postawa (PL)',
+      subtitle: 'Show Dokument',
       action: 'ADD_DOCUMENT',
-      params: {
-        title: 'Dobra Postawa', subtitle:'Dokument PL',
-        doc:'dobra-postawa', look: 'lookDocument' }
+      params: { doc:'dobra-postawa', look: 'lookDocument' }
     },
-    { title: 'Agile Mindset PL',
-      subtitle: 'Dokument PL',
+    { title: 'Agile Mindset (PL)',
+      subtitle: 'Show Dokument',
       action: 'ADD_DOCUMENT',
-      params: {
-        title: 'Agile Mindset', subtitle:'Dokument PL',
-        doc:'agile-mindset', look: 'lookDocument' }
+      params: { doc:'agile-mindset', look: 'lookDocument' }
+    },
+    { title: 'Zasady (PL)',
+      subtitle: 'Raven 13 - Zasady',
+      action: 'ADD_DOCUMENT',
+      params: { doc:'rules_raven13_pl', look: 'lookDocument' }
+    },
+    { title: 'Rules (EN)',
+      subtitle: 'Raven 13 - Rules',
+      action: 'ADD_DOCUMENT',
+      params: { doc:'rules_raven13_en', look: 'lookDocument' }
     },
     { title: 'RAVEN',
       subtitle: 'Start Simulation',

@@ -1,26 +1,17 @@
+<br>
 <h3>Raven 13</h3>
+<br />
 
 <p align="justify">Znajdujecie się na podwodnej stacji wydobywczej "Raven 13".
 <br>Przed chwilą doszło do katastrofy. W wyniku podwodnego trzęsienia ziemi zostały naruszone fundamenty całej stacji. Wszystkie pomieszczenia są zagrożone zniszczeniem.
 <br>Celem gry jest uratowanie jak największej liczby ludzi. Działacie wspólnie. </p><br>
-
-<h4>Przygotowanie stołu</h4>
-<p align="justify">
-<div>Połóż na stole:</div>
-<ul>
-    <li>1 mapę stacji Raven 13;</li>
-    <li>żółte karteczki, kolorowy papier, pisaki;</li>
-    <li>uruchom dla stołu symulacje przez growbook.pl;</li>
-</ul>
-
-
 
 
 <h4>Skrót zasad</h4>
 <ul>
 <li>Wszystkie pokoje są zagrożone - trzeba je zabezpieczyć, zanim zostaną zniszczone.
 </li>
-<li>W każdej drużynie jest 9 ratowników, numerowanych 1-9.
+<li>W każdej drużynie jest min. 9 ratowników, numerowanych 1-9.
 </li>
 <li>Ratownicy kierowani przez graczy zaczynają w losowych pomieszczeniach a pozostali w 13.
 </li>
@@ -59,7 +50,8 @@
 <h4>Rozpoczęcie gry</h4>
 <p align="justify">Każda symulacja rozpoczyna się w chwili jej utworzenia przez prowadzącego. Aby wejść do gry, należy:
 <ul>
-<li>Wejść do warsztatu utworzonego przez prowadzącego
+<li>Wejść na stroną growbook.pl
+</li><li>Wejść do warsztatu utworzonego przez prowadzącego
 </li><li>Wejść do symulacji uruchomionej przez prowadzącego dla Twojego stołu
 </li>
 </ul>
@@ -98,7 +90,7 @@ Pomieszczenie może być zagrożone, uratowane lub zniszczone.
 </ol>
 </p>
 <div class="text-center">
-<img alt="Zagrożone" width="250px" src="https://www.abcportal.eu/growbook/images/raven-rules-zagroz.png">
+<img alt="Zagrożone" width="250px" src="http://api.ignifer-labs.com/meetlab-old/images/raven-rules-zagroz.png">
 </div>
 
 
@@ -107,7 +99,7 @@ Pomieszczenie może być zagrożone, uratowane lub zniszczone.
 <p align="justify">Pomieszczenie raz uratowane nie może już nigdy zostać zniszczone. Ludzie z tego pomieszczenia zostają uratowani. Liczba uratowanych ludzi jest pokazywana u góry ekranu.
 </p>
 <div class="text-center">
-<img alt="Uratowane" width="250px" src="https://www.abcportal.eu/growbook/images/raven-rules-urat.png">
+<img alt="Uratowane" width="250px" src="http://api.ignifer-labs.com/meetlab-old/images/raven-rules-urat.png">
 </div>
 
 
@@ -121,7 +113,7 @@ Pomieszczenie może być zagrożone, uratowane lub zniszczone.
 <p align="justify">Zegar u góry ekranu pokazuje aktualną minutę gry. Zegar w pomieszczeniu pokazuje minutę, w której pomieszczenie ulegnie zniszczeniu.
 </p>
 <div class="text-center">
-<img alt="Zegar" width="250px" src="https://www.abcportal.eu/growbook/images/raven-rules-clock.png">
+<img alt="Zegar" width="250px" src="http://api.ignifer-labs.com/meetlab-old/images/raven-rules-clock.png">
 </div>
 <p align="justify">Jeśli zegar pokazuje "?" - nie znamy jeszcze czasu.
 </p>
@@ -136,7 +128,7 @@ Pomieszczenie może być zagrożone, uratowane lub zniszczone.
 <p align="justify">Pomieszczenie raz zniszczone nie może zostać już nigdy uratowane. Ludzie z tego pomieszczenia zostają nieodwracalnie straceni. Zniszczone pomieszczenia nie utrudniają ruchu ratowników.
 </p>
 <div class="text-center">
-<img alt="Zniszczone" width="250px" src="https://www.abcportal.eu/growbook/images/raven-rules-zniszcz.png">
+<img alt="Zniszczone" width="250px" src="http://api.ignifer-labs.com/meetlab-old/images/raven-rules-zniszcz.png">
 </div>
 
 
@@ -150,7 +142,7 @@ Pomieszczenie może być zagrożone, uratowane lub zniszczone.
 <p align="justify">Każdy ratownik automatycznie pracuje nad zabezpieczeniem pomieszczenia, w którym się znajduje.
 </p>
 <div class="text-center">
-<img alt="Umiejętności" width="250px" src="https://www.abcportal.eu/growbook/images/raven-rules-topbar1.png">
+<img alt="Umiejętności" width="250px" src="http://api.ignifer-labs.com/meetlab-old/images/raven-rules-topbar1.png">
 </div>
 <p align="justify">Ilość pracy wykonywanej przez Ciebie w pomieszczeniu jest pokazywana na pasku u góry ekranu w formie "moja praca na minutę" + "praca wykonywana przez innych na minutę".
 </p>
@@ -184,7 +176,7 @@ Pomieszczenie może być zagrożone, uratowane lub zniszczone.
 <p align="justify">Możesz wybrać dowolny numer pomieszczenia - ratownik pójdzie tam najkrótszą drogą. Wszyscy ratownicy poruszają się z tą samą szybkością. Mają do pokonania trudny teren, więc poruszają się stosunkowo wolno.
 </p>
 <div class="text-center">
-<img alt="Poruszanie" width="250px" src="https://www.abcportal.eu/growbook/images/raven-rules-move.png">
+<img alt="Poruszanie" width="250px" src="http://api.ignifer-labs.com/meetlab-old/images/raven-rules-move.png">
 </div>
 
 
@@ -196,7 +188,7 @@ Pomieszczenie może być zagrożone, uratowane lub zniszczone.
 <p align="justify">Przywołanie nie wymaga zgody przywoływanego.
 </p>
 <div class="text-center">
-<img alt="Przywołanie" width="250px" src="https://www.abcportal.eu/growbook/images/raven-rules-call.png">
+<img alt="Przywołanie" width="250px" src="http://api.ignifer-labs.com/meetlab-old/images/raven-rules-call.png">
 </div>
 
 <h4>Efekt domina</h4>
@@ -205,4 +197,4 @@ Pomieszczenie może być zagrożone, uratowane lub zniszczone.
 
 
 <p><small>Autor: Grzegorz Nawara<br>
-ABCPORTAL 2017-2018 Wszystkie prawa zastrzeżone</small></p>
+Ignifer Labs 2017-2018 Wszystkie prawa zastrzeżone</small></p>

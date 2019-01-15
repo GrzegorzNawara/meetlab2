@@ -9,16 +9,16 @@ import { MenuConfig } from './config/AppConfig'
 import debug from './debug'
 
 class MenuModal extends React.Component {
-  menuAction = ({type, menu, mysuper }) => {
+  menuAction = ({type, menuItem, mysuper }) => {
     const newBrick = {
       id: uuidV4(),
       super: (mysuper)?mysuper:'top',
       sort: Date.now().toString(),
-      title: menu.params.title,
-      subtitle: menu.params.subtitle,
+      title: menuItem.title,
+      subtitle: menuItem.subtitle,
       date: new Date().toISOString().split("T")[0],
       owner: localStorage.getItem('mg'),
-      params: JSON.stringify(menu.params),
+      params: JSON.stringify(menuItem.params),
       PIN: Math.floor(899999*Math.random()+100000),
       type: 'UNKNOWN'
     }
@@ -101,7 +101,7 @@ class MenuModal extends React.Component {
                     title={item.title}
                     subtitle={item.subtitle}
                     look={item.params.look}
-                    onClick={() => {this.menuAction({type:item.action, menu:item, mysuper:this.props.match.params.super }); close()}} />
+                    onClick={() => {this.menuAction({type:item.action, menuItem:item, mysuper:this.props.match.params.super }); close()}} />
                 )})}
                </div>
              </div>
