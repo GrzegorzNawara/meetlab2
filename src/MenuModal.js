@@ -31,7 +31,7 @@ class MenuModal extends React.Component {
         });
         break;
       case 'ADD_RAVEN':
-        fetch('http://api.ignifer-labs.com/raven/api_init_game.php?game_id='+newBrick.id+'&billing_user_id='+newBrick.owner+'&game_title='+newBrick.title, {
+        fetch('http://api.ignifer-labs.com/raven/api_init_game.php?workshop_id='+mysuper+'&game_id='+newBrick.id+'&billing_user_id='+newBrick.owner+'&game_title='+newBrick.title, {
           headers: {
             'Content-Type': 'application/json',
             'Accept': 'application/json'
@@ -39,8 +39,12 @@ class MenuModal extends React.Component {
         }).then((response) => response.json());
         this.props.onAdd({
           ...newBrick,
-          title:(!this.props.bricks)?0:
-            this.props.bricks.filter((b)=>b.type==='RAVEN').length+1,
+          title:(this.props.bricks &&
+            this.props.bricks
+              .filter((b)=>Number(Date.now().toString())-Number(b.sort)<15*60*1000)
+              .filter((b)=>b.type==='RAVEN').length>0)?
+            Number(this.props.bricks.filter((b)=>Number(Date.now().toString())-Number(b.sort)<15*60*1000)
+            .filter((b)=>b.type==='RAVEN')[0].title)+1:1,
           type: 'RAVEN'
         });
         break;
@@ -117,7 +121,7 @@ export default compose(
   graphql(createBrick, {
     props: props => ({
       onAdd: (brick) => props.mutate({
-        variables: debug(brick,'NEW BRICK'),
+        variables: brick,
         optimisticResponse: {
           __typename: 'Mutation',
           createBrick: { ...brick,  __typename: 'Brick' }

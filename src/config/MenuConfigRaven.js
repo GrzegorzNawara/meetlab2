@@ -6,16 +6,6 @@ export const MenuConfigRaven = {
     params: { title: 'Invisible Workshop', subtitle:'Workshop', look: 'lookWorkshop' }
   }],
   workshopMenu:[
-    { title: 'Dobra Postawa (PL)',
-      subtitle: 'Show Dokument',
-      action: 'ADD_DOCUMENT',
-      params: { doc:'dobra-postawa', look: 'lookDocument' }
-    },
-    { title: 'Agile Mindset (PL)',
-      subtitle: 'Show Dokument',
-      action: 'ADD_DOCUMENT',
-      params: { doc:'agile-mindset', look: 'lookDocument' }
-    },
     { title: 'Zasady (PL)',
       subtitle: 'Raven 13 - Zasady',
       action: 'ADD_DOCUMENT',
@@ -32,6 +22,16 @@ export const MenuConfigRaven = {
       params: {
         title: 'Join Raven', subtitle:'Simulation',
         look: 'lookSimulation' }
+    },
+    { title: 'Dobra Postawa (PL)',
+      subtitle: 'Show Dokument',
+      action: 'ADD_DOCUMENT',
+      params: { doc:'dobra-postawa', look: 'lookDocument' }
+    },
+    { title: 'Agile Mindset (PL)',
+      subtitle: 'Show Dokument',
+      action: 'ADD_DOCUMENT',
+      params: { doc:'agile-mindset', look: 'lookDocument' }
     },
     { title: 'CLEAR',
       subtitle: 'Clear this workshop',
@@ -59,7 +59,10 @@ export const cssStylesRaven = {
   lookGate: { backgroundColor:theme.secondaryColorBg, color:theme.secondaryColor },
   lookWorkshop: { backgroundColor:theme.mainColorBg, color:theme.mainColor },
   lookDocument: { backgroundColor:'#dddddd', color:'#333333' },
+
   lookSimulation: { backgroundColor:theme.secondaryColorBg, color:theme.secondaryColor },
+  lookSimulationOver: { backgroundColor:'#aaaaaa', color:'#ffffff' },
+  lookSimulationResults: { backgroundColor:'#eeeeee', color:'#666666' },
 
   lookMCTest: { backgroundColor:'#ffd65c', color:'#000000' },
   lookMCScore: { fontSize:'1.5em' },
