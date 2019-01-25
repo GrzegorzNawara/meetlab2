@@ -1,17 +1,14 @@
 import React from 'react'
 import Popup from 'reactjs-popup'
-import { graphql, compose } from 'react-apollo'
 import uuidV4 from 'uuid/v4'
 import MenuItem from './components/MenuItem'
-import { createBrick, deleteBrick } from './graphql/Mutations'
-import { listBricks } from './graphql/Queries'
 import { MenuConfig } from './config/AppConfig'
 import debug from './debug'
 
 class MenuModal extends React.Component {
   menuAction = ({type, menuItem, mysuper }) => {
     const newBrick = {
-      id: uuidV4(),
+      id: debug(uuidV4(),'NEWID'),
       super: (mysuper)?mysuper:'top',
       sort: Date.now().toString(),
       title: menuItem.title,
@@ -39,12 +36,7 @@ class MenuModal extends React.Component {
         }).then((response) => response.json());
         this.props.onAdd({
           ...newBrick,
-          title:(this.props.bricks &&
-            this.props.bricks
-              .filter((b)=>Number(Date.now().toString())-Number(b.sort)<15*60*1000)
-              .filter((b)=>b.type==='RAVEN').length>0)?
-            Number(this.props.bricks.filter((b)=>Number(Date.now().toString())-Number(b.sort)<15*60*1000)
-            .filter((b)=>b.type==='RAVEN')[0].title)+1:1,
+          title: 'AUTO',
           type: 'RAVEN'
         });
         break;
@@ -98,14 +90,14 @@ class MenuModal extends React.Component {
              </div>
              <div className="modal-body">
                <div className="">
-                {((this.props.match.params.super)?MenuConfig.workshopMenu:MenuConfig.topMenu)
+                {((debug(this,'PROPS').props.super)?MenuConfig.workshopMenu:MenuConfig.topMenu)
                   .map((item,index)=>{return(
                   <MenuItem
                     key={index}
                     title={item.title}
                     subtitle={item.subtitle}
                     look={item.params.look}
-                    onClick={() => {this.menuAction({type:item.action, menuItem:item, mysuper:this.props.match.params.super }); close()}} />
+                    onClick={() => {this.menuAction({type:item.action, menuItem:item, mysuper:this.props.super }); close()}} />
                 )})}
                </div>
              </div>
@@ -117,46 +109,4 @@ class MenuModal extends React.Component {
   )}
 }
 
-export default compose(
-  graphql(createBrick, {
-    props: props => ({
-      onAdd: (brick) => props.mutate({
-        variables: brick,
-        optimisticResponse: {
-          __typename: 'Mutation',
-          createBrick: { ...brick,  __typename: 'Brick' }
-        },
-        update: (proxy, { data: { createBrick } }) => {
-          const data = proxy.readQuery({ query: listBricks, variables: { super: createBrick.super } });
-          data.listBricks.items.push(createBrick);
-          proxy.writeQuery({ query: listBricks, variables: { super: createBrick.super }, data });
-        }
-      })
-  })}),
-  graphql(deleteBrick, {
-    props: props => ({
-      onDelete: (brick) => props.mutate({
-        variables: { id: brick.id },
-        optimisticResponse: {
-          __typename: 'Mutation',
-          deleteBrick: { ...brick,  __typename: 'Brick' }
-        },
-        update: (proxy, { data: { deleteBrick } }) => {
-          const data = proxy.readQuery({ query: listBricks, variables: { super: deleteBrick.super } });
-          data.listBricks.items=[]; //.filter((r)=>(r.id!==deleteBrick.id));
-          proxy.writeQuery({ query: listBricks, variables: { super: deleteBrick.super }, data });
-        }
-      })
-  })}),
-  graphql(listBricks, {
-    options: props => ({
-      variables: { super: props.match.params.super },
-      fetchPolicy: 'cache-and-network'
-    }),
-    props: props => ({
-      getProps: { ...props },
-      bricks: props.data.listBricks?props.data.listBricks.items
-        .slice().sort((a,b)=>(-a.sort.localeCompare(b.sort))):[]
-    })
-  })
-)(MenuModal)
+export default MenuModal

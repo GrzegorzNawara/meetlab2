@@ -35,10 +35,6 @@ const App = () => (
             <MCTest routerProps={routerProps} test={MCConfig.tests.filter((t) => (t.id===routerProps.match.params.test_id))[0]} />} />
         </Switch>
 
-        <Switch>
-          <Route exact path="/" component={MenuModal} />
-          <Route exact path="/:super" component={MenuModal} />
-        </Switch>
       </div>
     </HashRouter>
   </div>

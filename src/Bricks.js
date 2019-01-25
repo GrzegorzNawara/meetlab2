@@ -1,15 +1,19 @@
 import React from 'react'
 import { graphql, compose } from 'react-apollo'
 import { getBrick, listBricks } from './graphql/Queries'
+import { createBrick, deleteBrick } from './graphql/Mutations'
 import { onCreateBrick, onUpdateBrick, onDeleteBrick } from './graphql/Subscriptions'
 import { cssStyles } from './config/AppConfig'
+import MenuModal from './MenuModal'
 import Brick from './components/Brick'
 import RavenBrick from './components/RavenBrick'
+import RavenResultBrick from './components/RavenResultBrick'
 import debug from './debug'
 
 class Bricks extends React.Component {
   timer = null;
-  ravenSim = { clear:false, result:0, users:0 };
+  ravenSim = {};
+  myBricks = [];
   state = {};
 
   getRavenStats = () => {
@@ -36,26 +40,33 @@ class Bricks extends React.Component {
   }
 
   componentWillUnmount() {
-    this.props.unsubscribe();
+    //this.props.unsubscribe();
     clearInterval(this.timer);
     this.timer = null;
   }
 
   componentDidUpdate(prevProps) {
-    this.props.subscribeToDelete();
-    this.props.subscribeToUpdate();
-    this.props.subscribeToCreate();
     if (this.props.super!==prevProps.super) {
       this.props.subscribeToCreate(this.props.super);
     }
   }
 
   render() {
-    this.ravenSim = { count:0, result:0, users:0 }
+    this.ravenSim = { clear:false, actualSort:0, lastSort:0, count:0, result:0, users:0 };
+    let title=0;
+    let last=0;
+    this.myBricks = this.props.bricks.slice().reverse().map((b,i,ba) => {
+      if(b.type!=='RAVEN') return b;
+      (i>0 && b['sort']-last<60000)?title=title+1:title=1;
+      last=b['sort'];
+      return {...b,title:title};
+    });
+
+
     return (
       <div className="container"><div className="row py-3 justify-content-center">
         {
-          this.props.bricks.map((r, i) => {
+          this.myBricks.reverse().map((r, i) => {
             switch (r.type) {
               case 'DOCUMENT': return (
                   <Brick key={'brick'+i} title={r.title} subtitle={r.subtitle}
@@ -63,26 +74,20 @@ class Bricks extends React.Component {
                     linkTo={r.super+'/doc/'+JSON.parse(r.params).doc} />
                 )
               case 'RAVEN':
-                if(this.ravenSim.clear)
-                  this.ravenSim = { clear:false, result:0, users:0 };
-                if(this.state.ravenStats && this.state.ravenStats[r.id])
-                  this.ravenSim = {
-                    clear: (r.title==='1'),
-                    result: this.ravenSim.result+this.state.ravenStats[r.id]['Result'],
-                    users: this.ravenSim.users+this.state.ravenStats[r.id]['Users']
-                  }
+                this.ravenSim = {
+                  result: (this.state.ravenStats && this.state.ravenStats[r.id])?this.ravenSim.result+this.state.ravenStats[r.id]['Result']:0,
+                  users: (this.state.ravenStats && this.state.ravenStats[r.id])?this.ravenSim.users+this.state.ravenStats[r.id]['Users']:0
+                }
                 return (
                     <React.Fragment key={'brick-f'+i}>
                       <RavenBrick key={'brick'+i} title={r.title}
                         id={r.id} stats={this.state.ravenStats} sort={r['sort']}
                         look={JSON.parse(r.params).look} />
-                    {(r.title!=='1')?null:
-                      <div key={'brick-a'+i} className="col-12 px-1 mb-2 align-items-center">
-                        <div className="rounded p-2 m-1 text-center" style={cssStyles.lookSimulationResults} >
-                          Team Result
-                          <h3>{(this.ravenSim.result>0)?this.ravenSim.result:0} VP &nbsp;&nbsp; {(this.ravenSim.result>0)?(Math.round(this.ravenSim.result/this.ravenSim.users*100)/100):'0.00'} VPU</h3>
-                        </div>
-                      </div>}
+                    {(r.title!==1)?null:
+                      <RavenResultBrick key={'brick-r'+i}
+                        id={r.id} stats={this.state.ravenStats} sort={r['sort']}
+                        ravenSim={this.ravenSim}
+                        look={JSON.parse(r.params).look} />}
                     </React.Fragment>
                 )
               case 'MIR': return (
@@ -107,7 +112,11 @@ class Bricks extends React.Component {
             }
           })
         }
-      </div></div>
+        </div>
+
+        <MenuModal super={this.props.super} bricks={this.props.bricks}
+          onAdd={this.props.onAdd} onDelete={this.props.onDelete} />
+      </div>
     )
   }
 }
@@ -126,7 +135,7 @@ export default compose(
   graphql(listBricks, {
     options: props => ({
       variables: { super: props.super },
-      fetchPolicy: 'cache-and-network'
+      fetchPolicy: 'cache-and-network' //'network-only'
     }),
     props: props => ({
       getProps: { ...props },
@@ -160,9 +169,41 @@ export default compose(
               ...prev,
               listBricks: {
                 __typename: 'BrickConnection',
-                items: (data.onCreateBrick.super===props.ownProps.super)?[data.onCreateBrick, ...prev.listBricks.items.filter(brick => brick.id !== data.onCreateBrick.id)]:[...prev.listBricks.items]
+                items: (data.onCreateBrick.super===props.ownProps.super)?
+                  [...prev.listBricks.items.filter(brick => brick.id !== data.onCreateBrick.id),
+                    data.onCreateBrick]:[...prev.listBricks.items]
           }})
       })}
     })
-  })
+  }),
+  graphql(createBrick, {
+    props: props => ({
+      onAdd: (brick) => props.mutate({
+        variables: debug(brick,'CREATE'),
+        optimisticResponse: {
+          __typename: 'Mutation',
+          createBrick: { ...brick,  __typename: 'Brick' }
+        },
+        update: (proxy, { data: { createBrick } }) => {
+          let data = proxy.readQuery({ query: listBricks, variables: { super: createBrick.super } });
+          data.listBricks.items.filter((i)=>i.id!==createBrick.id).push(createBrick);
+          proxy.writeQuery({ query: listBricks, variables: { super: createBrick.super }, data });
+        }
+      })
+  })}),
+  graphql(deleteBrick, {
+    props: props => ({
+      onDelete: (brick) => props.mutate({
+        variables: { id: brick.id },
+        optimisticResponse: {
+          __typename: 'Mutation',
+          deleteBrick: { ...brick,  __typename: 'Brick' }
+        },
+        update: (proxy, { data: { deleteBrick } }) => {
+          const data = proxy.readQuery({ query: listBricks, variables: { super: deleteBrick.super } });
+          data.listBricks.items=[]; //.filter((r)=>(r.id!==deleteBrick.id));
+          proxy.writeQuery({ query: listBricks, variables: { super: deleteBrick.super }, data });
+        }
+      })
+  })})
 )(Bricks)

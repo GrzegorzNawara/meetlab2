@@ -66,5 +66,8 @@ export const cssStylesRaven = {
 
   lookMCTest: { backgroundColor:'#ffd65c', color:'#000000' },
   lookMCScore: { fontSize:'1.5em' },
-  lookMCScoreLabel: { fontSize:'0.7em' }
+  lookMCScoreLabel: { fontSize:'0.7em' },
+
+  rankingChecked: { color:'#666666' },
+  rankingUnchecked: { color:'#cccccc' }
 }

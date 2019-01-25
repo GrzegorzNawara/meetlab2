@@ -16,6 +16,6 @@ const AccessCheck = ({myKey}) => (
             return <Redirect to="/"/>;
         }}
     </Query>
-);
+)
 
 export default AccessCheck;
