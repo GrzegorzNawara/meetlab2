@@ -31,6 +31,8 @@ render () {
             <WorkshopEditNavBar match={match} mg={this.state.mg} />} />
           <Route exact path="/:super/:more" render={({match})=>
             <WorkshopNavBar match={match} mg={this.state.mg} />} />
+          <Route exact path="/:super/doc/:document_id" render={({match})=>
+            <WorkshopNavBar match={match} mg={this.state.mg} />} />
         </Switch>
 
         <Switch>

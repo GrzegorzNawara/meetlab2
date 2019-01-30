@@ -10,7 +10,7 @@ class WorkshopNavBar extends React.Component {
 render () {
   return (
   <div>
-    <MiniNavBar mg={this.props.mg} link={(this.props.match.params.more)?'/'+this.props.match.params.super:'/'} />
+    <MiniNavBar mg={this.props.mg} link={(this.props.match.params.more || this.props.match.params.document_id)?'/'+this.props.match.params.super:'/'} />
     <div className="navbar border-bottom box-shadow" style={cssStyles.lookWorkshop}>
       <div className="workshop-navbar container">
         <div className='text-left'>
