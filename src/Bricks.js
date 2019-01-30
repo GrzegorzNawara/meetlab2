@@ -1,4 +1,5 @@
 import React from 'react'
+import { withRouter } from 'react-router-dom'
 import { graphql, compose } from 'react-apollo'
 import { getBrick, listBricks } from './graphql/Queries'
 import { createBrick, deleteBrick } from './graphql/Mutations'
@@ -116,8 +117,10 @@ class Bricks extends React.Component {
 
         <MenuModal
           super={this.props.super}
+          workshop={this.props.workshop}
           bricks={this.props.bricks}
           mg={this.props.mg}
+          history={this.props.history}
           onAdd={this.props.onAdd}
           onDelete={this.props.onDelete} />
       </div>
@@ -210,4 +213,4 @@ export default compose(
         }
       })
   })})
-)(Bricks)
+)(withRouter(Bricks))

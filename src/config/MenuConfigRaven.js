@@ -1,9 +1,9 @@
 export const MenuConfigRaven = {
   topMenu: [{
-    title: 'Invisible Workshop',
+    title: 'New Workshop',
     subtitle: 'Raven 13',
     action: 'ADD_WORKSHOP',
-    params: { title: 'Invisible Workshop', subtitle:'Raven 13', look: 'lookWorkshop' }
+    params: { title: 'Simulation Workshop', subtitle:'Raven 13', look: 'lookWorkshop' }
   }],
   workshopMenu:[
     { title: 'Zasady (PL)',
@@ -36,7 +36,12 @@ export const MenuConfigRaven = {
     { title: 'CLEAR',
       subtitle: 'Clear this workshop',
       action: 'CLEAR_WORKSHOP',
-      params: { look: 'lookMenuClear' }
+      params: { show: 'onNonEmpty', look: 'lookMenuClear' }
+    },
+    { title: 'DELETE',
+      subtitle: 'Remove this workshop',
+      action: 'DELETE_WORKSHOP',
+      params: { show: 'onEmpty', look: 'lookMenuClear' }
     }
   ]
 }

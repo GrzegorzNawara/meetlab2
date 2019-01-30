@@ -69,6 +69,11 @@ class MenuModal extends React.Component {
           this.props.onDelete({...this.props.bricks[i]});
         });
         break;
+      case 'DELETE_WORKSHOP':
+        if(this.props.bricks.length===0 && this.props.workshop)
+          this.props.onDelete({...this.props.workshop});
+          this.props.history.goBack();
+        break;
       default:
         return (null);
     }
@@ -91,7 +96,10 @@ class MenuModal extends React.Component {
              <div className="modal-body">
                <div className="">
                 {((this.props.super)?MenuConfig.workshopMenu:MenuConfig.topMenu)
-                  .map((item,index)=>{return(
+                  .map((item,index)=>{
+                  if(item.params.show==='onNonEmpty' && this.props.bricks.length===0) return null;
+                  if(item.params.show==='onEmpty' && this.props.bricks.length>0) return null;
+                  return(
                   <MenuItem
                     key={index}
                     title={item.title}
