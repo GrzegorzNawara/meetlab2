@@ -28,15 +28,19 @@ class Workshops extends React.Component {
     return (
       <div className="container">
         <WorkshopGate look='lookGate' workshopList={this} />
-        {this.props.bricks.filter((b) => b.PIN===localStorage.getItem('gateCode') || b.owner===localStorage.getItem('mg')).map((r, i) => (
+        {this.props.bricks.filter((b) => b.PIN===localStorage.getItem('gateCode') || b.owner===this.props.mg).map((r, i) => (
             <Link to={r.id} key={r.id}>
               {(i%3===0)?<div style= {{height:'10px'}} />:null}
               <Workshop title={r.title} subtitle={r.subtitle} date={r.date} owner={r.owner} PIN={r.pin} look='lookWorkshop'/>
             </Link>
           ))
         }
-        <MenuModal super='' bricks={this.props.bricks}
-          onAdd={this.props.onAdd} onDelete={this.props.onDelete} />
+        <MenuModal
+          super=''
+          bricks={this.props.bricks}
+          mg={this.props.mg}
+          onAdd={this.props.onAdd}
+          onDelete={this.props.onDelete} />
       </div>
     )
   }
@@ -51,7 +55,6 @@ export default compose(
     props: props => ({
       getProps: { ...props },
       bricks: props.data.listBricks?props.data.listBricks.items
-        .filter((r) => (r.title!=='Invisible Workshop' || (r.owner===localStorage.getItem('mg'))))
         .slice().sort((a,b)=>(-a.sort.localeCompare(b.sort))):[],
       subscribeToDelete: (params) => {
         props.data.subscribeToMore({

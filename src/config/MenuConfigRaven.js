@@ -1,9 +1,9 @@
 export const MenuConfigRaven = {
   topMenu: [{
-    title: 'Add Workshop',
-    subtitle: 'Add new workshop',
+    title: 'Invisible Workshop',
+    subtitle: 'Raven 13',
     action: 'ADD_WORKSHOP',
-    params: { title: 'Invisible Workshop', subtitle:'Workshop', look: 'lookWorkshop' }
+    params: { title: 'Invisible Workshop', subtitle:'Raven 13', look: 'lookWorkshop' }
   }],
   workshopMenu:[
     { title: 'Zasady (PL)',

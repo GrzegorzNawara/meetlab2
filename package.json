@@ -1,7 +1,7 @@
 {
-  "name": "meetlab",
+  "name": "join-raven13",
   "version": "2.0.0",
-  "description": "Integrated learning platform",
+  "description": "Starting platform for raven13",
   "main": "index.js",
   "scripts": {
     "start": "react-scripts start",
@@ -10,10 +10,10 @@
   },
   "author": "Grzegorz Nawara",
   "license": "ISC",
-  "homepage": "http://meetlab.ignifer-labs.com",
+  "homepage": "http://www.raven13.net/join",
   "repository": {
     "type": "git",
-    "url": "git://github.com/GrzegorzNawara/meetlab2.git"
+    "url": "git://github.com/GrzegorzNawara/join-raven13.git"
   },
   "devDependencies": {
     "enzyme": "^2.8.2",

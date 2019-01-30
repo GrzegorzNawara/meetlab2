@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
 import { cssStyles } from '../config/AppConfig'
-import debug from '../debug'
+//import debug from '../debug'
 
 const Brick = ({ title, subtitle, score, look, linkTo }) => (
   <div className="col-12 px-1">

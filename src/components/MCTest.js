@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import MCItem from './MCItem'
-import debug from '../debug'
+//import debug from '../debug'
 
 const MCTest = ({routerProps, test: { id, title, subtitle, look, shows, questions }}) => (
   <div className={look+' container border-right border-left box-shadow mt-4'}>

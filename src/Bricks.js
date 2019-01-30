@@ -3,12 +3,12 @@ import { graphql, compose } from 'react-apollo'
 import { getBrick, listBricks } from './graphql/Queries'
 import { createBrick, deleteBrick } from './graphql/Mutations'
 import { onCreateBrick, onUpdateBrick, onDeleteBrick } from './graphql/Subscriptions'
-import { cssStyles } from './config/AppConfig'
+//import { cssStyles } from './config/AppConfig'
 import MenuModal from './MenuModal'
 import Brick from './components/Brick'
 import RavenBrick from './components/RavenBrick'
 import RavenResultBrick from './components/RavenResultBrick'
-import debug from './debug'
+//import debug from './debug'
 
 class Bricks extends React.Component {
   timer = null;
@@ -114,8 +114,12 @@ class Bricks extends React.Component {
         }
         </div>
 
-        <MenuModal super={this.props.super} bricks={this.props.bricks}
-          onAdd={this.props.onAdd} onDelete={this.props.onDelete} />
+        <MenuModal
+          super={this.props.super}
+          bricks={this.props.bricks}
+          mg={this.props.mg}
+          onAdd={this.props.onAdd}
+          onDelete={this.props.onDelete} />
       </div>
     )
   }
@@ -179,7 +183,7 @@ export default compose(
   graphql(createBrick, {
     props: props => ({
       onAdd: (brick) => props.mutate({
-        variables: debug(brick,'CREATE'),
+        variables: brick,
         optimisticResponse: {
           __typename: 'Mutation',
           createBrick: { ...brick,  __typename: 'Brick' }

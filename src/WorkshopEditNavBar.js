@@ -1,6 +1,7 @@
 import React from 'react'
+import { withRouter } from 'react-router-dom'
 import { compose, graphql } from 'react-apollo'
-import { getBrick, getKey } from './graphql/Queries'
+import { getBrick } from './graphql/Queries'
 import { updateBrick } from './graphql/Mutations'
 import { cssStyles } from './config/AppConfig'
 import MiniNavBar from './MiniNavBar'
@@ -26,7 +27,7 @@ updateWorkshop = () => {
 render () {
   return (
   <div>
-    <MiniNavBar link={'/'+this.props.match.params.super} />
+    <MiniNavBar mg={this.props.mg} link={'/'+this.props.match.params.super} />
     <form onSubmit={e => {
         e.preventDefault();
         e.stopPropagation(); // preserve click outside for modal
@@ -42,6 +43,7 @@ render () {
               <input className='form-control form-control-lg my-1'
                 name='title'
                 autoFocus
+                autoComplete="nope"
                 onChange={evt => this.onChange('title', evt.target.value)}
                 placeholder={this.props.workshop.title} />
               <span className='h3 color-white80'>
@@ -53,7 +55,7 @@ render () {
             </span>
           </div>
           <div className="">
-            {(this.props.workshop && localStorage.getItem('mg')===this.props.workshop.owner)?
+            {(this.props.workshop && this.props.mg===this.props.workshop.owner)?
               <img onClick={this.updateWorkshop} className="save-image m-2" alt="save" src="images/save-button.png"></img>:null}
           </div>
         </div>
@@ -66,15 +68,6 @@ render () {
 )}}
 
 export default compose(
-  graphql(getKey, {
-    options: props => ({
-      variables: { id: localStorage.getItem('key') },
-      fetchPolicy: 'cache-and-network'
-    }),
-    props: props => ({
-      me: props.data.getKey
-    })
-  }),
   graphql(getBrick, {
     options: props => ({
       variables: { id: props.match.params.super },
@@ -96,4 +89,4 @@ export default compose(
       })
     })
   })
-)(WorkshopNavBar)
+)(withRouter(WorkshopNavBar))

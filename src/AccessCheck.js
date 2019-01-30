@@ -4,15 +4,16 @@ import { Query } from 'react-apollo';
 import { getKey } from './graphql/Queries'
 import debug from './debug'
 
-const AccessCheck = ({myKey}) => (
-    <Query query={getKey} variables={{ id: myKey }}>
+const AccessCheck = ({licence}) => (
+    <Query query={getKey} variables={{ id: licence }}>
         {({ loading, error, data }) => {
             if (error) return <div>Error {error}</div>;
-            if (loading || !data) return <div> Checking {myKey} </div>;
-            if (data.getKey)
-              localStorage.setItem("mg", data.getKey.owner);
-            else
+            if (loading || !data) return <div> Loading </div>;
+            if (data.getKey) {
+              localStorage.setItem("mg", debug(data.getKey.owner,'AccessCheck'));
+            } else {
               localStorage.removeItem("mg");
+            }
             return <Redirect to="/"/>;
         }}
     </Query>

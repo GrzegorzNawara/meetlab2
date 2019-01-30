@@ -10,7 +10,7 @@ class WorkshopNavBar extends React.Component {
 render () {
   return (
   <div>
-    <MiniNavBar link={(this.props.match.params.more)?'/'+this.props.match.params.super:'/'} />
+    <MiniNavBar mg={this.props.mg} link={(this.props.match.params.more)?'/'+this.props.match.params.super:'/'} />
     <div className="navbar border-bottom box-shadow" style={cssStyles.lookWorkshop}>
       <div className="workshop-navbar container">
         <div className='text-left'>
@@ -19,7 +19,7 @@ render () {
         </div>
         <div>
           {(this.props.workshop && localStorage.getItem('mg')===this.props.workshop.owner)?
-           <Link to={'/'+this.props.match.params.super+'/edit'} title="edit"><img  className="edit-image" alt="edit" src="images/edit-button.png"></img></Link>:null}
+           <Link to={'/'+this.props.match.params.super+'/edit'} title="edit"><img  className="edit-image" alt="edit" src="./images/edit-button.png"></img></Link>:null}
         </div>
       </div>
       <div className="workshop-navbar mt-1 container">

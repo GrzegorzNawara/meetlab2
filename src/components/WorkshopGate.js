@@ -1,6 +1,6 @@
 import React from 'react'
 import { cssStyles } from '../config/AppConfig'
-import debug from '../debug'
+//import debug from '../debug'
 
 class WorkshopGate extends React.Component {
 
@@ -18,6 +18,7 @@ class WorkshopGate extends React.Component {
           }}>
           <input className='form-control my-1'
             name='gateCode'
+            autoComplete="off"
             onChange={evt => {
               localStorage.setItem('gateCode', evt.target.value);
               this.props.workshopList.setState({ gateCode: evt.target.value});

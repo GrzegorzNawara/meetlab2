@@ -1,6 +1,6 @@
 import React from 'react'
 import { cssStyles } from '../config/AppConfig'
-import debug from '../debug'
+//import debug from '../debug'
 
 const RavenResultBrick = ({ title, subtitle, score, look, id, ravenCount, linkTo, sort, stats, ravenSim}) => (
   <div className="col-12 px-1 mb-2 align-items-center">

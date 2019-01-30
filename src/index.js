@@ -7,7 +7,7 @@ import AWSAppSyncClient from "aws-appsync";
 import { Rehydrated } from 'aws-appsync-react';
 import { ApolloProvider } from 'react-apollo';
 import appSyncConfig from './config/AppSync';
-import debug from './debug'
+//import debug from './debug'
 
 //import registerServiceWorker from './registerServiceWorker';
 

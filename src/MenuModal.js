@@ -3,18 +3,18 @@ import Popup from 'reactjs-popup'
 import uuidV4 from 'uuid/v4'
 import MenuItem from './components/MenuItem'
 import { MenuConfig } from './config/AppConfig'
-import debug from './debug'
+//import debug from './debug'
 
 class MenuModal extends React.Component {
   menuAction = ({type, menuItem, mysuper }) => {
     const newBrick = {
-      id: debug(uuidV4(),'NEWID'),
+      id: uuidV4(),
       super: (mysuper)?mysuper:'top',
       sort: Date.now().toString(),
       title: menuItem.title,
       subtitle: menuItem.subtitle,
       date: new Date().toISOString().split("T")[0],
-      owner: localStorage.getItem('mg'),
+      owner: this.props.mg,
       params: JSON.stringify(menuItem.params),
       PIN: Math.floor(899999*Math.random()+100000),
       type: 'UNKNOWN'
@@ -75,7 +75,7 @@ class MenuModal extends React.Component {
   }
 
   render() {
-    if(!localStorage.getItem('mg')) return null;
+    if(!this.props.mg) return null;
     return (
       <Popup trigger={<div className="admin-button"><img src='./images/admin-button.png' alt=''/></div>}
          modal lockScroll closeOnEscape closeOnDocumentClick position="right center">
@@ -90,7 +90,7 @@ class MenuModal extends React.Component {
              </div>
              <div className="modal-body">
                <div className="">
-                {((debug(this,'PROPS').props.super)?MenuConfig.workshopMenu:MenuConfig.topMenu)
+                {((this.props.super)?MenuConfig.workshopMenu:MenuConfig.topMenu)
                   .map((item,index)=>{return(
                   <MenuItem
                     key={index}
