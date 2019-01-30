@@ -1,9 +1,10 @@
 # MeetLab
 
-Under development
+Branches based on meetlab project:
+- raven-join-branch: Raven 13 version
+- mir-join-branch: Mir'92 version
 
-MeetLab is a platform for e-learning
-Special thing about it is integrated simulations used for Agile team training
+MeetLab is a platform for simulation workshops
 
 ## Available Scripts
 
