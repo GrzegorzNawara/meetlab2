@@ -64,10 +64,8 @@ class MenuModal extends React.Component {
           type: 'BRICK'
         });
         break;
-      case 'CLEAR_WORKSHOP':
-        this.props.bricks.forEach((r,i) => {
-          this.props.onDelete({...this.props.bricks[debug(i,'DELETE')]});
-        });
+      case 'DELETE_LAST_BRICK':
+        this.props.onDelete({...this.props.bricks.slice(0,1)[0]});
         break;
       case 'DELETE_WORKSHOP':
         if(this.props.bricks.length===0 && this.props.workshop)

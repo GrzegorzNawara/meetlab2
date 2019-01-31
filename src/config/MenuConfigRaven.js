@@ -33,9 +33,9 @@ export const MenuConfigRaven = {
       action: 'ADD_DOCUMENT',
       params: { doc:'agile-mindset', look: 'lookDocument' }
     },
-    { title: 'CLEAR',
-      subtitle: 'Clear this workshop',
-      action: 'CLEAR_WORKSHOP',
+    { title: 'UNDO',
+      subtitle: 'Remove last item',
+      action: 'DELETE_LAST_BRICK',
       params: { show: 'onNonEmpty', look: 'lookMenuClear' }
     },
     { title: 'DELETE',

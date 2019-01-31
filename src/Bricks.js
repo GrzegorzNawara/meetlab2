@@ -156,7 +156,7 @@ export default compose(
             ...prev,
             listBricks: {
               __typename: 'BrickConnection',
-              items: [...prev.listBricks.items.filter(brick => data.onDeleteBrick.super !== brick.super)]
+              items: [...prev.listBricks.items.filter(brick => data.onDeleteBrick.id !== brick.id)]
           }})
       })},
       subscribeToUpdate: (params) => {
