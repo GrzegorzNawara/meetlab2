@@ -58,7 +58,7 @@ class Bricks extends React.Component {
     let last=0;
     this.myBricks = this.props.bricks.slice().reverse().map((b,i,ba) => {
       if(b.type!=='RAVEN') return b;
-      (i>0 && b['sort']-last<60000)?title=title+1:title=1;
+      (i>0 && b['sort']-last<600000)?title=title+1:title=1;
       last=b['sort'];
       return {...b,title:title};
     });
