@@ -2,7 +2,7 @@ import React from 'react'
 import { graphql, compose } from 'react-apollo'
 import { Link } from 'react-router-dom';
 import { listBricks } from './graphql/Queries'
-import { createBrick, deleteBrick } from './graphql/Mutations'
+import { createBrick } from './graphql/Mutations'
 import { onCreateBrick, onUpdateBrick, onDeleteBrick } from './graphql/Subscriptions'
 import MenuModal from './MenuModal'
 import Workshop from './components/Workshop'
@@ -40,7 +40,7 @@ class Workshops extends React.Component {
           bricks={this.props.bricks}
           mg={this.props.mg}
           onAdd={this.props.onAdd}
-          onDelete={this.props.onDelete} />
+          onDelete={() => {}} />
       </div>
     )
   }
@@ -101,21 +101,6 @@ export default compose(
           const data = proxy.readQuery({ query: listBricks, variables: { super: createBrick.super } });
           data.listBricks.items.push(createBrick);
           proxy.writeQuery({ query: listBricks, variables: { super: createBrick.super }, data });
-        }
-      })
-  })}),
-  graphql(deleteBrick, {
-    props: props => ({
-      onDelete: (brick) => props.mutate({
-        variables: { id: brick.id },
-        optimisticResponse: {
-          __typename: 'Mutation',
-          deleteBrick: { ...brick,  __typename: 'Brick' }
-        },
-        update: (proxy, { data: { deleteBrick } }) => {
-          const data = proxy.readQuery({ query: listBricks, variables: { super: deleteBrick.super } });
-          data.listBricks.items=[]; //.filter((r)=>(r.id!==deleteBrick.id));
-          proxy.writeQuery({ query: listBricks, variables: { super: deleteBrick.super }, data });
         }
       })
   })})

@@ -156,7 +156,7 @@ export default compose(
             ...prev,
             listBricks: {
               __typename: 'BrickConnection',
-              items: [...prev.listBricks.items.filter(brick => brick.id !== data.onDeleteBrick.id)]
+              items: [...prev.listBricks.items.filter(brick => data.onDeleteBrick.super !== brick.super)]
           }})
       })},
       subscribeToUpdate: (params) => {
@@ -192,7 +192,7 @@ export default compose(
           createBrick: { ...brick,  __typename: 'Brick' }
         },
         update: (proxy, { data: { createBrick } }) => {
-          let data = proxy.readQuery({ query: listBricks, variables: { super: createBrick.super } });
+          const data = proxy.readQuery({ query: listBricks, variables: { super: createBrick.super } });
           data.listBricks.items.filter((i)=>i.id!==createBrick.id).push(createBrick);
           proxy.writeQuery({ query: listBricks, variables: { super: createBrick.super }, data });
         }
@@ -207,8 +207,11 @@ export default compose(
           deleteBrick: { ...brick,  __typename: 'Brick' }
         },
         update: (proxy, { data: { deleteBrick } }) => {
-          const data = proxy.readQuery({ query: listBricks, variables: { super: deleteBrick.super } });
-          data.listBricks.items.filter((r)=>(r.id!==deleteBrick.id));
+          let data = proxy.readQuery({ query: listBricks, variables: { super: deleteBrick.super } });
+          data = { ...data,
+            listBricks: { ...data.listBricks,
+              items: data.listBricks.items.filter((r) => (r.id)!==deleteBrick.id )
+            }};
           proxy.writeQuery({ query: listBricks, variables: { super: deleteBrick.super }, data });
         }
       })
