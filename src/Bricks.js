@@ -4,7 +4,6 @@ import { graphql, compose } from 'react-apollo'
 import { getBrick, listBricks } from './graphql/Queries'
 import { createBrick, deleteBrick } from './graphql/Mutations'
 import { onCreateBrick, onUpdateBrick, onDeleteBrick } from './graphql/Subscriptions'
-//import { cssStyles } from './config/AppConfig'
 import MenuModal from './MenuModal'
 import Brick from './components/Brick'
 import RavenBrick from './components/RavenBrick'
@@ -12,6 +11,9 @@ import RavenResultBrick from './components/RavenResultBrick'
 //import debug from './debug'
 
 class Bricks extends React.Component {
+  unSubscribeToDelete = undefined;
+  unSubscribeToUpdate = undefined;
+  unSubscribeToCreate = undefined;
   timer = null;
   ravenSim = {};
   myBricks = [];
@@ -34,14 +36,16 @@ class Bricks extends React.Component {
   }
 
   componentWillMount(){
-    this.props.subscribeToDelete();
-    this.props.subscribeToUpdate();
-    this.props.subscribeToCreate();
+    this.unSubscribeToDelete=this.props.subscribeToDelete();
+    this.unSubscribeToUpdate=this.props.subscribeToUpdate();
+    this.unSubscribeToCreate=this.props.subscribeToCreate();
     this.timer = setInterval(()=> this.getRavenStats(), 1000);
   }
 
   componentWillUnmount() {
-    //this.props.unsubscribe();
+    this.unSubscribeToDelete();
+    this.unSubscribeToUpdate();
+    this.unSubscribeToCreate();
     clearInterval(this.timer);
     this.timer = null;
   }
@@ -150,7 +154,7 @@ export default compose(
         .slice().sort((a,b)=>(-a.sort.localeCompare(b.sort))):[],
 
       subscribeToDelete: (params) => {
-        props.data.subscribeToMore({
+        return props.data.subscribeToMore({
           document: onDeleteBrick,
           updateQuery: (prev, { subscriptionData: { data } }) => ({
             ...prev,
@@ -160,7 +164,7 @@ export default compose(
           }})
       })},
       subscribeToUpdate: (params) => {
-        props.data.subscribeToMore({
+        return props.data.subscribeToMore({
           document: onUpdateBrick,
           updateQuery: (prev, { subscriptionData: { data } }) => ({
               ...prev,
@@ -170,16 +174,17 @@ export default compose(
           }})
       })},
       subscribeToCreate: (params) => {
-          props.data.subscribeToMore({
-          document: onCreateBrick,
-          updateQuery: (prev, { subscriptionData: { data } }) => ({
-              ...prev,
-              listBricks: {
-                __typename: 'BrickConnection',
-                items: (data.onCreateBrick.super===props.ownProps.super)?
-                  [...prev.listBricks.items.filter(brick => brick.id !== data.onCreateBrick.id),
-                    data.onCreateBrick]:[...prev.listBricks.items]
-          }})
+          return props.data.subscribeToMore({
+            document: onCreateBrick,
+            updateQuery: (prev, { subscriptionData: { data } }) => ({
+                ...prev,
+                listBricks: {
+                  __typename: 'BrickConnection',
+                  items: (data.onCreateBrick.super===props.ownProps.super)?
+                    [...prev.listBricks.items.filter(brick => brick.id !== data.onCreateBrick.id),
+                      data.onCreateBrick]:[...prev.listBricks.items]
+            }}),
+            onError: (err) => console.error(err)
       })}
     })
   }),

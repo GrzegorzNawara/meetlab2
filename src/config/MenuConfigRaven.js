@@ -57,6 +57,8 @@ export const cssStylesRaven = {
           white: 'images/logo-raven-white.png'
         },
 
+  lookSpinner: { backgroundColor:theme.secondaryColorBg, color:theme.secondaryColor },
+
   lookDefault: { backgroundColor:'#aaaaff', color:'#555555' },
   lookMenu: { backgroundColor:'#2c97cf', color:'#ffffff' },
   lookMenuClear: { backgroundColor:'#ff0000', color:'#ffffff' },

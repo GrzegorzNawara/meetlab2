@@ -7,7 +7,7 @@ import { onCreateBrick, onUpdateBrick, onDeleteBrick } from './graphql/Subscript
 import MenuModal from './MenuModal'
 import Workshop from './components/Workshop'
 import WorkshopGate from './components/WorkshopGate'
-//import debug from './debug'
+import debug from './debug'
 
 class Workshops extends React.Component {
   state = { gateCode: '' }
@@ -49,12 +49,12 @@ class Workshops extends React.Component {
 export default compose(
   graphql(listBricks, {
     options: props => ({
-      variables: { super: props.super },
+      variables: { super: debug(props.super,'SUPER') },
       fetchPolicy: 'cache-and-network'
     }),
     props: props => ({
       getProps: { ...props },
-      bricks: props.data.listBricks?props.data.listBricks.items
+      bricks: props.data.listBricks?debug(props.data.listBricks.items,'TOPBRICKS')
         .slice().sort((a,b)=>(-a.sort.localeCompare(b.sort))):[],
       subscribeToDelete: (params) => {
         props.data.subscribeToMore({
