@@ -13,14 +13,15 @@ class Workshops extends React.Component {
   state = { gateCode: '' }
 
   componentWillMount(){
-    if (this.props.routerProps.location.hash) this.props.routerProps.history.push('./');
-    this.props.subscribeToUpdate();
-    this.props.subscribeToCreate();
+    if (this.props.routerProps.location.hash)
+      this.props.routerProps.history.push('./');
+    //this.props.subscribeToUpdate();
+    //this.props.subscribeToCreate();
   }
 
   componentDidUpdate(prevProps) {
     if (this.props.super!==prevProps.super) {
-      this.props.subscribeToCreate(this.props.super);
+      //this.props.subscribeToCreate(this.props.super);
     }
   }
   render() {

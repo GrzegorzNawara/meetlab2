@@ -8,7 +8,7 @@ import MenuModal from './MenuModal'
 import Brick from './components/Brick'
 import RavenBrick from './components/RavenBrick'
 import RavenResultBrick from './components/RavenResultBrick'
-//import debug from './debug'
+import debug from './debug'
 
 class Bricks extends React.Component {
   unSubscribeToDelete = undefined;
@@ -52,6 +52,7 @@ class Bricks extends React.Component {
 
   componentDidUpdate(prevProps) {
     if (this.props.super!==prevProps.super) {
+      this.unSubscribeToCreate();
       this.props.subscribeToCreate(this.props.super);
     }
   }
@@ -60,7 +61,8 @@ class Bricks extends React.Component {
     this.ravenSim = { clear:false, actualSort:0, lastSort:0, count:0, result:0, users:0 };
     let title=0;
     let last=0;
-    this.myBricks = this.props.bricks.slice().reverse().map((b,i,ba) => {
+
+    this.myBricks = this.props.bricks.slice().sort((a,b)=>(-a.sort.localeCompare(b.sort))).reverse().map((b,i,ba) => {
       if(b.type!=='RAVEN') return b;
       (i>0 && b['sort']-last<600000)?title=title+1:title=1;
       last=b['sort'];
@@ -150,8 +152,7 @@ export default compose(
     }),
     props: props => ({
       getProps: { ...props },
-      bricks: props.data.listBricks?props.data.listBricks.items
-        .slice().sort((a,b)=>(-a.sort.localeCompare(b.sort))):[],
+      bricks: props.data.listBricks?props.data.listBricks.items:[],
 
       subscribeToDelete: (params) => {
         return props.data.subscribeToMore({
@@ -181,10 +182,10 @@ export default compose(
                 listBricks: {
                   __typename: 'BrickConnection',
                   items: (data.onCreateBrick.super===props.ownProps.super)?
-                    [...prev.listBricks.items.filter(brick => brick.id !== data.onCreateBrick.id),
-                      data.onCreateBrick]:[...prev.listBricks.items]
+                    prev.listBricks.items.filter(brick => brick.id !== data.onCreateBrick.id).concat([data.onCreateBrick])
+                    :[...prev.listBricks.items]
             }}),
-            onError: (err) => console.error(err)
+            onError: (err) => console.error('MYERROR: '+err)
       })}
     })
   }),
@@ -197,8 +198,12 @@ export default compose(
           createBrick: { ...brick,  __typename: 'Brick' }
         },
         update: (proxy, { data: { createBrick } }) => {
-          const data = proxy.readQuery({ query: listBricks, variables: { super: createBrick.super } });
-          data.listBricks.items.filter((i)=>i.id!==createBrick.id).push(createBrick);
+          let data = proxy.readQuery({ query: listBricks, variables: { super: createBrick.super } });
+          data = { ...data,
+            listBricks: { ...data.listBricks,
+              items: data.listBricks.items
+                .filter(brick => brick.id !== createBrick.id).concat([createBrick])
+            }};
           proxy.writeQuery({ query: listBricks, variables: { super: createBrick.super }, data });
         }
       })

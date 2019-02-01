@@ -7,7 +7,9 @@ const NetworkStatus = ({ loading, error }) => (
     {loading &&
       <div className='spinner text-nowrap' style={cssStyles.lookSpinner}>
         <img src='./images/loading.gif' alt="" /><span>LOADING</span></div>}
-    {error && <p>Error: {JSON.stringify(error)}</p>}
+    {error &&
+      <div className='spinner text-nowrap' style={cssStyles.lookSpinner}>
+        <img src='./images/loading.gif' alt="" /><span>NO NET</span></div>}
   </div>
 )
 
