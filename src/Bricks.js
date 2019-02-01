@@ -220,7 +220,7 @@ export default compose(
           let data = proxy.readQuery({ query: listBricks, variables: { super: deleteBrick.super } });
           data = { ...data,
             listBricks: { ...data.listBricks,
-              items: data.listBricks.items.filter((r) => (r.id)!==deleteBrick.id )
+              items: debug(data.listBricks.items.filter((r) => (r.id)!==deleteBrick.id ),'DELETED')
             }};
           proxy.writeQuery({ query: listBricks, variables: { super: deleteBrick.super }, data });
         }
