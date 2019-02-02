@@ -1,9 +1,13 @@
 import React from 'react'
+import { HashRouter, Route, Switch } from 'react-router-dom'
 import { withRouter } from 'react-router-dom'
-import { graphql, compose } from 'react-apollo'
-import { getBrick, listBricks } from './graphql/Queries'
-import { createBrick, deleteBrick } from './graphql/Mutations'
-import { onCreateBrick, onUpdateBrick, onDeleteBrick } from './graphql/Subscriptions'
+import saveBrick from './database/saveBrick'
+import listBricks from './database/listBricks'
+import deleteBrick from './database/deleteBrick'
+import saveWorkshop from './database/saveWorkshop'
+import deleteWorkshop from './database/deleteWorkshop'
+import WorkshopNavBar from './WorkshopNavBar'
+import WorkshopEditNavBar from './WorkshopEditNavBar'
 import MenuModal from './MenuModal'
 import Brick from './components/Brick'
 import RavenBrick from './components/RavenBrick'
@@ -11,50 +15,49 @@ import RavenResultBrick from './components/RavenResultBrick'
 import debug from './debug'
 
 class Bricks extends React.Component {
-  unSubscribeToDelete = undefined;
-  unSubscribeToUpdate = undefined;
-  unSubscribeToCreate = undefined;
-  timer = null;
   ravenSim = {};
   myBricks = [];
-  state = {};
+  state = {
+    workshop: {},
+    bricks: []
+  };
+
+  saveBrick = (brick) => {
+    saveBrick(brick)
+    this.setState({...this.state, bricks: [...this.state.bricks, brick]})
+  }
+
+  loadBricks = () => {
+    clearInterval(this.loadBricksTimer);
+    listBricks(this.props.owner, this.props.super,
+      ({bricks, workshop}) => this.setState({...this.state, bricks, workshop }))
+    this.loadBricksTimer = setInterval(this.loadBricks, 5000);
+  }
 
   getRavenStats = () => {
-    if(this.props.bricks && this.props.bricks.filter((b)=>b.type==='RAVEN').length>0){
+    clearInterval(this.timer);
+    if(this.state.bricks && this.state.bricks.filter((b)=>b.type==='RAVEN').length>0){
       fetch('http://api.ignifer-labs.com/raven/api_read_results.php',{
         method: 'post',
         body: JSON.stringify(
-          this.props.bricks.filter((b)=>b.type==='RAVEN').map((b)=>(b.id))
+          this.state.bricks.filter((b)=>b.type==='RAVEN').map((b)=>(b.id))
       )})
         .then(result => result.json())
         .then(result => this.setState({ ravenStats: result }));
-
-
-      clearInterval(this.timer);
-      this.timer = setInterval(()=> this.getRavenStats(), 15000);
     }
+    this.timer = setInterval(()=> this.getRavenStats(), 15000);
   }
 
   componentWillMount(){
-    this.unSubscribeToDelete=this.props.subscribeToDelete();
-    this.unSubscribeToUpdate=this.props.subscribeToUpdate();
-    this.unSubscribeToCreate=this.props.subscribeToCreate();
-    this.timer = setInterval(()=> this.getRavenStats(), 1000);
+    this.loadBricks()
+    this.getRavenStats()
   }
 
   componentWillUnmount() {
-    this.unSubscribeToDelete();
-    this.unSubscribeToUpdate();
-    this.unSubscribeToCreate();
-    clearInterval(this.timer);
-    this.timer = null;
+    clearInterval(this.loadBricksTimer);
   }
 
   componentDidUpdate(prevProps) {
-    if (this.props.super!==prevProps.super) {
-      this.unSubscribeToCreate();
-      this.props.subscribeToCreate(this.props.super);
-    }
   }
 
   render() {
@@ -62,16 +65,44 @@ class Bricks extends React.Component {
     let title=0;
     let last=0;
 
-    this.myBricks = this.props.bricks.slice().sort((a,b)=>(-a.sort.localeCompare(b.sort))).reverse().map((b,i,ba) => {
-      if(b.type!=='RAVEN') return b;
-      (i>0 && b['sort']-last<600000)?title=title+1:title=1;
-      last=b['sort'];
-      return {...b,title:title};
-    });
+    this.myBricks = this.state.bricks.slice()
+      .filter(b => b.id)
+      .sort((a,b)=>-a.sort.localeCompare(b.sort))
+      .reverse()
+      .map((b,i,ba) => {
+        if(b.type!=='RAVEN') return b;
+        (i>0 && b['sort']-last<600000)?title=title+1:title=1;
+        last=b['sort'];
+        return {...b,title:title};
+      });
 
 
     return (
-      <div className="container"><div className="row py-3 justify-content-center">
+      <React.Fragment>
+        <Switch>
+          <Route exact path="/:owner/:super" render={({match})=>
+            <WorkshopNavBar
+              match={match}
+              mg={this.props.mg}
+              workshop={this.state.workshop} />} />
+          <Route exact path="/:owner/:super/edit" render={({match})=>
+            <WorkshopEditNavBar
+              match={match}
+              mg={this.props.mg}
+              workshop={this.state.workshop}
+              onUpdate={saveWorkshop} />} />
+          <Route exact path="/:owner/:super/:more" render={({match})=>
+            <WorkshopNavBar
+              match={match}
+              mg={this.props.mg}
+              workshop={this.state.workshop} />} />
+          <Route exact path="/:owner/:super/doc/:document_id" render={({match})=>
+            <WorkshopNavBar
+              match={match}
+              mg={this.props.mg}
+              workshop={this.state.workshop} />} />
+        </Switch>
+        <div className="container"><div className="row py-3 justify-content-center">
         {
           this.myBricks.reverse().map((r, i) => {
             switch (r.type) {
@@ -123,107 +154,16 @@ class Bricks extends React.Component {
 
         <MenuModal
           super={this.props.super}
-          workshop={this.props.workshop}
-          bricks={this.props.bricks}
+          bricks={this.state.bricks}
           mg={this.props.mg}
           history={this.props.history}
-          onAdd={this.props.onAdd}
-          onDelete={this.props.onDelete} />
-      </div>
+          onAdd={this.saveBrick}
+          onDeleteWorkshop={deleteWorkshop}
+          onDeleteBrick={deleteBrick} />
+        </div>
+      </React.Fragment>
     )
   }
 }
 
-export default compose(
-  graphql(getBrick, {
-    options: props => ({
-      variables: { id: props.super },
-      fetchPolicy: 'cache-and-network'
-    }),
-    props: props => ({
-      workshop: (props.data.getBrick)?props.data.getBrick:
-      {id:'', title:'Loading...', subtitle:'loading', date:'9999-99-99', pin:'????', owner:'Loading...'}
-    })
-  }),
-  graphql(listBricks, {
-    options: props => ({
-      variables: { super: props.super },
-      fetchPolicy: 'cache-and-network' //'network-only'
-    }),
-    props: props => ({
-      getProps: { ...props },
-      bricks: props.data.listBricks?props.data.listBricks.items:[],
-
-      subscribeToDelete: (params) => {
-        return props.data.subscribeToMore({
-          document: onDeleteBrick,
-          updateQuery: (prev, { subscriptionData: { data } }) => ({
-            ...prev,
-            listBricks: {
-              __typename: 'BrickConnection',
-              items: [...prev.listBricks.items.filter(brick => data.onDeleteBrick.id !== brick.id)]
-          }})
-      })},
-      subscribeToUpdate: (params) => {
-        return props.data.subscribeToMore({
-          document: onUpdateBrick,
-          updateQuery: (prev, { subscriptionData: { data } }) => ({
-              ...prev,
-              listBricks: {
-                __typename: 'BrickConnection',
-                items: (data.onCreateBrick.super===props.ownProps.super)?[data.onUpdateBrick, ...prev.listBricks.items.filter(brick => brick.id !== data.onUpdateBrick.id)]:[...prev.listBricks.items]
-          }})
-      })},
-      subscribeToCreate: (params) => {
-          return props.data.subscribeToMore({
-            document: onCreateBrick,
-            updateQuery: (prev, { subscriptionData: { data } }) => ({
-                ...prev,
-                listBricks: {
-                  __typename: 'BrickConnection',
-                  items: (data.onCreateBrick.super===props.ownProps.super)?
-                    prev.listBricks.items.filter(brick => brick.id !== data.onCreateBrick.id).concat([data.onCreateBrick])
-                    :[...prev.listBricks.items]
-            }}),
-            onError: (err) => console.error('MYERROR: '+err)
-      })}
-    })
-  }),
-  graphql(createBrick, {
-    props: props => ({
-      onAdd: (brick) => props.mutate({
-        variables: brick,
-        optimisticResponse: {
-          __typename: 'Mutation',
-          createBrick: { ...brick,  __typename: 'Brick' }
-        },
-        update: (proxy, { data: { createBrick } }) => {
-          let data = proxy.readQuery({ query: listBricks, variables: { super: createBrick.super } });
-          data = { ...data,
-            listBricks: { ...data.listBricks,
-              items: data.listBricks.items
-                .filter(brick => brick.id !== createBrick.id).concat([createBrick])
-            }};
-          proxy.writeQuery({ query: listBricks, variables: { super: createBrick.super }, data });
-        }
-      })
-  })}),
-  graphql(deleteBrick, {
-    props: props => ({
-      onDelete: (brick) => props.mutate({
-        variables: { id: brick.id },
-        optimisticResponse: {
-          __typename: 'Mutation',
-          deleteBrick: { ...brick,  __typename: 'Brick' }
-        },
-        update: (proxy, { data: { deleteBrick } }) => {
-          let data = proxy.readQuery({ query: listBricks, variables: { super: deleteBrick.super } });
-          data = { ...data,
-            listBricks: { ...data.listBricks,
-              items: debug(data.listBricks.items.filter((r) => (r.id)!==deleteBrick.id ),'DELETED')
-            }};
-          proxy.writeQuery({ query: listBricks, variables: { super: deleteBrick.super }, data });
-        }
-      })
-  })})
-)(withRouter(Bricks))
+export default withRouter(Bricks)

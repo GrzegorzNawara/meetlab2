@@ -65,11 +65,11 @@ class MenuModal extends React.Component {
         });
         break;
       case 'DELETE_LAST_BRICK':
-        this.props.onDelete({...this.props.bricks.sort((a,b)=>(-a.sort.localeCompare(b.sort))).slice(0,1)[0]});
+        this.props.onDeleteBrick({...this.props.bricks.sort((a,b)=>(-a.sort.localeCompare(b.sort))).slice(0,1)[0]});
         break;
       case 'DELETE_WORKSHOP':
-        if(this.props.bricks.length===0 && this.props.workshop)
-          this.props.onDelete({...this.props.workshop});
+        if(this.props.bricks.length===0)
+          this.props.onDeleteWorkshop({owner: this.props.mg, super: mysuper});
           this.props.history.goBack();
         break;
       default:

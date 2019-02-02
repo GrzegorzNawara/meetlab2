@@ -28,7 +28,7 @@ const client = new AWSAppSyncClient({
   disableOffline: false
 },
 {
-  shouldBatch: true,
+  shouldBatch: false,
   link: networkStatusNotifierLink.concat(
     createAppSyncLink({
       url: appSyncConfig.graphqlEndpoint,
