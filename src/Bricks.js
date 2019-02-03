@@ -35,7 +35,7 @@ class Bricks extends React.Component {
   }
 
   getRavenStats = () => {
-    clearInterval(this.timer);
+    clearInterval(this.getRavenStatsTimer);
     if(this.state.bricks && this.state.bricks.filter((b)=>b.type==='RAVEN').length>0){
       fetch('http://api.ignifer-labs.com/raven/api_read_results.php',{
         method: 'post',
@@ -45,7 +45,7 @@ class Bricks extends React.Component {
         .then(result => result.json())
         .then(result => this.setState({ ravenStats: result }));
     }
-    this.timer = setInterval(()=> this.getRavenStats(), 15000);
+    this.getRavenStatsTimer = setInterval(()=> this.getRavenStats(), 15000);
   }
 
   componentWillMount(){
@@ -55,6 +55,7 @@ class Bricks extends React.Component {
 
   componentWillUnmount() {
     clearInterval(this.loadBricksTimer);
+    clearInterval(this.getRavenStatsTimer);
   }
 
   componentDidUpdate(prevProps) {
