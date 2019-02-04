@@ -1,10 +1,10 @@
 //import debug from '../debug'
 
-const lastMod = ( owner, setResult ) => {
-  if(owner!==undefined)
+const lastMod = ( lastMod, setResult ) => {
+  if(lastMod!==undefined)
     fetch('http://api.ignifer-labs.com/raven-join/lastMod.php',{
       method: 'post',
-      body: JSON.stringify({owner: owner})
+      body: JSON.stringify({ lastMod: lastMod })
     }).then(result => result.json())
       .then(result => setResult(result));
 }

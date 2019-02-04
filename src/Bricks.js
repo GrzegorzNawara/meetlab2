@@ -1,18 +1,8 @@
 import React from 'react'
-import { HashRouter, Route, Switch } from 'react-router-dom'
-import { withRouter } from 'react-router-dom'
-import saveBrick from './database/saveBrick'
-import listBricks from './database/listBricks'
-import deleteBrick from './database/deleteBrick'
-import saveWorkshop from './database/saveWorkshop'
-import deleteWorkshop from './database/deleteWorkshop'
-import WorkshopNavBar from './WorkshopNavBar'
-import WorkshopEditNavBar from './WorkshopEditNavBar'
-import MenuModal from './MenuModal'
 import Brick from './components/Brick'
 import RavenBrick from './components/RavenBrick'
 import RavenResultBrick from './components/RavenResultBrick'
-import debug from './debug'
+//import debug from './debug'
 
 class Bricks extends React.Component {
   ravenSim = {};
@@ -119,4 +109,4 @@ class Bricks extends React.Component {
   }
 }
 
-export default withRouter(Bricks)
+export default Bricks

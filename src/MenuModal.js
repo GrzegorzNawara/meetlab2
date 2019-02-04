@@ -3,7 +3,7 @@ import Popup from 'reactjs-popup'
 import uuidV4 from 'uuid/v4'
 import MenuItem from './components/MenuItem'
 import { MenuConfig } from './config/AppConfig'
-import debug from './debug'
+//import debug from './debug'
 
 class MenuModal extends React.Component {
   menuAction = ({type, menuItem, mysuper }) => {

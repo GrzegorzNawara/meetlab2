@@ -17,7 +17,7 @@ import Document from './components/Document'
 import { MCConfig } from './config/MCConfig'
 import MCTest from './components/MCTest'
 import LicenceCheck from './LicenceCheck'
-import debug from './debug'
+//import debug from './debug'
 
 class App extends React.Component {
 state = {
@@ -68,7 +68,7 @@ render () { return (
                 this.setState({
                   ...this.state,
                   workshop,
-                  bricks
+                  bricks: bricks.filter(b => b && b.id)
               })}} />} />
         </Switch>
 
