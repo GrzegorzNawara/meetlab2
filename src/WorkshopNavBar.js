@@ -1,18 +1,16 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { cssStyles } from './config/AppConfig'
-import MiniNavBar from './MiniNavBar'
 import debug from './debug'
 
 class WorkshopNavBar extends React.Component {
 render () {
   return (
   <div>
-    <MiniNavBar mg={this.props.workshop.owner} link={(this.props.match.params.more || this.props.match.params.document_id)?'/'+this.props.match.params.super:'/'} />
     <div className="navbar border-bottom box-shadow" style={cssStyles.lookWorkshop}>
       <div className="workshop-navbar container">
         <div className='text-left'>
-          <span className='h2'>{this.props.workshop.title}<br />
+          <span className='h2'>{debug(this.props.workshop,'WORKSHOP').title}<br />
           <span className='h4 color-white80'>{this.props.workshop.subtitle}</span></span>
         </div>
         <div>

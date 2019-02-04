@@ -1,7 +1,6 @@
 import React from 'react'
 import { withRouter } from 'react-router-dom'
 import { cssStyles } from './config/AppConfig'
-import MiniNavBar from './MiniNavBar'
 //import debug from './include/debug'
 
 class WorkshopNavBar extends React.Component {
@@ -23,7 +22,6 @@ updateWorkshop = () => {
 render () {
   return (
   <div>
-    <MiniNavBar mg={this.props.mg} link={'/'+this.props.match.params.super} />
     <form onSubmit={e => {
         e.preventDefault();
         e.stopPropagation(); // preserve click outside for modal

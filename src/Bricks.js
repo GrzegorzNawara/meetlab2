@@ -22,18 +22,6 @@ class Bricks extends React.Component {
     bricks: []
   };
 
-  saveBrick = (brick) => {
-    saveBrick(brick)
-    this.setState({...this.state, bricks: [...this.state.bricks, brick]})
-  }
-
-  loadBricks = () => {
-    clearInterval(this.loadBricksTimer);
-    listBricks(this.props.owner, this.props.super,
-      ({bricks, workshop}) => this.setState({...this.state, bricks, workshop }))
-    this.loadBricksTimer = setInterval(this.loadBricks, 5000);
-  }
-
   getRavenStats = () => {
     clearInterval(this.getRavenStatsTimer);
     if(this.state.bricks && this.state.bricks.filter((b)=>b.type==='RAVEN').length>0){
@@ -49,12 +37,10 @@ class Bricks extends React.Component {
   }
 
   componentWillMount(){
-    this.loadBricks()
     this.getRavenStats()
   }
 
   componentWillUnmount() {
-    clearInterval(this.loadBricksTimer);
     clearInterval(this.getRavenStatsTimer);
   }
 
@@ -66,7 +52,7 @@ class Bricks extends React.Component {
     let title=0;
     let last=0;
 
-    this.myBricks = this.state.bricks.slice()
+    this.myBricks = this.props.bricks.slice()
       .filter(b => b.id)
       .sort((a,b)=>-a.sort.localeCompare(b.sort))
       .reverse()
@@ -79,30 +65,6 @@ class Bricks extends React.Component {
 
 
     return (
-      <React.Fragment>
-        <Switch>
-          <Route exact path="/:owner/:super" render={({match})=>
-            <WorkshopNavBar
-              match={match}
-              mg={this.props.mg}
-              workshop={this.state.workshop} />} />
-          <Route exact path="/:owner/:super/edit" render={({match})=>
-            <WorkshopEditNavBar
-              match={match}
-              mg={this.props.mg}
-              workshop={this.state.workshop}
-              onUpdate={saveWorkshop} />} />
-          <Route exact path="/:owner/:super/:more" render={({match})=>
-            <WorkshopNavBar
-              match={match}
-              mg={this.props.mg}
-              workshop={this.state.workshop} />} />
-          <Route exact path="/:owner/:super/doc/:document_id" render={({match})=>
-            <WorkshopNavBar
-              match={match}
-              mg={this.props.mg}
-              workshop={this.state.workshop} />} />
-        </Switch>
         <div className="container"><div className="row py-3 justify-content-center">
         {
           this.myBricks.reverse().map((r, i) => {
@@ -152,17 +114,7 @@ class Bricks extends React.Component {
           })
         }
         </div>
-
-        <MenuModal
-          super={this.props.super}
-          bricks={this.state.bricks}
-          mg={this.props.mg}
-          history={this.props.history}
-          onAdd={this.saveBrick}
-          onDeleteWorkshop={deleteWorkshop}
-          onDeleteBrick={deleteBrick} />
-        </div>
-      </React.Fragment>
+      </div>
     )
   }
 }

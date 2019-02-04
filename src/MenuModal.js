@@ -14,7 +14,7 @@ class MenuModal extends React.Component {
       title: menuItem.title,
       subtitle: menuItem.subtitle,
       date: new Date().toISOString().split("T")[0],
-      owner: this.props.mg,
+      owner: this.props.owner,
       params: JSON.stringify(menuItem.params),
       PIN: Math.floor(899999*Math.random()+100000),
       type: 'UNKNOWN'
@@ -69,8 +69,8 @@ class MenuModal extends React.Component {
         break;
       case 'DELETE_WORKSHOP':
         if(this.props.bricks.length===0)
-          this.props.onDeleteWorkshop({owner: this.props.mg, super: mysuper});
-          this.props.history.goBack();
+          this.props.onDeleteWorkshop({owner: this.props.owner, super: mysuper});
+          window.history.back()
         break;
       default:
         return (null);
