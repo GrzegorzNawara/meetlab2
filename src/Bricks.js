@@ -8,17 +8,16 @@ class Bricks extends React.Component {
   ravenSim = {};
   myBricks = [];
   state = {
-    workshop: {},
-    bricks: []
+    ravenStats: {}
   };
 
   getRavenStats = () => {
     clearInterval(this.getRavenStatsTimer);
-    if(this.state.bricks && this.state.bricks.filter((b)=>b.type==='RAVEN').length>0){
+    if(this.props.bricks && this.props.bricks.filter((b)=>b.type==='RAVEN').length>0){
       fetch('http://api.ignifer-labs.com/raven/api_read_results.php',{
         method: 'post',
         body: JSON.stringify(
-          this.state.bricks.filter((b)=>b.type==='RAVEN').map((b)=>(b.id))
+          this.props.bricks.filter((b)=>b.type==='RAVEN').map((b)=>(b.id))
       )})
         .then(result => result.json())
         .then(result => this.setState({ ravenStats: result }));

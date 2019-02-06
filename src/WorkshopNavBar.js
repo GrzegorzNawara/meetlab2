@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { cssStyles } from './config/AppConfig'
-import debug from './debug'
+//import debug from './debug'
 
 class WorkshopNavBar extends React.Component {
 render () {
@@ -10,7 +10,7 @@ render () {
     <div className="navbar border-bottom box-shadow" style={cssStyles.lookWorkshop}>
       <div className="workshop-navbar container">
         <div className='text-left'>
-          <span className='h2'>{debug(this.props.workshop,'WORKSHOP').title}<br />
+          <span className='h2'>{this.props.workshop.title}<br />
           <span className='h4 color-white80'>{this.props.workshop.subtitle}</span></span>
         </div>
         <div>

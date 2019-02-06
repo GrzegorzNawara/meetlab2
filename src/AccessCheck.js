@@ -2,7 +2,7 @@ import React from 'react';
 import { Redirect } from 'react-router-dom'
 import { Query } from 'react-apollo';
 import { getKey } from './graphql/Queries'
-import debug from './debug'
+//import debug from './debug'
 
 const AccessCheck = ({licence}) => (
     <Query query={getKey} variables={{ id: licence }}>
@@ -10,7 +10,7 @@ const AccessCheck = ({licence}) => (
             if (error) return <div>Error {error}</div>;
             if (loading || !data) return <div> Loading </div>;
             if (data.getKey) {
-              localStorage.setItem("mg", debug(data.getKey.owner,'AccessCheck'));
+              localStorage.setItem("mg", data.getKey.owner);
             } else {
               localStorage.removeItem("mg");
             }
