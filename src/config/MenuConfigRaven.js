@@ -1,9 +1,9 @@
 export const MenuConfigRaven = {
   topMenu: [{
-    title: 'Invisible Workshop',
+    title: 'New Workshop',
     subtitle: 'Raven 13',
     action: 'ADD_WORKSHOP',
-    params: { title: 'Invisible Workshop', subtitle:'Raven 13', look: 'lookWorkshop' }
+    params: { title: 'Simulation Workshop', subtitle:'Raven 13', look: 'lookWorkshop' }
   }],
   workshopMenu:[
     { title: 'Zasady (PL)',
@@ -33,10 +33,15 @@ export const MenuConfigRaven = {
       action: 'ADD_DOCUMENT',
       params: { doc:'agile-mindset', look: 'lookDocument' }
     },
-    { title: 'CLEAR',
-      subtitle: 'Clear this workshop',
-      action: 'CLEAR_WORKSHOP',
-      params: { look: 'lookMenuClear' }
+    { title: 'UNDO',
+      subtitle: 'Remove last item',
+      action: 'DELETE_LAST_BRICK',
+      params: { show: 'onNonEmpty', look: 'lookMenuClear' }
+    },
+    { title: 'DELETE',
+      subtitle: 'Remove this workshop',
+      action: 'DELETE_WORKSHOP',
+      params: { show: 'onEmpty', look: 'lookMenuClear' }
     }
   ]
 }
@@ -51,6 +56,8 @@ export const cssStylesRaven = {
   logo: { navBar: 'images/logo-raven.png',
           white: 'images/logo-raven-white.png'
         },
+
+  lookSpinner: { backgroundColor:theme.secondaryColorBg, color:theme.secondaryColor },
 
   lookDefault: { backgroundColor:'#aaaaff', color:'#555555' },
   lookMenu: { backgroundColor:'#2c97cf', color:'#ffffff' },

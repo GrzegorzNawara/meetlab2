@@ -67,4 +67,18 @@ a, a:hover { text-decoration: none; }
   bottom: 24px;
   right: 24px;
 }
+.spinner {
+  width: 120px;
+  height: 40px;
+  padding: 5px;
+  vertical-align: baseline;
+  position: fixed;
+  top: 60px;
+  right: 20px;
+}
+.spinner img {
+  height: 30px;
+  width: auto;
+  margin-right: 6px;
+}
 .document-close-btn { position: relative; right:8px; top: 10px;}

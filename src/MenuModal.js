@@ -14,7 +14,7 @@ class MenuModal extends React.Component {
       title: menuItem.title,
       subtitle: menuItem.subtitle,
       date: new Date().toISOString().split("T")[0],
-      owner: this.props.mg,
+      owner: this.props.owner,
       params: JSON.stringify(menuItem.params),
       PIN: Math.floor(899999*Math.random()+100000),
       type: 'UNKNOWN'
@@ -64,10 +64,13 @@ class MenuModal extends React.Component {
           type: 'BRICK'
         });
         break;
-      case 'CLEAR_WORKSHOP':
-        this.props.bricks.forEach((r,i) => {
-          this.props.onDelete({...this.props.bricks[i]});
-        });
+      case 'DELETE_LAST_BRICK':
+        this.props.onDeleteBrick({...this.props.bricks.sort((a,b)=>(-a.sort.localeCompare(b.sort))).slice(0,1)[0]});
+        break;
+      case 'DELETE_WORKSHOP':
+        if(this.props.bricks.length===0)
+          this.props.onDeleteWorkshop({owner: this.props.owner, super: mysuper});
+          window.history.back()
         break;
       default:
         return (null);
@@ -91,7 +94,10 @@ class MenuModal extends React.Component {
              <div className="modal-body">
                <div className="">
                 {((this.props.super)?MenuConfig.workshopMenu:MenuConfig.topMenu)
-                  .map((item,index)=>{return(
+                  .map((item,index)=>{
+                  if(item.params.show==='onNonEmpty' && this.props.bricks.length===0) return null;
+                  if(item.params.show==='onEmpty' && this.props.bricks.length>0) return null;
+                  return(
                   <MenuItem
                     key={index}
                     title={item.title}

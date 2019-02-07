@@ -1,10 +1,6 @@
 import React from 'react'
 import { withRouter } from 'react-router-dom'
-import { compose, graphql } from 'react-apollo'
-import { getBrick } from './graphql/Queries'
-import { updateBrick } from './graphql/Mutations'
 import { cssStyles } from './config/AppConfig'
-import MiniNavBar from './MiniNavBar'
 //import debug from './include/debug'
 
 class WorkshopNavBar extends React.Component {
@@ -16,7 +12,6 @@ onChange = (key, value) => {
   this.setState({ [key]: value })
 }
 updateWorkshop = () => {
-  //const { title, subtitle } = this.state.workshop
   this.props.onUpdate({
     ...this.props.workshop,
     title: (this.state.title)?this.state.title:this.props.workshop.title,
@@ -27,7 +22,6 @@ updateWorkshop = () => {
 render () {
   return (
   <div>
-    <MiniNavBar mg={this.props.mg} link={'/'+this.props.match.params.super} />
     <form onSubmit={e => {
         e.preventDefault();
         e.stopPropagation(); // preserve click outside for modal
@@ -67,26 +61,4 @@ render () {
   </div>
 )}}
 
-export default compose(
-  graphql(getBrick, {
-    options: props => ({
-      variables: { id: props.match.params.super },
-      fetchPolicy: 'cache-and-network'
-    }),
-    props: props => ({
-      workshop: (props.data.getBrick)?props.data.getBrick:
-      {id:'', title:'Loading...', subtitle:'loading', date:'9999-99-99', pin:'????', owner:'Loading...'}
-    })
-  }),
-  graphql(updateBrick, {
-    props: props => ({
-      onUpdate: workshop => props.mutate({
-        variables: workshop,
-        optimisticResponse: {
-          __typename: 'Mutation',
-          updateBrick: { ...workshop,  __typename: 'Brick' }
-        }
-      })
-    })
-  })
-)(withRouter(WorkshopNavBar))
+export default withRouter(WorkshopNavBar)
