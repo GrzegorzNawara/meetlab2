@@ -29,7 +29,7 @@ export const MenuConfigMir = {
 const theme = {
     mainColorBg: '#555',
     mainColor: '#ffffff',
-    secondaryColorBg: '#999',
+    secondaryColorBg: '#888',
     secondaryColor: '#ffffff'
 }
 export const cssStylesMir = {

@@ -6,9 +6,9 @@ const alphaNames=['ZERO','Alpha','Bravo','Charlie','Delta','Echo','Foxtrot',
           'Golf','Hotel','India','Juliet','Kilo','Lima','Mike','November','Oscar',
           'Papa','Quebec','Romeo','Sierra','Tango','Uniform','Victor','Whiskey',
           'Xray','Yankee'];
-const MirBrick = ({ title, subtitle, score, look, id, ravenCount, linkTo, sort, stats}) => (
+const MirBrick = ({ title, subtitle, score, look, id, workshopId, ravenCount, linkTo, sort, stats}) => (
   <div className="col px-1 align-items-center">
-    <a href={(Date.now()-sort>3600000)?window.location.href:'http://www.mir91.net/sim/#/'+id+'/'+((title>24)?'Deep'+title:alphaNames[title])+'/'+localStorage.getItem('me')}>
+    <a href={(Date.now()-sort>3600000)?window.location.href:'http://www.mir91.net/sim/#/'+workshopId+'/'+((title>24)?'Deep'+title:alphaNames[title])+'/'+localStorage.getItem('me')}>
       <div className="text-center rounded p-1 px-2 m-1"
            style={(Number(Date.now().toString())-Number(sort)>60*60*1000 ||
              (stats && stats[id] && stats[id]['Status']==='Game Over'))?cssStyles['lookSimulationOver']:cssStyles[look]} >

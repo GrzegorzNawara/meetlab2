@@ -94,6 +94,7 @@ class Bricks extends React.Component {
                       key={'brick'+i}
                       title={r.title}
                       id={r.id}
+                      workshopId={this.props.super}
                       stats={this.state.ravenStats}
                       sort={r['sort']}
                       look={JSON.parse(r.params).look} />
