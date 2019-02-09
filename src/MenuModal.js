@@ -43,6 +43,7 @@ class MenuModal extends React.Component {
       case 'ADD_MIR':
         this.props.onAdd({
           ...newBrick,
+          title: 'AUTO',
           type: 'MIR'
         });
         break;

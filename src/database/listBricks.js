@@ -2,7 +2,7 @@
 
 const listBricks = ( owner, workshopId, setResult ) => {
   if(owner!==undefined)
-    fetch('http://api.ignifer-labs.com/raven-join/listBricks.php',{
+    fetch('http://api.ignifer-labs.com/mir-join/listBricks.php',{
       method: 'post',
       body: JSON.stringify({owner: owner, workshopId: workshopId})
     }).then(result => result.json())

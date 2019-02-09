@@ -1,31 +1,60 @@
 export const MenuConfigMir = {
   topMenu: [{
-    title: 'Add Workshop',
-    subtitle: 'Add new workshop',
+    title: 'New Workshop',
+    subtitle: 'Mir\'91',
     action: 'ADD_WORKSHOP',
-    params: { title: 'Invisible Workshop', subtitle:'Workshop', look: 'look-workshop' }
+    params: { title: 'Simulation Workshop', subtitle:'Raven 13', look: 'lookWorkshop' }
   }],
   workshopMenu:[
-    { title: 'Agile Mindset PL',
-      subtitle: 'Dokument PL',
-      action: 'ADD_DOCUMENT',
-      look: 'look-document',
-      params: {
-        title: 'Agile Mindset', subtitle:'Dokument PL',
-        doc:'agile-mindset', look: 'look-document' }
-    },
     { title: 'MIR',
       subtitle: 'Simulation',
       action: 'ADD_MIR',
-      look: 'look-simulation',
       params: {
         title: 'Join MIR', subtitle:'Simulation',
-        look: 'look-simulation' }
+        look: 'lookSimulation' }
     },
-    { title: 'CLEAR',
-      subtitle: 'Clear this workshop',
-      action: 'CLEAR_WORKSHOP',
-      params: { look: 'look-menu-red' }
+    { title: 'UNDO',
+      subtitle: 'Remove last item',
+      action: 'DELETE_LAST_BRICK',
+      params: { show: 'onNonEmpty', look: 'lookMenuClear' }
+    },
+    { title: 'DELETE',
+      subtitle: 'Remove this workshop',
+      action: 'DELETE_WORKSHOP',
+      params: { show: 'onEmpty', look: 'lookMenuClear' }
     }
   ]
+}
+
+const theme = {
+    mainColorBg: '#555',
+    mainColor: '#ffffff',
+    secondaryColorBg: '#999',
+    secondaryColor: '#ffffff'
+}
+export const cssStylesMir = {
+  logo: { navBar: 'images/logo-mir.png',
+          white: 'images/logo-mir-white-small.png'
+        },
+
+  lookSpinner: { backgroundColor:theme.secondaryColorBg, color:theme.secondaryColor },
+
+  lookDefault: { backgroundColor:'#aaaaff', color:'#555555' },
+  lookMenu: { backgroundColor:'#2c97cf', color:'#ffffff' },
+  lookMenuClear: { backgroundColor:'#ff0000', color:'#ffffff' },
+
+  lookGate: { backgroundColor:theme.secondaryColorBg, color:theme.secondaryColor },
+  lookWorkshop: { backgroundColor:theme.mainColorBg, color:theme.mainColor },
+  lookDocument: { backgroundColor:'#dddddd', color:'#333333' },
+
+  lookSimulation: { backgroundColor:theme.secondaryColorBg, color:theme.secondaryColor },
+  lookSimulationOver: { backgroundColor:'#aaaaaa', color:'#ffffff' },
+  lookSimulationResults: { backgroundColor:'#eeeeee', color:'#666666' },
+
+  lookMCTest: { backgroundColor:'#ffd65c', color:'#000000' },
+  lookMCScore: { fontSize:'1.5em' },
+  lookMCScoreLabel: { fontSize:'0.7em' },
+
+  rankingChecked: { color:'#666666' },
+  rankingUnchecked: { color:'#cccccc' }
 }

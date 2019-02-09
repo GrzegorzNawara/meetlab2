@@ -14,7 +14,6 @@ import NavBar from './NavBar'
 import WorkshopNavBar from './WorkshopNavBar'
 import WorkshopEditNavBar from './WorkshopEditNavBar'
 import Document from './components/Document'
-import { MCConfig } from './config/MCConfig'
 import MCTest from './components/MCTest'
 import LicenceCheck from './LicenceCheck'
 //import debug from './debug'
@@ -123,8 +122,6 @@ render () { return (
           <Route exact path="/" render={()=>
             <Workshops workshops={this.state.workshops} />} />
           <Route exact path='/:owner/:super/doc/:document_id' component={Document} />
-          <Route exact path="/:owner/:super/test/:test_id" render={(routerProps)=>
-            <MCTest routerProps={routerProps} test={MCConfig.tests.filter((t) => (t.id===routerProps.match.params.test_id))[0]} />} />
           <Route path="/:owner/:super" render={({match})=>
             <Bricks
               owner={match.params.owner}

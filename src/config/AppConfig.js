@@ -1,7 +1,4 @@
-import { MenuConfigRaven, cssStylesRaven } from './MenuConfigRaven'
-//import { MenuConfigMir } from './MenuConfigMir'
-//import { MenuConfigMCTest } from './MenuConfigMCTest'
+import { MenuConfigMir, cssStylesMir } from './MenuConfigMir'
 
-export const MenuConfig = MenuConfigRaven
-
-export const cssStyles = cssStylesRaven
+export const MenuConfig = MenuConfigMir
+export const cssStyles = cssStylesMir
