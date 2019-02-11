@@ -47,10 +47,17 @@ class Bricks extends React.Component {
       .sort((a,b)=>-a.sort.localeCompare(b.sort))
       .reverse()
       .map((b,i,ba) => {
-        if(b.type!=='RAVEN' && b.type!=='MIR') return b;
-        (i>0 && b['sort']-last<600000)?title=title+1:title=1;
-        last=b['sort'];
-        return {...b,title:title};
+        switch (b.type) {
+          case 'RAVEN':
+            (i>0 && b['sort']-last<600000)?title=title+1:title=1;
+            last=b['sort'];
+            return {...b,title:title};
+          case 'MIR':
+            (i>0)?title=title+1:title=1;
+            return {...b,title:title};
+          default:
+            return b
+        }
       });
 
 
@@ -94,6 +101,7 @@ class Bricks extends React.Component {
                       key={'brick'+i}
                       title={r.title}
                       id={r.id}
+                      running={r.running}
                       workshopId={this.props.super}
                       stats={this.state.ravenStats}
                       sort={r['sort']}

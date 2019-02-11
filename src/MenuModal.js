@@ -1,9 +1,10 @@
 import React from 'react'
 import Popup from 'reactjs-popup'
 import uuidV4 from 'uuid/v4'
+import mirSaveMsg from './database/mirSaveMsg'
 import MenuItem from './components/MenuItem'
 import { MenuConfig } from './config/AppConfig'
-//import debug from './debug'
+import debug from './debug'
 
 class MenuModal extends React.Component {
   menuAction = ({type, menuItem, mysuper }) => {
@@ -39,6 +40,26 @@ class MenuModal extends React.Component {
           title: 'AUTO',
           type: 'RAVEN'
         });
+        break;
+      case 'START_MIR_SPRINT':
+        this.props.onAdd({
+          ...newBrick,
+          running: 1,
+          title: 'AUTO',
+          type: 'MIR'
+        })
+        mirSaveMsg({
+          game:mysuper,
+          msg:{ a:'STR' }})
+        break;
+      case 'END_MIR_SPRINT':
+        this.props.onAdd(debug({
+          ...this.props.bricks.filter(b => b.running)[0],
+          running: 0
+        },'END'))
+        mirSaveMsg({
+          game:mysuper,
+          msg:{ a:'END' }})
         break;
       case 'ADD_MIR':
         this.props.onAdd({
@@ -98,6 +119,8 @@ class MenuModal extends React.Component {
                   .map((item,index)=>{
                   if(item.params.show==='onNonEmpty' && this.props.bricks.length===0) return null;
                   if(item.params.show==='onEmpty' && this.props.bricks.length>0) return null;
+                  if(item.params.show==='onNonRunning' && this.props.bricks.filter(b => b.running).length) return null;
+                  if(item.params.show==='onRunning' && !this.props.bricks.filter(b => b.running).length) return null;
                   return(
                   <MenuItem
                     key={index}

@@ -6,11 +6,20 @@ export const MenuConfigMir = {
     params: { title: 'Simulation Workshop', subtitle:'Raven 13', look: 'lookWorkshop' }
   }],
   workshopMenu:[
-    { title: 'MIR',
-      subtitle: 'Simulation',
-      action: 'ADD_MIR',
+    { title: 'START MIR',
+      subtitle: 'Simulation Sprint',
+      action: 'START_MIR_SPRINT',
       params: {
-        title: 'Join MIR', subtitle:'Simulation',
+        title: 'MIR Sprint', subtitle:'Simulation',
+        show: 'onNonRunning',
+        look: 'lookSimulation' }
+    },
+    { title: 'END MIR',
+      subtitle: 'Simulation Sprint',
+      action: 'END_MIR_SPRINT',
+      params: {
+        title: 'MIR Sprint', subtitle:'Simulation',
+        show: 'onRunning',
         look: 'lookSimulation' }
     },
     { title: 'UNDO',
@@ -27,9 +36,9 @@ export const MenuConfigMir = {
 }
 
 const theme = {
-    mainColorBg: '#555',
+    mainColorBg: '#333333',
     mainColor: '#ffffff',
-    secondaryColorBg: '#888',
+    secondaryColorBg: '#c1670b',
     secondaryColor: '#ffffff'
 }
 export const cssStylesMir = {
@@ -48,7 +57,7 @@ export const cssStylesMir = {
   lookDocument: { backgroundColor:'#dddddd', color:'#333333' },
 
   lookSimulation: { backgroundColor:theme.secondaryColorBg, color:theme.secondaryColor },
-  lookSimulationOver: { backgroundColor:'#aaaaaa', color:'#ffffff' },
+  lookSimulationOver: { backgroundColor:'#888888', color:'#ffffff' },
   lookSimulationResults: { backgroundColor:'#eeeeee', color:'#666666' },
 
   lookMCTest: { backgroundColor:'#ffd65c', color:'#000000' },
