@@ -1,0 +1,148 @@
+<br>
+<div class="text-center">
+<img alt="Logo" width="250px" src="./images/logo-mir.png">
+</div>
+
+<br />
+<br />
+
+<h4>Historia</h4>
+<p align="justify">Symulacja jest inspirowana rzeczywistymi wydarzeniami.<br />
+Pracujesz w kontroli naziemnej misji kosmicznej STS-91.
+Misja ta odbyła się w czercu 1998 roku w ramach programu Shuttle–Mir (Phase One).
+Na stacji przebywali wówczas astronauci z różnych państw.
+Waznym elementem misji było dokowanie promu kosmicznego Discovery.
+Kontrola naziemna była podzielona na zespoły rozmieszczone w odległych lokalizacjach.
+</p>
+
+<div class="text-center  p-4">
+<img alt="STS-91" width="250px" src="./images/800px-STS-91_crew.jpg"><br />
+<span class="small">Załoga STS-91. Fot. Wikipedia</span>
+</div>
+
+<h4>Mapa</h4>
+<p align="justify">Każde pole symbolizuje jeden rodzaj pracy do wykonania na stacji, promie i w ich otoczeniu.
+Duża mapa na stole służy do wymiany informacji i koordynowania działań.
+Kody z tabliczek na ścianach dookoła służą do porusznia się po wirtualnej mapie.
+Pola o tym samym kolorze wymagają podobnych umiejętności.
+Pola w otwartym kosmosie wymagają skafandra.
+</p>
+
+<div class="text-center  p-4">
+<img alt="Mapa" width="250px" src="./images/mir-map-mini.png"><br />
+<span class="small">Mapa symulacji</span>
+</div>
+
+<h4>Aplikacja na telefon</h4>
+<p align="justify">Wszystkie swoje akcje w symulacji wykonujesz przez smartfon.
+Na górnej belce widać czas <b>(1)</b>, twoje punkty zwycięstwa <b>(5)</b> i drużynę.
+Ikona na środku ekranu <b>(6)</b> pokazuje na jakim polu aktualnie pracujesz.
+Liczba pod numerem pola <b>(8)</b> pokazuje, ile pracy trzeba wykonać.
+Jeśli ta liczba spadnie do zera, mówimy że pole zostało wyzerowane (ROOM CLEARED).
+Praca wykonywana jest zawsze automatycznie. Szybkość zależy od umiejętności.
+Twoje umiejętności (SKILLS) pokazuje kolorowy pasek <b>(4)</b> na polu.
+Czerwony przycisk <b>(7)</b> wywołuje klawiaturę do wpisywania kodów.
+Wpisanie kodu uruchamia akcję.
+Pola mogą ulegać awariom (ALERT) - widać wtedy ikonę awarii <b>(2)</b>.
+Astronauci <b>(3)</b> przyśpieszają wykonywanie pracy.
+</p>
+
+<div class="text-center  p-4">
+<img alt="Smartfon" width="250px" src="./images/mir-phone-mini.png"><br />
+<span class="small">Aplikacja w czasie symulacji</span>
+</div>
+
+<h4>Cel</h4>
+<p align="justify">Celem jest uzyskanie jak największej liczby punktów zwycięstwa (VP).
+</p>
+
+<h4>Zespoły</h4>
+<p align="justify">Przed symulacją liderzy zespołów otrzymają kody zespołów.
+Liderzy zespołów otrzymają też karty zadań, zgodnie z realizowanym scenariuszem.
+Wpisz kod zespołu, żeby przejść do tego zespołu.
+</p>
+
+<h4>Zadania</h4>
+<p align="justify">Wykonanie zadań daje zespołowi punkty zwycięstwa (VP).
+Żeby wykonać zadanie, trzeba je najpierw aktywować (wpisując kod zadania).
+Po aktywowaniu zadania na wskazanych polach pojawi się dodatkowa praca do wykonania.
+Kiedy wszystkie pola zadania zostaną wyzerowane (CLEARED), zadanie zostaje wykonane.
+Każde zadanie może być aktywowane tylko raz na warsztat.
+</p>
+
+<h4>Awarie</h4>
+<p align="justify">Czerwony symbol oznacza awarię na polu.
+Każda awaria zwiększa ilość pracy na polu w miarę upływu czasu.
+Usunięcie awarii wymaga wykonania pracy na tym polu.
+</p>
+
+<h4>Ruch</h4>
+<p align="justify">Żeby przejść na inne pole trzeba wpisać kod z tabliczki na ścianie lub użyć szybkiego kodu.
+Kody zmieniają się w czasie symulacji - pamiętajcie, żeby wybrać aktualny kod.
+</p>
+
+<div class="text-center  p-4">
+<img alt="STS-91" width="250px" src="./images/1024px-STS-91_Landing.jpg"><br />
+<span class="small">Lądowanie STS-91. Fot. Wikipedia</span>
+</div>
+
+<h4>Szybkie kody</h4>
+<p align="justify">Szybkie kody oznaczone na klawiaturze pozwalają na przywołanie astronauty, przejście na kolejne pole, zatrzymanie się i pokazanie ekranu informacyjnego.
+</p>
+
+<h4>Kosmonauci</h4>
+<p align="justify">Na stacji jest 3 kosmonautów, sterowanych przez kontrolę naziemną.
+Kosmonauci potrzebują kombinezonów, żeby przebywać na polach poza stacją.
+Żeby kosmonauta ubrał/zdjął kombinezon, trzeba wykonać pracę na polach 34/35/36.
+Każdy kosmonauta przyspiesza wykonywanie pracy.
+Kosmonauta bez kombinezonu przyspiesza pracę bardziej niż w kombinezonie.
+Każdy może wezwać kosmonautę szybkim kodem.
+</p>
+
+<div class="text-center p-4">
+<img alt="STS-91" width="250px" src="./images/800px-Sts-91-patch.png"><br />
+<span class="small">Naszywka STS-91. Fot. Wikipedia</span>
+</div>
+
+<h4>Punkty zwycięstwa (VP)</h4>
+<p align="justify">Jest 5 rodzajów zdarzeń punktowanych.</p>
+<ul>
+<li>Usunięcie awarii (ALERT): +25 VP</li>
+<li>Wyzerowanie pola (ROOM CLEARED): +25 VP</li>
+<li>Rozpoczęcie zadania: -50 VP za każdą gwiazdkę</li>
+<li>Zakończenie zadania w tym samym sprincie: +150 VP za każdą gwiazdkę</li>
+<li>Zakończenie zadania w kolejnym sprincie: +50 VP za każdą gwiazdkę</li>
+</ul>
+<p align="justify">Punkty są rozdzielane w chwili wystąpienia zdarzenia.
+Punkty są dzielone równo na wszystkich członków drużyny.
+Punkty za zakończenie zadania trafiają do drużyny, która rozpoczęła to zadanie.
+</p>
+
+<div class="text-center  p-4">
+<img alt="Mapa" width="250px" src="./images/STS-60_Launch.jpg"><br />
+<span class="small">Start misji STS-60 Fot. Wikipedia</span>
+</div>
+
+<h4>Umiejętności</h4>
+<p align="justify">Umiejętności (SKILLS) to szybkość z jaką pracujesz na danym polu.
+Swoje umiejętności możesz zobaczyć na pasku pracy lub na ekranie informacyjnym.
+Każdy rozwija swoje własne umiejętności.
+Kiedy jesteś na jakimś polu, to powoli rosną twoje umiejętności na tym polu i na polach w tym samym kolorze a spadają na polach w innych kolorach.
+</p>
+
+<h4>Jak grać</h4>
+<p align="justify">Dołącz do jednego z zespołów.<br />
+Wybierz i aktywuj zadanie.<br />
+Wykonaj pracę na polach z zadania, żeby dostać punkty.<br />
+Usuwaj awarie, żeby dostać punkty.<br />
+Wzywaj kosmonautów, żeby szybciej pracować.
+</p>
+
+<div class="text-center  p-4">
+<img alt="Logo" width="150px" src="./images/logo-ignifer.png">
+</div>
+
+
+
+<p><small>Autor: Grzegorz Nawara<br>
+Ignifer Labs 2019 Wszystkie prawa zastrzeżone</small></p>
