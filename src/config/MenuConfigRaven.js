@@ -24,12 +24,12 @@ export const MenuConfigRaven = {
         look: 'lookSimulation' }
     },
     { title: 'Dobra Postawa (PL)',
-      subtitle: 'Show Dokument',
+      subtitle: 'Document',
       action: 'ADD_DOCUMENT',
       params: { doc:'dobra-postawa', look: 'lookDocument' }
     },
     { title: 'Agile Mindset (PL)',
-      subtitle: 'Show Dokument',
+      subtitle: 'Document',
       action: 'ADD_DOCUMENT',
       params: { doc:'agile-mindset', look: 'lookDocument' }
     },
