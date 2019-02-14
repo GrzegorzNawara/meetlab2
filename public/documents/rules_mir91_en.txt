@@ -1,0 +1,147 @@
+<br>
+<div class="text-center">
+<img alt="Logo" width="250px" src="./images/logo-mir.png">
+</div>
+
+<br />
+<br />
+
+<h4>The Story</h4>
+<p align="justify">This simulation is inspired by real events.<br />
+You work in the ground control of the STS-91 space mission.
+This mission took place in June 1998 as part of the Shuttle-Mir program (Phase One).
+At that time, astronauts from various countries were at the station.
+An important part of the mission was the docking of the Space Shuttle Discovery.
+Ground control was divided into teams deployed in remote locations.
+</p>
+
+<div class="text-center  p-4">
+<img alt="STS-91" width="250px" src="./images/800px-STS-91_crew.jpg"><br />
+<span class="small">STS-91 crew. Source: Wikipedia</span>
+</div>
+
+<h4>The Map</h4>
+<p align="justify">Each room symbolizes one type of work to be done at the station, space shuttle and their surroundings.
+A large map on the table is used to exchange information and coordinate activities.
+Codes from the plates on the walls around are used to move around the virtual map.
+Fields of the same color require similar skills.
+Fields in open space require a space suit.
+</p>
+
+<div class="text-center  p-4">
+<img alt="Mapa" width="250px" src="./images/mir-map-mini.png"><br />
+<span class="small">Simulation map</span>
+</div>
+
+<h4>The App</h4>
+<p align="justify">You perform all your actions in the simulation via smartphone.
+The top bar shows the time <b> (1) </b>, your victory points <b> (5) </b> and the team.
+The icon in the center of the screen <b> (6) </b> shows what room you are currently working on.
+The number under the room number <b> (8) </b> shows how much work to do.
+If this number drops to zero, we say that the room has been cleared.
+Work is always done automatically. Speed ​​depends on your skills.
+Your skills (SKILLS) shows a colored bar <b> (4) </b> in the room.
+The red <b> (7) </b> button calls the keyboard to enter codes.
+Entering the code starts the action.
+The rooms may fail (ALERT) - you can see the <b> (2) crash icon </b>.
+Astronauts <b> (3) </b> accelerate work.
+</p>
+
+<div class="text-center  p-4">
+<img alt="Smartfon" width="250px" src="./images/mir-phone-mini.png"><br />
+<span class="small">The app</span>
+</div>
+
+<h4>The Goal</h4>
+<p align="justify"> The goal is to get the highest number of victory points (VPs).
+</p>
+
+<h4>Teams</h4>
+<p align="justify">Before the simulation, team leaders will receive team codes.
+Team leaders will also receive task cards in accordance with the scenario being implemented.
+Enter the team code to go to this team.
+</p>
+
+<h4>Tasks</h4>
+<p align="justify">Performing tasks gives the team victory points (VPs).
+To perform a task, you must first activate it (by entering the task code).
+After activating the task, additional work will be displayed in the rooms.
+When all task rooms are cleared, the task is completed.
+Each task can be activated only once per workshop.
+</p>
+
+<h4>Accidents</h4>
+<p align="justify">The red symbol indicates an accident in the room.
+Each accident increases the amount of work in the room over time.
+Removal of a failure requires that you perform work in this room.
+</p>
+
+<h4>Moving</h4>
+<p align="justify">To go to another room, enter the code from the plate on the wall or use a quick code.
+The codes change during the simulation - remember to select the most current code.
+</p>
+
+<div class="text-center  p-4">
+<img alt="STS-91" width="250px" src="./images/1024px-STS-91_Landing.jpg"><br />
+<span class="small">STS-91 landing. Source: Wikipedia</span>
+</div>
+
+<h4>Quick codes</h4>
+<p align="justify">Quick codes marked on the keyboard allow you to call an astronaut, move to the next room, stop and show the information screen.
+</p>
+
+<h4>Astronauts</h4>
+<p align="justify">There are 3 astronauts in the station, controlled by ground control.
+Astronauts need space suits to work outside of the station.
+In order for an astronaut to wear a suit, work must be done on the 34/35/36 rooms.
+Each astronaut speeds up the work.
+Everyone can call an astronaut with a quick code.
+</p>
+
+<div class="text-center p-4">
+<img alt="STS-91" width="250px" src="./images/800px-Sts-91-patch.png"><br />
+<span class="small">STS-91 patch. Source: Wikipedia</span>
+</div>
+
+<h4>Punkty zwycięstwa (VP)</h4>
+<p align="justify">There are 5 types of scoring events. </p>
+<ul>
+<li> Alert cleared: +25 VP </li>
+<li> Room cleared: +25 VP </li>
+<li> Start of task: -50 VP for each star </li>
+<li> Task completion in the same sprint: +150 VP for each star </li>
+<li> Task completion in the next sprint: +50 VP for each star </li>
+</ul>
+<p align = "justify"> Points are split when the event occurs.
+Points are divided equally for all team members.
+Points for completing the task go to the team that started this task.
+</p>
+
+<div class="text-center  p-4">
+<img alt="Mapa" width="250px" src="./images/STS-60_Launch.jpg"><br />
+<span class="small">Mission start STS-60 Source: Wikipedia</span>
+</div>
+
+<h4>Skills</h4>
+<p align="justify">Skills shows your work speed in a room.
+You can see your skills on the navigation bar and on the information screen.
+Everyone develops their own skills.
+When you are in a room, your skills in this room and rooms of the same color grow slowly and fall slowly on the rooms in other colors.
+</p>
+
+<h4>How to play</h4>
+<p align="justify">Join one of the teams. <br />
+Select and activate the task. <br />
+Do the work in task rooms to get points. <br />
+Remove alerts to get points. <br />
+Call astronauts to work faster.
+</p>
+
+<div class="text-center  p-4">
+<img alt="Logo" width="150px" src="./images/logo-ignifer.png">
+</div>
+
+
+
+<p><small>Autor: Grzegorz Nawara<br>
+Ignifer Labs 2019 All rights reserved</small></p>

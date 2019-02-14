@@ -6,6 +6,11 @@ export const MenuConfigMir = {
     params: { title: 'Simulation Workshop', subtitle:'Raven 13', look: 'lookWorkshop' }
   }],
   workshopMenu:[
+    { title: 'Rules (EN)',
+      subtitle: 'Mir\'91 - Rules',
+      action: 'ADD_DOCUMENT',
+      params: { doc:'rules_mir91_en', look: 'lookDocument' }
+    },
     { title: 'Zasady (PL)',
       subtitle: 'Mir\'91 - Zasady',
       action: 'ADD_DOCUMENT',
