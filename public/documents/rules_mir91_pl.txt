@@ -9,9 +9,9 @@
 <h4>Historia</h4>
 <p align="justify">Symulacja jest inspirowana rzeczywistymi wydarzeniami.<br />
 Pracujesz w kontroli naziemnej misji kosmicznej STS-91.
-Misja ta odbyła się w czercu 1998 roku w ramach programu Shuttle–Mir (Phase One).
+Misja ta odbyła się w czerwcu 1998 roku w ramach programu Shuttle–Mir (Phase One).
 Na stacji przebywali wówczas astronauci z różnych państw.
-Waznym elementem misji było dokowanie promu kosmicznego Discovery.
+Ważnym elementem misji było dokowanie promu kosmicznego Discovery.
 Kontrola naziemna była podzielona na zespoły rozmieszczone w odległych lokalizacjach.
 </p>
 

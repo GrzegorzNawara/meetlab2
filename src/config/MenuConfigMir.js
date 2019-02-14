@@ -19,7 +19,7 @@ export const MenuConfigMir = {
         show: 'onNonRunning',
         look: 'lookSimulation' }
     },
-    { title: 'END MIR',
+    { title: 'STOP MIR',
       subtitle: 'Simulation Sprint',
       action: 'END_MIR_SPRINT',
       params: {
@@ -27,7 +27,7 @@ export const MenuConfigMir = {
         show: 'onRunning',
         look: 'lookSimulation' }
     },
-    { title: 'UNDO',
+    { title: 'CLEAR LAST',
       subtitle: 'Remove last item',
       action: 'DELETE_LAST_BRICK',
       params: { show: 'onNonEmpty', look: 'lookMenuClear' }
