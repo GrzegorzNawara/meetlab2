@@ -4,7 +4,7 @@ import { cssStyles } from '../config/AppConfig'
 
 const MirBrick = ({ title, subtitle, score, look, id, running, workshopId, ravenCount, linkTo, sort, stats}) => (
   <div className="col-12 px-1 align-items-center">
-    <a href={(!running)?window.location.href:'http://www.mir91.net/sim/#/'+workshopId+'/'+'Sprint '+title+'/'+localStorage.getItem('me')}>
+    <a href={'http://www.mir91.net/sim/#/'+workshopId+'/'+title+'/'+localStorage.getItem('me')}>
       <div className="text-center rounded p-3 px-2 m-1"
            style={(Number(Date.now().toString())-Number(sort)>60*60*1000 ||
              (!running))?cssStyles['lookSimulationOver']:cssStyles[look]} >

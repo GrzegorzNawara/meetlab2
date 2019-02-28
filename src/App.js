@@ -1,5 +1,5 @@
 import React from 'react';
-import { HashRouter, Route, Switch } from 'react-router-dom'
+import { HashRouter, Route, Switch, Redirect } from 'react-router-dom'
 import DataBase from './database/DataBase'
 import saveWorkshop from './database/saveWorkshop'
 import saveBrick from './database/saveBrick'
@@ -14,12 +14,13 @@ import NavBar from './NavBar'
 import WorkshopNavBar from './WorkshopNavBar'
 import WorkshopEditNavBar from './WorkshopEditNavBar'
 import Document from './components/Document'
-import MCTest from './components/MCTest'
 import LicenceCheck from './LicenceCheck'
 //import debug from './debug'
 
-class App extends React.Component {
-state = {
+const appName = 'mir91.join'
+const initialState = {
+  varsion:'1.0',
+
   mg: '',
   pin: localStorage.getItem('gateCode'),
   workshops: {
@@ -32,6 +33,26 @@ state = {
     pin: '...'
   },
   bricks: []
+}
+
+
+class App extends React.Component {
+
+constructor(props) {
+  super(props)
+
+  this.state=initialState
+  if(localStorage.getItem(appName)!==null)
+    this.state=JSON.parse(localStorage.getItem(appName))
+
+  if(this.state.version!==initialState.version)
+    this.state=initialState
+
+  this.state.pinChanged=0
+}
+
+componentWillUnmount() {
+  localStorage.setItem(appName,JSON.stringify(this.state))
 }
 
 render () { return (
@@ -50,12 +71,23 @@ render () { return (
               mg={this.state.mg}
               owner={this.state.mg}
               pin={this.state.pin}
-              onDataLoaded={ workshops => this.setState({
+              onDataLoaded={ workshops => {
+                this.pinChanged = this.state.pinChanged
+                this.setState({
                 ...this.state,
+                pinChanged:0,
                 workshops: {
                   ...this.state.workshops,
                   ...workshops
-                }})} />} />
+                }})
+                localStorage.setItem(appName,JSON.stringify(this.state))
+                if(workshops.pinWorkshop && this.pinChanged)
+                  window.location.hash='#/'+workshops.pinWorkshop.owner+'/'+workshops.pinWorkshop.id
+              }} />} />
+          <Route exact path="/licence/:licence" render={({match})=> {
+            localStorage.setItem("licence", match.params.licence)
+            return <Redirect to="/" />
+          }} />
           <Route path="/:owner/:workshopId" render={({match})=>
             <DataBase
               key="loadBricks"
@@ -63,12 +95,14 @@ render () { return (
               owner={match.params.owner}
               workshopId={match.params.workshopId}
               onDataLoaded={ ({workshop, bricks}) => {
-                if(workshop && workshop.id)
+                if(workshop && workshop.id) {
                 this.setState({
                   ...this.state,
                   workshop,
                   bricks: bricks.filter(b => b && b.id)
-              })}} />} />
+              })
+              localStorage.setItem(appName,JSON.stringify(this.state))
+            }}} />} />
         </Switch>
 
         <Switch>
@@ -114,7 +148,8 @@ render () { return (
             <WorkshopGate setPin={pin =>
               this.setState({
                 ...this.state,
-                pin
+                pin,
+                pinChanged:1
               })} />} />
         </Switch>
 
