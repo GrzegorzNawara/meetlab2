@@ -21,11 +21,13 @@ class Bricks extends React.Component {
       )})
         .then(result => result.json())
         .then(result => this.setState({ ravenStats: result }));
+      this.getRavenStatsTimer = setInterval(()=> this.getRavenStats(), 5000);
+    } else {
+      this.getRavenStatsTimer = setInterval(()=> this.getRavenStats(), 1000);
     }
-    this.getRavenStatsTimer = setInterval(()=> this.getRavenStats(), 15000);
   }
 
-  componentWillMount(){
+  componentDidMount(){
     this.getRavenStats()
   }
 

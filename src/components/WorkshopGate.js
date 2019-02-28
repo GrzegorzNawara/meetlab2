@@ -15,6 +15,7 @@ class WorkshopGate extends React.Component {
             </span>
             <form ref="form" onSubmit={e => {
               e.preventDefault();
+              this.props.setPin(localStorage.getItem('gateCode'));
               document.getElementsByName('gateCode')[0].blur();
             }}>
             <input className='form-control my-1'

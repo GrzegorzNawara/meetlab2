@@ -46,7 +46,7 @@ class DataBase extends React.Component {
         this.props.onDataLoaded({ bricks, workshop })})
   }
 
-  componentWillMount(){
+  componentDidMount(){
     this.checkLastMod()
   }
 
