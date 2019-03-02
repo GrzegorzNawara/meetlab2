@@ -194,7 +194,7 @@ render () { return (
                 saveBrick(newBrick)
                 this.setState({
                   ...this.state,
-                  bricks: [newBrick].concat(this.state.bricks)
+                  bricks: [newBrick].concat(this.state.bricks.filter(b => b.id!==newBrick.id))
               })}}
               onDeleteWorkshop={deleteWorkshop}
               onDeleteBrick={ delBrick => {

@@ -2,7 +2,7 @@ import React from 'react'
 import Brick from './components/Brick'
 import RavenBrick from './components/RavenBrick'
 import RavenResultBrick from './components/RavenResultBrick'
-//import debug from './debug'
+import debug from './debug'
 
 class Bricks extends React.Component {
   ravenSim = {};
@@ -42,6 +42,8 @@ class Bricks extends React.Component {
     this.ravenSim = { clear:false, actualSort:0, lastSort:0, count:0, result:0, users:0 };
     let title=0;
     let last=0;
+    let iteration=0
+    let stat=[]
 
     this.myBricks = this.props.bricks.slice()
       .filter(b => b.id)
@@ -50,8 +52,15 @@ class Bricks extends React.Component {
       .map((b,i,ba) => {
         if(b.type!=='RAVEN') return b;
         (i>0 && b['sort']-last<600000)?title=title+1:title=1;
+        (i>0 && b['sort']-last<600000)?iteration=iteration:iteration++;
+        if(!stat[iteration]) stat[iteration]={result:0, users:0}
         last=b['sort'];
-        return {...b,title:title};
+        stat[iteration]=(!this.state.ravenStats || !this.state.ravenStats[b.id])?{ result:0, users:0 }:
+          {
+            result: stat[iteration].result+this.state.ravenStats[b.id]['Result'],
+            users: stat[iteration].users+this.state.ravenStats[b.id]['Users']
+          }
+        return {...b, title, iteration};
       });
 
 
@@ -66,10 +75,6 @@ class Bricks extends React.Component {
                     linkTo={r.super+'/doc/'+JSON.parse(r.params).doc} />
                 )
               case 'RAVEN':
-                this.ravenSim = {
-                  result: (this.state.ravenStats && this.state.ravenStats[r.id])?this.ravenSim.result+this.state.ravenStats[r.id]['Result']:0,
-                  users: (this.state.ravenStats && this.state.ravenStats[r.id])?this.ravenSim.users+this.state.ravenStats[r.id]['Users']:0
-                }
                 return (
                     <React.Fragment key={'brick-f'+i}>
                       <RavenBrick key={'brick'+i} title={r.title}
@@ -78,7 +83,7 @@ class Bricks extends React.Component {
                     {(r.title!==1)?null:
                       <RavenResultBrick key={'brick-r'+i}
                         id={r.id} stats={this.state.ravenStats} sort={r['sort']}
-                        ravenSim={this.ravenSim}
+                        ravenSim={stat[r.iteration]}
                         look={JSON.parse(r.params).look} />}
                     </React.Fragment>
                 )
