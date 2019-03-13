@@ -41,6 +41,7 @@ class Bricks extends React.Component {
     this.ravenSim = { clear:false, actualSort:0, lastSort:0, count:0, result:0, users:0 };
     let title=0;
     let last=0;
+    let maxTitle=1;
 
     this.myBricks = this.props.bricks.slice()
       .filter(b => b.id)
@@ -54,7 +55,8 @@ class Bricks extends React.Component {
             return {...b,title:title};
           case 'MIR':
             (i>0)?title=title+1:title=1;
-            return {...b,title:title};
+            if(maxTitle<title) maxTitle=title;
+            return {...b, title:title};
           default:
             return b
         }
@@ -96,6 +98,7 @@ class Bricks extends React.Component {
                   </React.Fragment>
                 )
               case 'MIR': return (
+                (maxTitle===r.title)?
                 <React.Fragment key={'brick-f'+i}>
                     <MirBrick
                       key={'brick'+i}
@@ -106,7 +109,7 @@ class Bricks extends React.Component {
                       stats={this.state.ravenStats}
                       sort={r['sort']}
                       look={JSON.parse(r.params).look} />
-                </React.Fragment>
+                </React.Fragment>:null
                 )
               case 'MC_TEST': return (
                     <Brick key={'brick'+i} title={r.title} subtitle={r.subtitle}
@@ -119,7 +122,8 @@ class Bricks extends React.Component {
                 )
               default:return (
                 <Brick key={'brick'+i} title={r.title} subtitle={r.subtitle}
-                  look='look-brick' />
+                  linkTo={"/"+r.owner+"/"+r.super+"/score"}
+                  look={JSON.parse(r.params).look} />
               )
             }
           })

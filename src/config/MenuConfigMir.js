@@ -6,6 +6,22 @@ export const MenuConfigMir = {
     params: { title: 'Simulation Workshop', subtitle:'Raven 13', look: 'lookWorkshop' }
   }],
   workshopMenu:[
+    { title: 'Start',
+      subtitle: 'Start New Sprint',
+      action: 'START_MIR_SPRINT',
+      params: {
+        title: 'MIR Sprint', subtitle:'Simulation',
+        show: 'onNonRunning',
+        look: 'lookSimulation' }
+    },
+    { title: 'Stop',
+      subtitle: 'Stop the Sprint',
+      action: 'END_MIR_SPRINT',
+      params: {
+        title: 'MIR Sprint', subtitle:'Simulation',
+        show: 'onRunning',
+        look: 'lookSimulation' }
+    },
     { title: 'Rules (EN)',
       subtitle: 'Mir\'91 - Rules',
       action: 'ADD_DOCUMENT',
@@ -16,21 +32,12 @@ export const MenuConfigMir = {
       action: 'ADD_DOCUMENT',
       params: { doc:'rules_mir91_pl', look: 'lookDocument' }
     },
-    { title: 'START MIR',
-      subtitle: 'Simulation Sprint',
-      action: 'START_MIR_SPRINT',
+    { title: 'Score',
+      subtitle: 'Mir\'91 - Score',
+      action: 'ADD_SCORE',
       params: {
-        title: 'MIR Sprint', subtitle:'Simulation',
-        show: 'onNonRunning',
-        look: 'lookSimulation' }
-    },
-    { title: 'STOP MIR',
-      subtitle: 'Simulation Sprint',
-      action: 'END_MIR_SPRINT',
-      params: {
-        title: 'MIR Sprint', subtitle:'Simulation',
-        show: 'onRunning',
-        look: 'lookSimulation' }
+        title: 'MIR Score', subtitle:'Score',
+        look: 'lookScore' }
     },
     { title: 'CLEAR LAST',
       subtitle: 'Remove last item',
@@ -57,6 +64,9 @@ export const cssStylesMir = {
         },
 
   lookSpinner: { backgroundColor:theme.secondaryColorBg, color:theme.secondaryColor },
+
+  lookScore: { backgroundColor:'#888888', color:'#ffffff' },
+  lookScoreRow: { backgroundColor:'#888888', color:'#ffffff' },
 
   lookDefault: { backgroundColor:'#aaaaff', color:'#555555' },
   lookMenu: { backgroundColor:'#2c97cf', color:'#ffffff' },

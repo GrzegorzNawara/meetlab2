@@ -3,6 +3,8 @@ import lastMod from './lastMod'
 import listWorkshopsByOwner from './listWorkshopsByOwner'
 import getWorkshopByPin from './getWorkshopByPin'
 import listBricks from './listBricks'
+import mirLastMod from './mirLastMod'
+import mirReadState from './mirReadState'
 //import debug from '../debug'
 
 class DataBase extends React.Component {
@@ -30,6 +32,22 @@ class DataBase extends React.Component {
     this.checkLastModTimer = setInterval(this.checkLastMod, 2000);
   }
 
+  checkSimStatus = () => {
+    clearInterval(this.checkSimStatusTimer);
+
+      if(this.props.query==='readSimState')
+        mirLastMod(this.props.workshopId,
+        (lastModStatus) => {
+          if(this.lastModStatus!==lastModStatus){
+              mirReadState(this.props.workshopId,
+                (simState) => {
+                  this.props.onDataLoaded({ simState:simState })})
+              this.lastModStatus=lastModStatus
+        }})
+
+    this.checkSimStatusTimer = setInterval(this.checkSimStatus, 2000);
+  }
+
   loadWorkshops = () => {
     getWorkshopByPin(this.props.pin,
       (pinWorkshop) => this.props.onDataLoaded({ pinWorkshop }))
@@ -46,12 +64,14 @@ class DataBase extends React.Component {
         this.props.onDataLoaded({ bricks, workshop })})
   }
 
-  componentWillMount(){
+  componentDidMount(){
     this.checkLastMod()
+    this.checkSimStatus()
   }
 
   componentWillUnmount() {
     clearInterval(this.checkLastModTimer)
+    clearInterval(this.checkSimStatusTimer)
   }
 
   componentDidUpdate(prevProps) {

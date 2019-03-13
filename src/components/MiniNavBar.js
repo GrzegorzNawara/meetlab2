@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { cssStyles } from '../config/AppConfig'
+//import { cssStyles } from '../config/AppConfig'
 
 const MiniNavBar = ({link,mg}) => (
     <div className="navbar m-auto bg-white">

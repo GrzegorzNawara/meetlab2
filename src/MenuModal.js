@@ -4,7 +4,7 @@ import uuidV4 from 'uuid/v4'
 import mirSaveMsg from './database/mirSaveMsg'
 import MenuItem from './components/MenuItem'
 import { MenuConfig } from './config/AppConfig'
-import debug from './debug'
+//import debug from './debug'
 
 class MenuModal extends React.Component {
   menuAction = ({type, menuItem, mysuper }) => {
@@ -53,10 +53,10 @@ class MenuModal extends React.Component {
           msg:{ a:'STR' }})
         break;
       case 'END_MIR_SPRINT':
-        this.props.onAdd(debug({
+        this.props.onAdd({
           ...this.props.bricks.filter(b => b.running)[0],
           running: 0
-        },'END'))
+        })
         mirSaveMsg({
           game:mysuper,
           msg:{ a:'END' }})
@@ -66,6 +66,12 @@ class MenuModal extends React.Component {
           ...newBrick,
           title: 'AUTO',
           type: 'MIR'
+        });
+        break;
+      case 'ADD_SCORE':
+        this.props.onAdd({
+          ...newBrick,
+          type: 'SCORE'
         });
         break;
       case 'ADD_DOCUMENT':

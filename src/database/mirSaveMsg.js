@@ -1,11 +1,11 @@
-import debug from '../debug'
+//import debug from '../debug'
 
 const saveMsg = (data) => {
   fetch('http://api.ignifer-labs.com/mir-sim/saveMsg.php',{
     method: 'post',
     body: JSON.stringify(data)
   }).then(result => result.json())
-    .then(result => debug(result,'SAVE MIR'));
+    .then(result => result);
 }
 
 export default saveMsg

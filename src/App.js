@@ -15,6 +15,7 @@ import WorkshopNavBar from './WorkshopNavBar'
 import WorkshopEditNavBar from './WorkshopEditNavBar'
 import Document from './components/Document'
 import LicenceCheck from './LicenceCheck'
+import Score from './Score'
 //import debug from './debug'
 
 const appName = 'mir91.join'
@@ -88,6 +89,18 @@ render () { return (
             localStorage.setItem("licence", match.params.licence)
             return <Redirect to="/" />
           }} />
+          <Route exact path="/:owner/:workshopId/score" render={({match})=>
+            <DataBase
+              key="readSimState"
+              query="readSimState"
+              owner={match.params.owner}
+              workshopId={match.params.workshopId}
+              onDataLoaded={ ({simState}) => {
+                this.setState({
+                  simState: { ...this.state.simState, [match.params.workshopId]:simState }
+              })
+              localStorage.setItem(appName,JSON.stringify(this.state))
+            }} />} />
           <Route path="/:owner/:workshopId" render={({match})=>
             <DataBase
               key="loadBricks"
@@ -157,6 +170,11 @@ render () { return (
           <Route exact path="/" render={()=>
             <Workshops workshops={this.state.workshops} />} />
           <Route exact path='/:owner/:super/doc/:document_id' component={Document} />
+          <Route path="/:owner/:workshopId/score" render={({match})=>
+            <Score
+              me={this.state.me}
+              workshopId={match.params.workshopId}
+              simState={this.state.simState} />} />
           <Route path="/:owner/:super" render={({match})=>
             <Bricks
               owner={match.params.owner}
