@@ -46,11 +46,11 @@ render() {  return (
                 s.players.map((p,i) =>
                 <React.Fragment key={"F"+s.id+i} >
                   {(p.u===localStorage.getItem('me'))?
-                    <div key={s.id+i} className="col-6 bg-dark text-light">YOU</div>:
-                    <div key={s.id+i} className="col-6">Player {i+1}</div>
+                    <div key={s.id+i} className="col-4 bg-dark text-light">YOU</div>:
+                    <div key={s.id+i} className="col-4">Player {i+1}</div>
                   }
                   <div className="col-3 text-right">{totalPlayerScore(p)} VP</div>
-                  <div className="col-3 text-right">{Math.round(1000*60*60*totalPlayerScore(p)/(((s.simRealtimeEnd)?s.simRealtimeEnd:Date.now())-s.simRealtimeStart))} VP/h</div>
+                  <div className="col-5 text-right">{Math.round(1000*60*60*totalPlayerScore(p)/(((s.simRealtimeEnd)?s.simRealtimeEnd:Date.now())-s.simRealtimeStart))} VP/h</div>
                 </React.Fragment>
               )}
             </div>
