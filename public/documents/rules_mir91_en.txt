@@ -53,7 +53,7 @@ Astronauts <b> (3) </b> accelerate work.
 </div>
 
 <h4>The Goal</h4>
-<p align="justify"> The goal is to get the highest number of victory points (VPs).
+<p align="justify"> The goal is to get the highest number of victory points (VPs) or to fulfill scenario goal given by Game Master.
 </p>
 
 <h4>Teams</h4>
@@ -64,7 +64,7 @@ Enter the team code to go to this team.
 
 <h4>Tasks</h4>
 <p align="justify">Performing tasks gives the team victory points (VPs).
-To perform a task, you must first activate it (by entering the task code).
+To perform a task, you must first activate it (by entering and confirming the task code).
 After activating the task, additional work will be displayed in the rooms.
 When all task rooms are cleared, the task is completed.
 Each task can be activated only once per workshop.
@@ -104,13 +104,10 @@ Everyone can call an astronaut with a quick code.
 </div>
 
 <h4>Punkty zwycięstwa (VP)</h4>
-<p align="justify">There are 5 types of scoring events. </p>
+<p align="justify">There are two ways to score:</p>
 <ul>
-<li> Alert cleared: +25 VP </li>
-<li> Room cleared: +25 VP </li>
-<li> Start of task: -50 VP for each star </li>
-<li> Task completion in the same sprint: +150 VP for each star </li>
-<li> Task completion in the next sprint: +50 VP for each star </li>
+<li> Clearing the alert: +25 VP </li>
+<li> And completing the task during the single sprint: +100 VP for each star </li>
 </ul>
 <p align = "justify"> Points are split when the event occurs.
 Points are divided equally for all team members.
