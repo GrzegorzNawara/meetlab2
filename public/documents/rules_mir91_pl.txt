@@ -53,7 +53,7 @@ Astronauci <b>(3)</b> przyśpieszają wykonywanie pracy.
 </div>
 
 <h4>Cel</h4>
-<p align="justify">Celem jest uzyskanie jak największej liczby punktów zwycięstwa (VP).
+<p align="justify">Celem jest uzyskanie jak największej liczby punktów zwycięstwa (VP) lub wykonanie scenariusza podanego przez Mistrza Gry.
 </p>
 
 <h4>Zespoły</h4>
@@ -64,7 +64,7 @@ Wpisz kod zespołu, żeby przejść do tego zespołu.
 
 <h4>Zadania</h4>
 <p align="justify">Wykonanie zadań daje zespołowi punkty zwycięstwa (VP).
-Żeby wykonać zadanie, trzeba je najpierw aktywować (wpisując kod zadania).
+Żeby wykonać zadanie, trzeba je najpierw aktywować (wpisując i potwierdzając kod zadania).
 Po aktywowaniu zadania na wskazanych polach pojawi się dodatkowa praca do wykonania.
 Kiedy wszystkie pola zadania zostaną wyzerowane (CLEARED), zadanie zostaje wykonane.
 Każde zadanie może być aktywowane tylko raz na warsztat.
@@ -105,17 +105,14 @@ Każdy może wezwać kosmonautę szybkim kodem.
 </div>
 
 <h4>Punkty zwycięstwa (VP)</h4>
-<p align="justify">Jest 5 rodzajów zdarzeń punktowanych.</p>
+<p align="justify">Punkty zdobywamy na dwa sposoby:</p>
 <ul>
-<li>Usunięcie awarii (ALERT): +25 VP</li>
-<li>Wyzerowanie pola (ROOM CLEARED): +25 VP</li>
-<li>Rozpoczęcie zadania: -50 VP za każdą gwiazdkę</li>
-<li>Zakończenie zadania w tym samym sprincie: +150 VP za każdą gwiazdkę</li>
-<li>Zakończenie zadania w kolejnym sprincie: +50 VP za każdą gwiazdkę</li>
+<li>Przez usunięcie awarii (ALERT): +25 VP</li>
+<li>Lub przez zakończenie zadania w tym samym sprincie: +100 VP za każdą gwiazdkę</li>
 </ul>
 <p align="justify">Punkty są rozdzielane w chwili wystąpienia zdarzenia.
-Punkty są dzielone równo na wszystkich członków drużyny.
-Punkty za zakończenie zadania trafiają do drużyny, która rozpoczęła to zadanie.
+Punkty są dzielone równo pomiedzy wszystkich członków drużyny.
+Punkty za zakończenie zadania trafiają tylko do drużyny, która rozpoczęła to zadanie.
 </p>
 
 <div class="text-center  p-4">
