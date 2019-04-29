@@ -29,7 +29,7 @@ class DataBase extends React.Component {
               this.lastMod=lastMod
         }})
 
-    this.checkLastModTimer = setInterval(this.checkLastMod, 2000);
+    this.checkLastModTimer = setInterval(this.checkLastMod, 5000);
   }
 
   checkSimStatus = () => {
@@ -45,7 +45,7 @@ class DataBase extends React.Component {
               this.lastModStatus=lastModStatus
         }})
 
-    this.checkSimStatusTimer = setInterval(this.checkSimStatus, 2000);
+    this.checkSimStatusTimer = setInterval(this.checkSimStatus, 5000);
   }
 
   loadWorkshops = () => {
