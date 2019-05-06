@@ -1,7 +1,7 @@
 //import debug from '../debug'
 
 const saveMsg = (data) => {
-  fetch('http://api.ignifer-labs.com/mir-sim/saveMsg.php',{
+  fetch('http://api.ignifer-labs.com/mir-sim/saveMsgFast.php',{
     method: 'post',
     body: JSON.stringify(data)
   }).then(result => result.json())
