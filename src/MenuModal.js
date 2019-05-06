@@ -50,7 +50,7 @@ class MenuModal extends React.Component {
         })
         mirSaveMsg({
           game:mysuper,
-          msg:{ a:'STR', t:Math.round((Date.now()-this.props.map.state.simRealtimeStart)/1000) }})
+          msg:{ a:'STR', t:Math.round(Date.now()/1000) }})
         break;
       case 'END_MIR_SPRINT':
         this.props.onAdd({
@@ -59,7 +59,7 @@ class MenuModal extends React.Component {
         })
         mirSaveMsg({
           game:mysuper,
-          msg:{ a:'END', t:Math.round((Date.now()-this.props.map.state.simRealtimeStart)/1000) }})
+          msg:{ a:'END', t:Math.round(Date.now()/1000) }})
         break;
       case 'ADD_MIR':
         this.props.onAdd({
